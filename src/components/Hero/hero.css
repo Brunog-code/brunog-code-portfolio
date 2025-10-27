@@ -1,0 +1,207 @@
+.container-hero {
+  width: 100%;
+  min-height: calc(100vh - 40px);
+  padding-top: 100px;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 40px;
+}
+
+/* TEXTO */
+.s-text {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.greeting {
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.dot {
+  color: var(--accent-pink);
+  font-size: 2.5rem;
+}
+
+.divisor {
+  color: var(--accent-pink);
+  font-size: 1.8rem;
+}
+
+.intro {
+  font-size: 1.6rem;
+  margin-left: 20px;
+}
+
+.name {
+  font-size: 2rem;
+  color: var(--accent-pink);
+}
+
+.stack {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.bracket {
+  font-size: 2.2rem;
+  color: var(--accent-pink);
+}
+
+.wrap-typed {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.text-typed {
+  color: var(--primary-purple);
+  font-size: 1.5rem;
+}
+
+/* IMAGEM */
+.photo-background {
+  position: relative;
+  max-width: 300px;
+  width: 60vw;
+  height: 60vw;
+  max-height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 15px solid #7f00ff;
+  border-radius: 50%;
+}
+
+.photo-perfil {
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  height: auto;
+  top: -28%;
+  right: -5%;
+}
+
+/* Círculo com glow e animação de pulso */
+.circle-glow {
+  position: absolute;
+  width: 70%;
+  height: 70%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    #7f00ff,
+    #ff007f,
+    transparent 70%
+  );
+  filter: blur(50px);
+  animation: pulse 4s ease-in-out infinite;
+  z-index: 1;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+    filter: blur(50px);
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 1;
+    filter: blur(60px);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+    filter: blur(50px);
+  }
+}
+
+/* Símbolos laterais < > */
+.symbol {
+  position: absolute;
+  font-size: 100px;
+  font-weight: 700;
+  color: transparent; /* Preenchimento transparente */
+  -webkit-text-stroke: 2px #7f00ff; /* Contorno */
+  user-select: none;
+}
+
+/* Movimento suave de flutuação */
+@keyframes floatLeft {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-10deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+}
+
+@keyframes floatRight {
+  0%,
+  100% {
+    transform: translateY(0) rotate(10deg);
+  }
+  50% {
+    transform: translateY(10px) rotate(-5deg);
+  }
+}
+
+.symbol.left {
+  left: -90px;
+  top: -20px;
+  opacity: 0.7;
+  animation: floatLeft 5s ease-in-out infinite;
+}
+
+.symbol.right {
+  right: -90px;
+  bottom: 0px;
+  opacity: 0.7;
+  animation: floatRight 5s ease-in-out infinite;
+}
+
+/* responsividade */
+@media (min-width: 768px) {
+  .container-hero {
+    flex-direction: row;
+    min-height: auto;
+    padding-bottom: 35px;
+  }
+
+  .stack,
+  .greeting {
+    font-size: 2.5rem;
+  }
+
+  .photo-perfil {
+    width: 110%;
+    right: -10%;
+  }
+}
+
+/* efeito bg */
+.container-hero::before,
+.container-hero::after {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  filter: blur(160px);
+  opacity: 0.6;
+  z-index: 0;
+}
+
+/* Um blob rosa */
+.container-hero::before {
+  background: var(--accent-pink);
+  top: 250px;
+  left: -300px;
+}

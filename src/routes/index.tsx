@@ -1,7 +1,7 @@
-import { createBrowserRouter } from "react-router-dom";
+import { Navigate, createBrowserRouter } from "react-router-dom";
 import { AppLayout } from "../layouts/AppLayout";
-import { Home } from "../pages/Home";
-import { ProjectDetails } from "../pages/ProjectDetails";
+import { Home } from "../pages/Home/Home";
+import { ProjectDetails } from "../pages/ProjectDetails/ProjectDetails";
 
 export const router = createBrowserRouter([
   {
@@ -17,5 +17,9 @@ export const router = createBrowserRouter([
         element: <ProjectDetails />,
       },
     ],
+  },
+  {
+    path: "*",
+    element:<Navigate to="/" />,
   },
 ]);
