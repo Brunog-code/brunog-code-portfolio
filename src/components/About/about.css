@@ -1,0 +1,113 @@
+.container-about {
+  margin-top: 60px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.content {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+}
+
+.about-img,
+.about-text {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  padding: 10px;
+}
+
+.about-img {
+  flex: 1;
+}
+
+.about-text {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 20px;
+}
+
+.pipe {
+  background-color: var(--accent-pink);
+  width: 15px;
+}
+
+.about-text p {
+  line-height: 2.2;
+  text-align: justify;
+  text-justify: inter-word;
+  font-size: 1.1rem;
+}
+
+.about-dot {
+  color: var(--accent-pink);
+  font-size: 2rem;
+  line-height: 0;
+}
+
+.wrap-cube-about {
+  width: 100%; /* ou 100%, se quiser responsivo */
+  height: 300px;
+  position: relative;
+  cursor: pointer;
+}
+
+.wrap-cube-about canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+/* efeito bg */
+.container-about::before,
+.container-about::after {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 250px;
+  border-radius: 50%;
+  filter: blur(200px);
+  opacity: 0.6;
+  z-index: 0;
+}
+
+/* Um blob rosa */
+.container-about::before {
+  background: var(--accent-pink);
+  bottom: 0px;
+  right: 0px;
+}
+
+/* .imgs-float img {
+  position: absolute;
+}
+
+.html {
+  top: 0%;
+  left: 28%;
+}
+.css {
+  top: 0%;
+  left: 0%;
+}
+.js {
+  top: 0%;
+  right: 0%;
+} */
+
+/* responsividade */
+@media (min-width: 768px) {
+  .content {
+    flex-direction: row;
+  }
+}

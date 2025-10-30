@@ -49,8 +49,10 @@ export const Header = () => {
   return (
     <header>
       {/* imagem */}
-      <div className="container-img">
-        <img src="logo-portfolio.png" alt="" />
+      <div className="container-logo">
+        <span className="text-logo">
+          Portfólio <span className="name-logo">BrunoGonçalves/&gt;</span>
+        </span>
       </div>
 
       {/* menu desktop */}
@@ -78,7 +80,11 @@ export const Header = () => {
         aria-controls="mobile-menu"
         aria-expanded={isOpen}
       >
-        <Hamburger toggled={isOpen} toggle={setIsOpen} />
+        <Hamburger
+          toggled={isOpen}
+          toggle={setIsOpen}
+          color={isOpen ? "#ff007f" : "#fff"} // vermelho quando aberto, branco quando fechado
+        />
       </button>
 
       {/* menu mobile */}

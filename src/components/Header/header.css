@@ -12,6 +12,16 @@ header {
   z-index: 999;
 }
 
+header .text-logo {
+  font-size: 1.3rem;
+}
+
+header .name-logo {
+  font-size: 1.5rem;
+  color: var(--primary-purple);
+  font-weight: 700;
+}
+
 .container-links-desktop ul {
   display: flex;
   gap: 20px;
@@ -27,7 +37,7 @@ header {
   border-radius: 5px;
   z-index: 1;
 }
-a {
+header a {
   color: #fff;
 }
 
@@ -53,7 +63,6 @@ header li:hover::before {
 }
 .hamburger-btn {
   background-color: transparent;
-  color: #fff;
   border: 0;
   padding: 6px;
   z-index: 9999;

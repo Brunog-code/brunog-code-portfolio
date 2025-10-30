@@ -11,15 +11,6 @@
   border: 1px solid var(--primary-purple);
 }
 
-h4 {
-  font-size: 1.3rem;
-}
-
-.key {
-  color: var(--primary-purple);
-  font-size: 1.5rem;
-}
-
 .list-tech {
   display: flex;
   gap: 40px;
@@ -34,6 +25,11 @@ h4 {
   justify-content: flex-start;
   align-items: center;
   width: 80px;
+  transition: all 0.2s ease;
+}
+
+.list-tech li:hover {
+  scale: 1.2;
 }
 
 .tech-icon {

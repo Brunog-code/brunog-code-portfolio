@@ -1,36 +1,26 @@
 import "./hero.css";
 import Typed from "typed.js";
-import LocomotiveScroll from "locomotive-scroll";
-import "locomotive-scroll/dist/locomotive-scroll.css"; // estilos obrigatórios
 import { useEffect } from "react";
 
 export const Hero = () => {
   useEffect(() => {
     //typed-js
     const typed = new Typed(".text-typed", {
-      strings: ["Criar", "Desenvolver", "Inovar"],
+      strings: ["Planejar", "Desenvolver", "Inovar"],
       typeSpeed: 40,
       backSpeed: 50,
       loop: true,
     });
 
-    //locomotive
-    const scroll = new LocomotiveScroll({
-      el: document.querySelector("[data-scroll-container]"),
-      smooth: true,
-    });
-
     //destrói a instância ao desmontar o componente
     return () => {
       typed.destroy();
-      scroll.destroy();
     };
   }, []);
 
   return (
-    <section className="container-hero" data-scroll-container>
-      
-      <div className="s-text" data-scroll-section>
+    <section className="container-hero"  data-scroll-section>
+      <div className="s-text">
         {/* texto */}
         <span className="greeting">
           Olá<span className="dot">.</span>
@@ -53,7 +43,7 @@ export const Hero = () => {
         </div>
       </div>
 
-      <div className="s-img" data-scroll-section>
+      <div className="s-img">
         <div className="photo-background">
           <span className="left symbol">&lt;</span>
           <div className="circle-glow"></div>
