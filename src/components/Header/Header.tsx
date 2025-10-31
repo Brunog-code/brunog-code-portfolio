@@ -51,7 +51,10 @@ export const Header = () => {
       {/* imagem */}
       <div className="container-logo">
         <span className="text-logo">
-          Portfólio <span className="name-logo">BrunoGonçalves/&gt;</span>
+          Portfólio{" "}
+          <span className="name-logo">
+            BrunoGonçalves<span className="symbol-logo">/&gt;</span>
+          </span>
         </span>
       </div>
 

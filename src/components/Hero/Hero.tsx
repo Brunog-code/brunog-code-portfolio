@@ -1,6 +1,8 @@
 import "./hero.css";
 import Typed from "typed.js";
 import { useEffect } from "react";
+import { Button } from "../Button/Button";
+import MailOutlineIcon from "@mui/icons-material/MailOutline";
 
 export const Hero = () => {
   useEffect(() => {
@@ -19,7 +21,7 @@ export const Hero = () => {
   }, []);
 
   return (
-    <section className="container-hero"  data-scroll-section>
+    <section className="container-hero" data-scroll-section>
       <div className="s-text">
         {/* texto */}
         <span className="greeting">
@@ -40,6 +42,12 @@ export const Hero = () => {
           <span>
             <span className="text-typed"></span>
           </span>
+        </div>
+        <div className="wrap-btn-hero">
+          <Button py="1rem" px="2rem">
+            Falar comigo
+            <MailOutlineIcon />
+          </Button>
         </div>
       </div>
 

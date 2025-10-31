@@ -22,6 +22,11 @@ header .name-logo {
   font-weight: 700;
 }
 
+header .symbol-logo{
+  color: var(--accent-pink);
+  font-size: 1.4rem;
+}
+
 .container-links-desktop ul {
   display: flex;
   gap: 20px;

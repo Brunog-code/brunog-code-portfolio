@@ -37,10 +37,10 @@
   gap: 20px;
 }
 
-.pipe {
+/* .pipe {
   background-color: var(--accent-pink);
   width: 15px;
-}
+} */
 
 .about-text p {
   line-height: 2.2;
@@ -73,8 +73,8 @@
 .container-about::after {
   content: "";
   position: absolute;
-  width: 200px;
-  height: 250px;
+  width: 300px;
+  height: 350px;
   border-radius: 50%;
   filter: blur(200px);
   opacity: 0.6;
@@ -87,23 +87,6 @@
   bottom: 0px;
   right: 0px;
 }
-
-/* .imgs-float img {
-  position: absolute;
-}
-
-.html {
-  top: 0%;
-  left: 28%;
-}
-.css {
-  top: 0%;
-  left: 0%;
-}
-.js {
-  top: 0%;
-  right: 0%;
-} */
 
 /* responsividade */
 @media (min-width: 768px) {

@@ -1,0 +1,32 @@
+.wrap-btn-hero {
+  display: flex;
+  align-items: center;
+
+  margin-top: 15px;
+  margin-bottom: 25px;
+}
+
+.btn-hero-contact {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  color: white;
+  transition: 0.3s;
+}
+
+.btn-hero-contact:hover {
+  opacity: 0.8;
+}
+
+@media (min-width: 768px) {
+  .wrap-btn-hero {
+    margin-top: 0;
+    margin-bottom: 0;
+    justify-content: center;
+  }
+}

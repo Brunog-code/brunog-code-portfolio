@@ -12,20 +12,32 @@ import {
   PointsMaterial,
   BufferGeometry,
   Float32BufferAttribute,
+  EdgesGeometry,
+  LineBasicMaterial,
+  LineSegments,
 } from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import { motion, useScroll } from "framer-motion";
 
 export const About = () => {
   const mountRef = useRef<HTMLDivElement | null>(null);
+  const refPipe = useRef<HTMLDivElement | null>(null);
 
-  //cubo3d
+  const { scrollYProgress } = useScroll({
+    target: refPipe,
+    offset: ["start end", "end 70%"],
+  });
+
+  //cubo three
   useEffect(() => {
     if (!mountRef.current) return;
 
+    // --- LIMPA o container antes de recriar o cubo ---
     while (mountRef.current.firstChild) {
       mountRef.current.removeChild(mountRef.current.firstChild);
     }
 
+    // --- CENA, CÂMERA e RENDERER ---
     const scene = new Scene();
     const camera = new PerspectiveCamera(
       75,
@@ -39,13 +51,14 @@ export const About = () => {
     renderer.setSize(window.innerWidth, window.innerHeight);
     mountRef.current.appendChild(renderer.domElement);
 
+    // --- CONTROLES DE CÂMERA (orbit) ---
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
     controls.dampingFactor = 0.05;
     controls.enablePan = false;
     controls.enableZoom = false;
 
-    // --- Função de textura ---
+    // --- FUNÇÃO PARA CRIAR UMA FACE COM TEXTO ---
     function criarFaceComTexto(
       texto: string,
       corFundo: string = "#7f00ff",
@@ -56,8 +69,10 @@ export const About = () => {
       canvas.width = largura;
       canvas.height = altura;
       const ctx = canvas.getContext("2d")!;
+      // Fundo
       ctx.fillStyle = corFundo;
       ctx.fillRect(0, 0, largura, altura);
+      // Texto
       ctx.fillStyle = "white";
       ctx.font = "48px Arial";
       ctx.textAlign = "center";
@@ -66,7 +81,7 @@ export const About = () => {
       return new CanvasTexture(canvas);
     }
 
-    // --- Materiais ---
+    // --- CRIA OS MATERIAIS DAS FACES ---
     const facesTextos = [
       "Front-end",
       "Back-end",
@@ -75,50 +90,73 @@ export const About = () => {
       "Webhook",
       "UX/UI",
     ];
+
     const materials: InstanceType<typeof MeshBasicMaterial>[] = facesTextos.map(
-      (t) => new MeshBasicMaterial({ map: criarFaceComTexto(t) })
+      (texto) => new MeshBasicMaterial({ map: criarFaceComTexto(texto) })
     );
 
-    // --- CUBO ---
+    // --- FUNÇÃO PARA CRIAR CUBO RESPONSIVO ---
     const criarCubo = (larguraTela: number) => {
       const tamanho = larguraTela < 768 ? 1.8 : 3;
       return new BoxGeometry(tamanho, tamanho, tamanho);
     };
+
+    // --- CRIA O CUBO ---
     const cube: InstanceType<typeof Mesh> = new Mesh(
       criarCubo(window.innerWidth),
       materials
     );
     scene.add(cube);
 
-    // --- Partículas ---
+    // --- ADICIONA BORDA AO CUBO ---
+    const edges = new EdgesGeometry(cube.geometry); // gera as arestas
+    const lineMaterial = new LineBasicMaterial({
+      color: 0x000000,
+      linewidth: 2, // ✏️ espessura da linha (nem todos navegadores aplicam, mas pode usar post-processing pra reforçar)
+    });
+    const line = new LineSegments(edges, lineMaterial);
+    cube.add(line); // borda "presa" ao cubo
+
+    // --- PARTÍCULAS EM TORNO DO CUBO ---
     const particleCount = 200;
     const particlesGeo = new BufferGeometry();
     const positions: number[] = [];
+
     for (let i = 0; i < particleCount; i++) {
       const radius = 4 + Math.random() * 1;
-      const angle = Math.random() * Math.PI * 2;
+      const angle = Math.random() * Math.PI * 3;
       const y = (Math.random() - 0.5) * 4;
       positions.push(Math.cos(angle) * radius, y, Math.sin(angle) * radius);
     }
+
     particlesGeo.setAttribute(
       "position",
       new Float32BufferAttribute(positions, 3)
     );
+
     const particlesMat = new PointsMaterial({ color: 0xffffff, size: 0.05 });
     const particles = new Points(particlesGeo, particlesMat);
     scene.add(particles);
 
-    // --- Responsividade ---
+    // --- AJUSTE AUTOMÁTICO AO REDIMENSIONAR ---
     const onWindowResize = () => {
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
       renderer.setSize(window.innerWidth, window.innerHeight);
+
+      // recria o cubo com tamanho proporcional
       cube.geometry.dispose();
       cube.geometry = criarCubo(window.innerWidth);
+
+      // atualiza a borda também
+      const newEdges = new EdgesGeometry(cube.geometry);
+      line.geometry.dispose();
+      line.geometry = newEdges;
     };
+
     window.addEventListener("resize", onWindowResize);
 
-    // --- Animação ---
+    // --- ANIMAÇÃO ---
     let animationId: number;
     let rotX = 0,
       rotY = 0,
@@ -127,31 +165,31 @@ export const About = () => {
     const animate = () => {
       animationId = requestAnimationFrame(animate);
 
-      // Rotação contínua
+      // Rotação contínua do cubo
       rotX += 0.01;
       rotY += 0.015;
       rotZ += 0.008;
       cube.rotation.set(rotX, rotY, rotZ);
 
-      // --- Partículas girando ---
-      const positions = particlesGeo.getAttribute("position");
-      for (let i = 0; i < positions.count; i++) {
-        const x = positions.getX(i);
-        const z = positions.getZ(i);
+      // Partículas girando
+      const pos = particlesGeo.getAttribute("position");
+      for (let i = 0; i < pos.count; i++) {
+        const x = pos.getX(i);
+        const z = pos.getZ(i);
         const angle = 0.01;
         const newX = x * Math.cos(angle) - z * Math.sin(angle);
         const newZ = x * Math.sin(angle) + z * Math.cos(angle);
-        positions.setX(i, newX);
-        positions.setZ(i, newZ);
+        pos.setX(i, newX);
+        pos.setZ(i, newZ);
       }
-      positions.needsUpdate = true;
+      pos.needsUpdate = true;
 
       controls.update();
       renderer.render(scene, camera);
     };
     animate();
 
-    // --- CLEANUP ---
+    // --- LIMPEZA ---
     return () => {
       cancelAnimationFrame(animationId);
       window.removeEventListener("resize", onWindowResize);
@@ -165,13 +203,12 @@ export const About = () => {
       particlesGeo.dispose();
       particlesMat.dispose();
       renderer.dispose();
-
-      while (scene.children.length > 0) scene.remove(scene.children[0]);
+      scene.clear();
     };
   }, []);
 
   return (
-    <section className="container-about" data-scroll-section>
+    <section className="container-about">
       <div className="title">
         <h1>
           <span className="key-title">&#123; </span>Sobre
@@ -181,7 +218,16 @@ export const About = () => {
 
       <div className="content">
         <div className="about-text">
-          <div className="pipe"></div>
+          <motion.div
+            ref={refPipe}
+            className="pipe"
+            style={{
+              scaleY: scrollYProgress,
+              width: "30px",
+              backgroundColor: "#ff007f",
+              transformOrigin: "0%",
+            }}
+          ></motion.div>
           <p>
             Apaixonado por tecnologia e pela criação de soluções que realmente
             fazem a diferença, venho me dedicando ao desenvolvimento web há mais
@@ -199,30 +245,6 @@ export const About = () => {
           <div className="wrap-cube-about" ref={mountRef}></div>
         </div>
       </div>
-
-      {/* <div className="imgs-float">
-        <img
-          src="html.png"
-          className="html"
-          alt="html"
-          data-scroll
-          data-scroll-speed="5"
-        />
-        <img
-          src="css.png"
-          className="css"
-          alt="css"
-          data-scroll
-          data-scroll-speed="3"
-        />
-        <img
-          src="js.webp"
-          className="js"
-          alt="js"
-          data-scroll
-          data-scroll-speed="6"
-        />
-      </div> */}
     </section>
   );
 };
