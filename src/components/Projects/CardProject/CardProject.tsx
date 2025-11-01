@@ -4,7 +4,16 @@ import "./cardProject.css";
 
 // Define as props que o componente recebe
 interface CardProjectProps {
-  proj: { title: string; desc: string };
+  proj: {
+    id: string;
+    date: string;
+    title: string;
+    subtitle: string;
+    desc: string;
+    image: string | string[]; // caminho da imagem na pasta public
+    github: string;
+    techs: string[];
+  };
   index: number;
   lineHeight: MotionValue<number>;
 }
@@ -23,7 +32,7 @@ export const CardProject = ({ proj, index, lineHeight }: CardProjectProps) => {
     //subscribe para mudanças do valor da linha animada
     const unsubscribe = lineHeight.on("change", (value) => {
       if (cardRef.current) {
-        // calcula o ponto central do card
+        //calcula o ponto central do card
         const offsetTop =
           cardRef.current.offsetTop + cardRef.current.offsetHeight / 2;
 

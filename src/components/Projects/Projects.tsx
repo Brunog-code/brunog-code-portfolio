@@ -1,34 +1,30 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue, useScroll, useTransform } from "framer-motion";
 import { CardProject } from "./CardProject/CardProject";
 import "./projects.css";
 import { projectsData } from "../../data/projectsData";
 import { Button } from "../Button/Button";
 
-// const projects = [
-//   {
-//     title: "Sistema de Locadora",
-//     desc: "Aplicação completa com Node.js, MySQL e interface web.",
-//   },
-//   {
-//     title: "Gerador de Senhas",
-//     desc: "Ferramenta feita em React para criar senhas seguras.",
-//   },
-//   {
-//     title: "Dashboard de Corridas",
-//     desc: "Sistema de relatórios com PHP e MySQL.",
-//   },
-//   {
-//     title: "Portfólio 3D",
-//     desc: "Portfólio pessoal com animações em Three.js.",
-//   },
-// ];
-
 export const Projects = () => {
+  //verifica se é mobile
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    //chama uma vez no mount, caso já esteja em mobile
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const ref = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start center", "end center"],
+    offset: ["start start", `end ${isMobile ? "start" : "center"}`],
   });
 
   const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
@@ -54,11 +50,11 @@ export const Projects = () => {
 
       <div className="projects-desc">
         <p>
-          {" "}
           Nesta seção, apresento alguns dos meus projetos organizados em uma
           timeline por ordem de desenvolvimento. Cada projeto reflete uma etapa
           da minha evolução como desenvolvedor, mostrando minhas habilidades,
-          aprendizados e experiências adquiridas ao longo do tempo.
+          aprendizados e experiências adquiridas ao longo do tempo. Filtre por
+          stack desejada<span className="project-dot">.</span>
         </p>
       </div>
 
@@ -83,7 +79,7 @@ export const Projects = () => {
       <div className="projects-content">
         {projectsData.map((proj, i) => (
           <CardProject
-            key={i}
+            key={proj.id}
             proj={proj}
             index={i}
             lineHeight={lineHeightPx}

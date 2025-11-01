@@ -23,6 +23,14 @@
   font-size: 1.1rem;
 }
 
+.project-dot {
+  color: var(--accent-pink);
+  font-size: 2rem;
+  line-height: 0;
+  font-size: 1.5rem;
+}
+
+
 .projects-filter {
   display: flex;
   gap: 50px;
@@ -32,7 +40,7 @@
 .projects-line {
   position: absolute;
   left: 24px;
-  top: 200px;
+  top: 500px;
   width: 5px;
   height: 100%;
   background: #333;
@@ -52,7 +60,7 @@
 /* Container dos cards */
 .projects-content {
   position: relative;
-
+  padding-top: 100px;
 }
 
 /* efeito bg */
@@ -79,6 +87,7 @@
 @media (min-width: 768px) {
   .projects-line {
     left: 50%;
+    top: 350px;
     transform: translateX(-50%);
   }
 

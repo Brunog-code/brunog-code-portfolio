@@ -17,7 +17,7 @@ import {
   LineSegments,
 } from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import { motion, useScroll } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 export const About = () => {
   const mountRef = useRef<HTMLDivElement | null>(null);
@@ -27,6 +27,13 @@ export const About = () => {
     target: refPipe,
     offset: ["start end", "end 70%"],
   });
+
+  //cor do início (roxo) para o final (rosa)
+  const lineColor = useTransform(
+    scrollYProgress,
+    [0, 1],
+    ["#6a11cb", "#ff007f"]
+  );
 
   //cubo three
   useEffect(() => {
@@ -224,7 +231,8 @@ export const About = () => {
             style={{
               scaleY: scrollYProgress,
               width: "30px",
-              backgroundColor: "#ff007f",
+              borderRadius: "4px",
+              backgroundColor: lineColor,
               transformOrigin: "0%",
             }}
           ></motion.div>
