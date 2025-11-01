@@ -30,7 +30,6 @@
   font-size: 1.5rem;
 }
 
-
 .projects-filter {
   display: flex;
   gap: 50px;
@@ -41,7 +40,7 @@
   position: absolute;
   left: 24px;
   top: 500px;
-  width: 5px;
+  width: 6px;
   height: 100%;
   background: #333;
   border-radius: 4px;
@@ -68,8 +67,8 @@
 .container-projects::after {
   content: "";
   position: absolute;
-  width: 250px;
-  height: 250px;
+  width: 350px;
+  height: 350px;
   border-radius: 50%;
   filter: blur(300px);
   opacity: 0.6;

@@ -1,0 +1,16 @@
+.project-details-container-logo {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column-reverse;
+  align-items: center;
+  width: 100%;
+  padding: 1rem 2rem;
+  margin-top: 10px;
+  gap: 30px;
+}
+
+@media (min-width: 768px) {
+  .project-details-container-logo {
+    flex-direction: row;
+  }
+}

@@ -81,7 +81,7 @@ export const About = () => {
       ctx.fillRect(0, 0, largura, altura);
       // Texto
       ctx.fillStyle = "white";
-      ctx.font = "48px Arial";
+      ctx.font = "45px Arial";
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
       ctx.fillText(texto, largura / 2, altura / 2);
@@ -119,13 +119,13 @@ export const About = () => {
     const edges = new EdgesGeometry(cube.geometry); // gera as arestas
     const lineMaterial = new LineBasicMaterial({
       color: 0x000000,
-      linewidth: 2, // ✏️ espessura da linha (nem todos navegadores aplicam, mas pode usar post-processing pra reforçar)
+      linewidth: 2, 
     });
     const line = new LineSegments(edges, lineMaterial);
-    cube.add(line); // borda "presa" ao cubo
+    cube.add(line); //borda "presa" ao cubo
 
     // --- PARTÍCULAS EM TORNO DO CUBO ---
-    const particleCount = 200;
+    const particleCount = 300;
     const particlesGeo = new BufferGeometry();
     const positions: number[] = [];
 
@@ -151,11 +151,11 @@ export const About = () => {
       camera.updateProjectionMatrix();
       renderer.setSize(window.innerWidth, window.innerHeight);
 
-      // recria o cubo com tamanho proporcional
+      //recria o cubo com tamanho proporcional
       cube.geometry.dispose();
       cube.geometry = criarCubo(window.innerWidth);
 
-      // atualiza a borda também
+      //atualiza a borda também
       const newEdges = new EdgesGeometry(cube.geometry);
       line.geometry.dispose();
       line.geometry = newEdges;
@@ -230,7 +230,7 @@ export const About = () => {
             className="pipe"
             style={{
               scaleY: scrollYProgress,
-              width: "30px",
+              width: "40px",
               borderRadius: "4px",
               backgroundColor: lineColor,
               transformOrigin: "0%",

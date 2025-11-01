@@ -1,6 +1,9 @@
 import { MotionValue, motion, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import "./cardProject.css";
+import { Button } from "../../Button/Button";
+import { useNavigate } from "react-router-dom";
+import { techList } from "../../../data/techList";
 
 // Define as props que o componente recebe
 interface CardProjectProps {
@@ -9,8 +12,9 @@ interface CardProjectProps {
     date: string;
     title: string;
     subtitle: string;
-    desc: string;
-    image: string | string[]; // caminho da imagem na pasta public
+    thumbnail: string;
+    link: string;
+    repo: string;
     github: string;
     techs: string[];
   };
@@ -19,6 +23,8 @@ interface CardProjectProps {
 }
 
 export const CardProject = ({ proj, index, lineHeight }: CardProjectProps) => {
+  const navigate = useNavigate();
+
   const cardRef = useRef<HTMLDivElement | null>(null);
 
   //checa se o card entrou na viewport, usado para animação de entrada
@@ -36,14 +42,19 @@ export const CardProject = ({ proj, index, lineHeight }: CardProjectProps) => {
         const offsetTop =
           cardRef.current.offsetTop + cardRef.current.offsetHeight / 2;
 
-        // se a altura da linha for maior ou igual ao centro do card, ativa o marker
-        setActive(value >= offsetTop);
+        //se a altura da linha for maior ou igual ao centro do card, ativa o marker
+        setActive(value >= offsetTop - 200);
       }
     });
 
     // cleanup: remove o listener quando o componente desmonta
     return () => unsubscribe();
   }, [lineHeight]);
+
+  //redireciona até page do projeto
+  const onViewProject = (id: string) => {
+    navigate(`/projeto/${id}`);
+  };
 
   return (
     <motion.div
@@ -58,8 +69,27 @@ export const CardProject = ({ proj, index, lineHeight }: CardProjectProps) => {
 
       {/* Conteúdo do card */}
       <div className="card-body">
+        <div className="card-body-img-wrapper">
+          <img src={proj.thumbnail} alt={proj.title} />
+        </div>
+
+        <p>
+          <span>Finalizado em: </span>10/10/2025
+        </p>
         <h3>{proj.title}</h3>
-        <p>{proj.desc}</p>
+        <p>{proj.subtitle}</p>
+        <div className="card-body-tech">
+          {techList
+            .filter((tech) => proj.techs.includes(tech.name))
+            .map((tech, index) => (
+              <span key={index}>{tech.icon}</span>
+            ))}
+        </div>
+        <div className="card-body-buttons">
+          <Button px="1rem" py="1rem" onClick={() => onViewProject(proj.id)}>
+            Ver projeto
+          </Button>
+        </div>
       </div>
     </motion.div>
   );

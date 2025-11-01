@@ -51,3 +51,23 @@ li {
   color: var(--primary-purple);
   font-size: 1.5rem;
 }
+
+/* Barra rolagem */
+::-webkit-scrollbar {
+  width: 15px; /* largura da barra vertical */
+  height: 10px; /* altura da barra horizontal */
+}
+
+::-webkit-scrollbar-track {
+  background: #111; /* fundo do trilho */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary-purple); /* cor da barra */
+  border-radius: 20px; /* cantos arredondados */
+}
+
+/* Quando passa o mouse */
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--accent-pink);
+}

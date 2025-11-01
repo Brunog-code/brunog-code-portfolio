@@ -31,13 +31,56 @@
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
   transition: transform 0.3s, box-shadow 0.3s;
 }
-.card-body h3 {
-  margin-bottom: 10px;
-  color: #6a11cb;
-}
+
 .card-body:hover {
   transform: translateY(-4px);
-  box-shadow: 0 0 20px rgba(106, 17, 203, 0.5);
+  box-shadow: 0 0 15px rgba(106, 17, 203, 0.5);
+}
+
+.card-body-img-wrapper {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.card-body-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.card-body h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  color: var(--primary-purple);
+}
+
+.card-body p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.card-body-tech {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.card-body-tech span svg {
+  font-size: 1.5rem;
+}
+
+.card-body-buttons {
+  display: flex;
+  justify-content: flex-end;
 }
 
 /* Layout desktop */
@@ -61,6 +104,10 @@
 
   .card-body {
     width: 80%;
+  }
+
+  .card-body-buttons {
+    justify-content: center;
   }
 
   .cardproject:nth-child(odd) {

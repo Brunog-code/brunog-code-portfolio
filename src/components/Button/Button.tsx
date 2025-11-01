@@ -5,6 +5,7 @@ interface IButtonProps {
   py?: string;
   px?: string;
   color?: string;
+  onClick?: () => void;
 }
 
 export const Button = ({
@@ -12,6 +13,7 @@ export const Button = ({
   py = "0.5rem",
   px = "1rem",
   color = "#ff007f",
+  onClick,
 }: IButtonProps) => {
   return (
     <button
@@ -20,6 +22,7 @@ export const Button = ({
         padding: `${py} ${px}`,
         backgroundColor: color,
       }}
+      onClick={onClick}
     >
       {children}
     </button>
