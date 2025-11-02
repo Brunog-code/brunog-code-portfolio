@@ -43,7 +43,7 @@ export const CardProject = ({ proj, index, lineHeight }: CardProjectProps) => {
           cardRef.current.offsetTop + cardRef.current.offsetHeight / 2;
 
         //se a altura da linha for maior ou igual ao centro do card, ativa o marker
-        setActive(value >= offsetTop - 200);
+        setActive(value >= offsetTop - 220);
       }
     });
 

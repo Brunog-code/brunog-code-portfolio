@@ -3,6 +3,7 @@ import Typed from "typed.js";
 import { useEffect } from "react";
 import { Button } from "../Button/Button";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 export const Hero = () => {
   useEffect(() => {
@@ -44,9 +45,13 @@ export const Hero = () => {
           </span>
         </div>
         <div className="wrap-btn-hero">
-          <Button py="1rem" px="2rem">
-            Falar comigo
+          <Button py="1rem">
+            Entrar em contato
             <MailOutlineIcon />
+          </Button>
+          <Button py="1rem" color="#7f00ff">
+            Ver projetos
+            <ArrowForwardIosIcon />
           </Button>
         </div>
       </div>

@@ -1,13 +1,11 @@
-import { v4 as uuidv4 } from "uuid";
-
 export const projectsData = [
   {
-    id: uuidv4(),
+    id: "100",
     date: "28/10/2025",
     category: "Fullstack",
     title: "Mia - Encanto da serra Hotel",
     subtitle:
-      "Site completo de um hotel fictício, com sistema de reserva e pagamento online.",
+      "Site completo de um hotel fictício, com sistema de reserva e pagamento online, consumindo API do mercado pago",
     thumbnail:
       "https://hwrvkyieyvjmzncivmmt.supabase.co/storage/v1/object/public/images-hotel/prints-github/hero.PNG",
     repo: "mia-encanto-da-serra-hotel",
@@ -23,7 +21,7 @@ export const projectsData = [
     ],
   },
   {
-    id: uuidv4(),
+    id: "101",
     date: "28/10/2025",
     category: "Fullstack",
     title: "Mia - Encanto da serra Hotel",
@@ -44,7 +42,7 @@ export const projectsData = [
     ],
   },
   {
-    id: uuidv4(),
+    id: "102",
     date: "28/10/2025",
     category: "Fullstack",
     title: "Mia - Encanto da serra Hotel",

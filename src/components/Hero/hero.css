@@ -65,6 +65,13 @@
   font-size: 1.5rem;
 }
 
+.wrap-btn-hero{
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  z-index: 990;
+}
+
 /* IMAGEM */
 .photo-background {
   position: relative;
