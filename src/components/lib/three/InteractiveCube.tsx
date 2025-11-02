@@ -22,7 +22,7 @@ extend({
 });
 
 // --- Constantes do cubo e partículas ---
-const facesTextos = [
+const faceTexts = [
   "Front-end",
   "Back-end",
   "Fullstack",
@@ -30,31 +30,31 @@ const facesTextos = [
   "Webhook",
   "UX/UI",
 ];
-const corFundoCubo = "#7f00ff"; // Cor de fundo do cubo
-const corBordaCubo = 0x000000; // Cor da borda (preto)
-const particleColor = 0xffffff; // Cor das partículas (branco)
-const particleCount = 300; // Número de partículas
+const cubeBackgroundColor = "#7f00ff"; // Cor de fundo do cubo
+const cubeEdgeColor = 0x111; // Cor da borda (preto)
+const particleColorValue = 0xffffff; // Cor das partículas (branco)
+const particleTotal = 300; // Número de partículas
 
 // Função para criar uma textura de canvas com texto
-function criarCanvasComTexto(
-  texto: string,
-  cor: string = corFundoCubo,
-  largura = 256,
-  altura = 256
+function createCanvasWithText(
+  text: string,
+  backgroundColor: string = cubeBackgroundColor,
+  width = 256,
+  height = 256
 ) {
-  const canvas = document.createElement("canvas"); //Cria canvas HTML
-  canvas.width = largura;
-  canvas.height = altura;
-  const ctx = canvas.getContext("2d")!; // ontexto 2D do canvas
+  const canvas = document.createElement("canvas"); // Cria canvas HTML
+  canvas.width = width;
+  canvas.height = height;
+  const ctx = canvas.getContext("2d")!; // Contexto 2D do canvas
   // Preenche fundo
-  ctx.fillStyle = cor;
-  ctx.fillRect(0, 0, largura, altura);
+  ctx.fillStyle = backgroundColor;
+  ctx.fillRect(0, 0, width, height);
   // Adiciona texto centralizado
   ctx.fillStyle = "white";
   ctx.font = "45px Arial";
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
-  ctx.fillText(texto, largura / 2, altura / 2);
+  ctx.fillText(text, width / 2, height / 2);
   return canvas; // Retorna o canvas para gerar CanvasTexture
 }
 
@@ -66,10 +66,10 @@ function CubeAndParticles() {
   const particlesRef = useRef<InstanceType<typeof Points>>(null!);
 
   // --- 1. Materiais do cubo ---
-  const materials = useMemo(() => {
+  const cubeMaterials = useMemo(() => {
     // Cria textura para cada face
-    const textures = facesTextos.map(
-      (texto) => new CanvasTexture(criarCanvasComTexto(texto))
+    const textures = faceTexts.map(
+      (text) => new CanvasTexture(createCanvasWithText(text))
     );
     // Cria material básico com textura para cada face
     return textures.map((map) => new MeshBasicMaterial({ map }));
@@ -78,7 +78,7 @@ function CubeAndParticles() {
   // --- 2. Geometria das partículas ---
   const particlePositions = useMemo(() => {
     const positions: number[] = [];
-    for (let i = 0; i < particleCount; i++) {
+    for (let i = 0; i < particleTotal; i++) {
       const radius = 4 + Math.random() * 1; // Distância radial do centro
       const angle = Math.random() * Math.PI * 3; // Ângulo aleatório
       const y = (Math.random() - 0.5) * 4; // Altura aleatória
@@ -89,7 +89,7 @@ function CubeAndParticles() {
   }, []);
 
   // --- 3. Tamanho do cubo responsivo ---
-  const size = window.innerWidth < 768 ? 1.8 : 3; // Cubo menor em mobile
+  const cubeSize = window.innerWidth < 768 ? 1.8 : 3; // Cubo menor em mobile
 
   // --- 4. Animação ---
   useFrame(() => {
@@ -120,16 +120,18 @@ function CubeAndParticles() {
   return (
     <>
       {/* Cubo principal */}
-      <mesh ref={cubeRef} material={materials}>
+      <mesh ref={cubeRef} material={cubeMaterials}>
         {/* Geometria do cubo */}
-        <boxGeometry args={[size, size, size]} />
+        <boxGeometry args={[cubeSize, cubeSize, cubeSize]} />
 
         {/* Borda do cubo */}
         <lineSegments>
-          <edgesGeometry args={[new BoxGeometry(size, size, size)]} />
+          <edgesGeometry
+            args={[new BoxGeometry(cubeSize, cubeSize, cubeSize)]}
+          />
           <lineBasicMaterial
             attach="material"
-            color={corBordaCubo}
+            color={cubeEdgeColor}
             linewidth={2}
           />
         </lineSegments>
@@ -143,7 +145,7 @@ function CubeAndParticles() {
             {...particlePositions}
           />
         </bufferGeometry>
-        <pointsMaterial color={particleColor} size={0.05} />
+        <pointsMaterial color={particleColorValue} size={0.05} />
       </points>
 
       {/* Controles de câmera (OrbitControls) */}
