@@ -82,6 +82,8 @@
   left: 50%;
 }
 
+
+
 /* Layout desktop */
 @media (min-width: 768px) {
   .projects-line {

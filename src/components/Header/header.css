@@ -40,7 +40,7 @@ header .symbol-logo{
   border-radius: 5px;
   z-index: 1;
 }
-header a {
+header .nav-link {
   color: #fff;
 }
 

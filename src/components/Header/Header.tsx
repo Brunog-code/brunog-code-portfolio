@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Sling as Hamburger } from "hamburger-react";
+import { Link as ScrollLink } from "react-scroll";
 
 import "./header.css";
 
@@ -62,16 +63,52 @@ export const Header = () => {
       <nav className="container-links-desktop">
         <ul>
           <li>
-            <a href="">INICIO</a>
+            <ScrollLink
+              to="hero" // id da section que quer rolar
+              smooth={true} // rolagem suave
+              duration={500} // duração em ms
+              spy={true} // ativa a classe quando estiver visível
+              offset={-80} // se quiser compensar header fixo
+              className="nav-link"
+            >
+              INICIO
+            </ScrollLink>
           </li>
           <li>
-            <a href="">SOBRE</a>
+            <ScrollLink
+              to="about" // id da section que quer rolar
+              smooth={true} // rolagem suave
+              duration={500} // duração em ms
+              spy={true} // ativa a classe quando estiver visível
+              offset={-80} // se quiser compensar header fixo
+              className="nav-link"
+            >
+              SOBRE
+            </ScrollLink>
           </li>
           <li>
-            <a href="">PROJETOS</a>
+            <ScrollLink
+              to="projects" // id da section que quer rolar
+              smooth={true} // rolagem suave
+              duration={500} // duração em ms
+              spy={true} // ativa a classe quando estiver visível
+              offset={-20} // se quiser compensar header fixo
+              className="nav-link"
+            >
+              PROJETOS
+            </ScrollLink>
           </li>
           <li>
-            <a href="">CONTATO</a>
+            <ScrollLink
+              to="hero" // id da section que quer rolar
+              smooth={true} // rolagem suave
+              duration={500} // duração em ms
+              spy={true} // ativa a classe quando estiver visível
+              offset={-80} // se quiser compensar header fixo
+              className="nav-link"
+            >
+              CONTATO
+            </ScrollLink>
           </li>
         </ul>
       </nav>
@@ -99,24 +136,56 @@ export const Header = () => {
       >
         <ul>
           <li>
-            <a href="#" onClick={() => setIsOpen(false)}>
+            <ScrollLink
+              onClick={() => setIsOpen(false)}
+              to="hero" // id da section que quer rolar
+              smooth={true} // rolagem suave
+              duration={500} // duração em ms
+              spy={true} // ativa a classe quando estiver visível
+              offset={-80} // se quiser compensar header fixo
+              className="nav-link"
+            >
               INICIO
-            </a>
+            </ScrollLink>
           </li>
           <li>
-            <a href="#" onClick={() => setIsOpen(false)}>
+            <ScrollLink
+              onClick={() => setIsOpen(false)}
+              to="about" // id da section que quer rolar
+              smooth={true} // rolagem suave
+              duration={500} // duração em ms
+              spy={true} // ativa a classe quando estiver visível
+              offset={-80} // se quiser compensar header fixo
+              className="nav-link"
+            >
               SOBRE
-            </a>
+            </ScrollLink>
           </li>
           <li>
-            <a href="#" onClick={() => setIsOpen(false)}>
+            <ScrollLink
+              onClick={() => setIsOpen(false)}
+              to="projects" // id da section que quer rolar
+              smooth={true} // rolagem suave
+              duration={500} // duração em ms
+              spy={true} // ativa a classe quando estiver visível
+              offset={-20} // se quiser compensar header fixo
+              className="nav-link"
+            >
               PROJETOS
-            </a>
+            </ScrollLink>
           </li>
           <li>
-            <a href="#" onClick={() => setIsOpen(false)}>
+            <ScrollLink
+              onClick={() => setIsOpen(false)}
+              to="projects" // id da section que quer rolar
+              smooth={true} // rolagem suave
+              duration={500} // duração em ms
+              spy={true} // ativa a classe quando estiver visível
+              offset={-80} // se quiser compensar header fixo
+              className="nav-link"
+            >
               CONTATO
-            </a>
+            </ScrollLink>
           </li>
         </ul>
       </nav>

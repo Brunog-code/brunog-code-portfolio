@@ -2,6 +2,7 @@ import "./about.css";
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { InteractiveCube } from "../lib/three/InteractiveCube";
+import { Button } from "../Button/Button";
 
 export const About = () => {
   const refPipe = useRef<HTMLDivElement | null>(null);
@@ -213,23 +214,31 @@ export const About = () => {
             className="pipe"
             style={{
               scaleY: scrollYProgress,
-              width: "40px",
+              width: "50px",
               borderRadius: "4px",
               backgroundColor: lineColor,
               transformOrigin: "0%",
             }}
           ></motion.div>
-          <p>
-            Apaixonado por tecnologia e pela criação de soluções que realmente
-            fazem a diferença, venho me dedicando ao desenvolvimento web há mais
-            de um ano, com foco em React, Node.js, TypeScript e Next.js.
-            Atualmente, curso Análise e Desenvolvimento de Sistemas, e meu
-            objetivo é continuar evoluindo como desenvolvedor fullstack, unindo
-            boas práticas, performance e design funcional. No futuro, pretendo
-            expandir minha atuação também para o desenvolvimento mobile,
-            buscando criar experiências completas e conectadas entre web e
-            mobile<span className="about-dot">.</span>
-          </p>
+
+          <div className="wrap-about-btn-resume">
+            <p>
+              Apaixonado por tecnologia e pela criação de soluções que realmente
+              fazem a diferença, venho me dedicando ao desenvolvimento web há
+              mais de um ano, com foco em React, Node.js, TypeScript e Next.js.
+              Atualmente, curso Análise e Desenvolvimento de Sistemas, e meu
+              objetivo é continuar evoluindo como desenvolvedor fullstack,
+              unindo boas práticas, performance e design funcional. No futuro,
+              pretendo expandir minha atuação também para o desenvolvimento
+              mobile, buscando criar experiências completas e conectadas entre
+              web e mobile<span className="about-dot">.</span>
+            </p>
+            <div>
+            <Button py="1rem" color="#7f00ff">
+              Download Resume
+            </Button>
+            </div>
+          </div>
         </div>
 
         <div className="about-img">

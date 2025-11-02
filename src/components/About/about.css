@@ -37,6 +37,12 @@
   gap: 20px;
 }
 
+.wrap-about-btn-resume {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .about-text p {
   line-height: 2.2;
   text-align: justify;

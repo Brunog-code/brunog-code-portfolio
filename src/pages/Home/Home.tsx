@@ -4,6 +4,7 @@ import { About } from "../../components/About/About";
 import { Technologies } from "../../components/Technologies/Technologies";
 import { Projects } from "../../components/Projects/Projects";
 import { ScrollBarAnimation } from "../../components/lib/FramerAnimation/ScrollBarAnimation/ScrollBarAnimation";
+import { Element } from "react-scroll";
 
 import "./home.css";
 
@@ -14,10 +15,18 @@ export const Home = () => {
       <ScrollBarAnimation />
       <Header />
       <main className="page-content">
-        <Hero />
+        <Element name="hero">
+          <Hero />
+        </Element>
+
         <Technologies />
-        <About />
-        <Projects />
+
+        <Element name="about">
+          <About />
+        </Element>
+        <Element name="projects">
+          <Projects />
+        </Element>
       </main>
     </section>
   );

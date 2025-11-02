@@ -23,7 +23,7 @@ export const projectsData = [
   {
     id: "101",
     date: "28/10/2025",
-    category: "Fullstack",
+    category: "Front-end",
     title: "Mia - Encanto da serra Hotel",
     subtitle:
       "Site completo de um hotel fictício, com sistema de reserva e pagamento online.",
@@ -44,7 +44,7 @@ export const projectsData = [
   {
     id: "102",
     date: "28/10/2025",
-    category: "Fullstack",
+    category: "Front-end",
     title: "Mia - Encanto da serra Hotel",
     subtitle:
       "Site completo de um hotel fictício, com sistema de reserva e pagamento online.",

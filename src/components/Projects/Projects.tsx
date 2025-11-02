@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { motion, useMotionValue, useScroll, useTransform } from "framer-motion";
 import { CardProject } from "./CardProject/CardProject";
 import "./projects.css";
@@ -39,6 +39,14 @@ export const Projects = () => {
     }
   });
 
+  //filtro
+  const [filter, setFilter] = useState("all");
+  const filteredStack = useMemo(() => {
+    if (filter === "all") return projectsData;
+
+    return projectsData.filter((project) => project.category == filter);
+  }, [filter]);
+
   return (
     <section ref={ref} className="container-projects">
       <div className="title">
@@ -59,10 +67,13 @@ export const Projects = () => {
       </div>
 
       <div className="projects-filter">
-        <Button px="2rem" py="1rem">
+        <Button px="2rem" py="1rem" onClick={() => setFilter("all")}>
+          Todas
+        </Button>
+        <Button px="2rem" py="1rem" onClick={() => setFilter("Front-end")}>
           Front-end
         </Button>
-        <Button px="2rem" py="1rem">
+        <Button px="2rem" py="1rem" onClick={() => setFilter("Fullstack")}>
           Fullstack
         </Button>
       </div>
@@ -77,7 +88,7 @@ export const Projects = () => {
 
       {/* Cards */}
       <div className="projects-content">
-        {projectsData.map((proj, i) => (
+        {filteredStack?.map((proj, i) => (
           <CardProject
             key={proj.id}
             proj={proj}
