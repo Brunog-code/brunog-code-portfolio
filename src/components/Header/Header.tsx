@@ -70,6 +70,7 @@ export const Header = () => {
               spy={true} // ativa a classe quando estiver visível
               offset={-80} // se quiser compensar header fixo
               className="nav-link"
+              activeClass="active"
             >
               INICIO
             </ScrollLink>
@@ -82,6 +83,7 @@ export const Header = () => {
               spy={true} // ativa a classe quando estiver visível
               offset={-80} // se quiser compensar header fixo
               className="nav-link"
+              activeClass="active"
             >
               SOBRE
             </ScrollLink>
@@ -94,18 +96,20 @@ export const Header = () => {
               spy={true} // ativa a classe quando estiver visível
               offset={-20} // se quiser compensar header fixo
               className="nav-link"
+              activeClass="active"
             >
               PROJETOS
             </ScrollLink>
           </li>
           <li>
             <ScrollLink
-              to="hero" // id da section que quer rolar
+              to="contact" // id da section que quer rolar
               smooth={true} // rolagem suave
               duration={500} // duração em ms
               spy={true} // ativa a classe quando estiver visível
               offset={-80} // se quiser compensar header fixo
               className="nav-link"
+              activeClass="active"
             >
               CONTATO
             </ScrollLink>
@@ -144,6 +148,7 @@ export const Header = () => {
               spy={true} // ativa a classe quando estiver visível
               offset={-80} // se quiser compensar header fixo
               className="nav-link"
+              activeClass="active"
             >
               INICIO
             </ScrollLink>
@@ -157,6 +162,7 @@ export const Header = () => {
               spy={true} // ativa a classe quando estiver visível
               offset={-80} // se quiser compensar header fixo
               className="nav-link"
+              activeClass="active"
             >
               SOBRE
             </ScrollLink>
@@ -170,6 +176,7 @@ export const Header = () => {
               spy={true} // ativa a classe quando estiver visível
               offset={-20} // se quiser compensar header fixo
               className="nav-link"
+              activeClass="active"
             >
               PROJETOS
             </ScrollLink>
@@ -177,12 +184,13 @@ export const Header = () => {
           <li>
             <ScrollLink
               onClick={() => setIsOpen(false)}
-              to="projects" // id da section que quer rolar
+              to="contact" // id da section que quer rolar
               smooth={true} // rolagem suave
               duration={500} // duração em ms
               spy={true} // ativa a classe quando estiver visível
               offset={-80} // se quiser compensar header fixo
               className="nav-link"
+              activeClass="active"
             >
               CONTATO
             </ScrollLink>

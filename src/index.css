@@ -63,8 +63,8 @@ li {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--primary-purple); /* cor da barra */
-  border-radius: 20px; /* cantos arredondados */
+  background-color: var(--primary-purple);
+  border-radius: 3px;
 }
 
 /* Quando passa o mouse */

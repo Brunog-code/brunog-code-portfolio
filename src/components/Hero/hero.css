@@ -15,7 +15,6 @@
 .s-text {
   display: flex;
   flex-direction: column;
-  padding: 10px;
 }
 
 .greeting {
@@ -58,6 +57,7 @@
   width: 100%;
   justify-content: flex-end;
   align-items: center;
+  margin-bottom: 10px;
 }
 
 .text-typed {
@@ -65,7 +65,7 @@
   font-size: 1.5rem;
 }
 
-.wrap-btn-hero{
+.wrap-btn-hero {
   display: flex;
   justify-content: center;
   gap: 15px;
@@ -214,7 +214,7 @@
 }
 
 /* responsividade */
-@media (min-width: 768px) {
+@media (min-width: 950px) {
   .container-hero {
     flex-direction: row;
     min-height: auto;
@@ -235,5 +235,21 @@
     background: var(--accent-pink);
     top: 250px;
     left: 0;
+  }
+}
+
+@media (min-width: 950px) and (max-width: 1150px) {
+  .symbol {
+    font-size: 70px;
+  }
+
+  .symbol.left {
+    left: -35px;
+    top: -10px;
+  }
+
+  .symbol.right {
+    right: -35px;
+    bottom: -10px;
   }
 }

@@ -1,0 +1,106 @@
+.container-contact {
+  margin-top: 60px;
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-wrap-content {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-direction: column-reverse;
+  gap: 30px;
+  width: 100%;
+  padding: 10px;
+}
+
+.contact-content-form,
+.contact-content-world-techs {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  padding: 10px;
+}
+
+.contact-form input,
+textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 5px;
+  border: 1px solid #111;
+  background-color: #2a2a3d;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.contact-form textarea {
+  height: 150px;
+  resize: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--primary-purple);
+  box-shadow: 0 0 10px var(--primary-purple);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #aaa;
+}
+
+/* efeito bg */
+.container-contact::before,
+.container-contact::after {
+  content: "";
+  position: absolute;
+  width: 230px;
+  height: 230px;
+  border-radius: 50%;
+  filter: blur(160px);
+  opacity: 0.6;
+  z-index: -1;
+}
+
+/* Um blob rosa */
+.container-contact::before {
+  background: var(--accent-pink);
+  top: 30%;
+  left: 50%;
+}
+
+@media (min-width: 768px) {
+  .contact-wrap-content {
+    flex-direction: row;
+  }
+
+  .container-contact::before,
+  .container-contact::after {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    filter: blur(160px);
+    opacity: 0.6;
+    z-index: -1;
+  }
+
+  .container-contact::before {
+    background: var(--accent-pink);
+    top: 20%;
+    left: 30%;
+  }
+}

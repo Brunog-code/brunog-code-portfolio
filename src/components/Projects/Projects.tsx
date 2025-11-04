@@ -4,6 +4,7 @@ import { CardProject } from "./CardProject/CardProject";
 import "./projects.css";
 import { projectsData } from "../../data/projectsData";
 import { Button } from "../Button/Button";
+import { FadeIn } from "../lib/FramerAnimation/FadeIn/FadeIn";
 
 export const Projects = () => {
   //verifica se é mobile
@@ -47,6 +48,16 @@ export const Projects = () => {
     return projectsData.filter((project) => project.category == filter);
   }, [filter]);
 
+  const handleFilterChange = (newFilter: string) => {
+    const scrollPos = window.scrollY;
+    setFilter(newFilter);
+
+    //restaura posição do scroll após re-render
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: scrollPos });
+    });
+  };
+
   return (
     <section ref={ref} className="container-projects">
       <div className="title">
@@ -57,6 +68,7 @@ export const Projects = () => {
       </div>
 
       <div className="projects-desc">
+        <FadeIn direction="left">
         <p>
           Nesta seção, apresento alguns dos meus projetos organizados em uma
           timeline por ordem de desenvolvimento. Cada projeto reflete uma etapa
@@ -64,16 +76,25 @@ export const Projects = () => {
           aprendizados e experiências adquiridas ao longo do tempo. Filtre por
           stack desejada<span className="project-dot">.</span>
         </p>
+        </FadeIn>
       </div>
 
       <div className="projects-filter">
-        <Button px="2rem" py="1rem" onClick={() => setFilter("all")}>
+        <Button px="1rem" py="1rem" onClick={() => handleFilterChange("all")}>
           Todas
         </Button>
-        <Button px="2rem" py="1rem" onClick={() => setFilter("Front-end")}>
+        <Button
+          px="1rem"
+          py="1rem"
+          onClick={() => handleFilterChange("Front-end")}
+        >
           Front-end
         </Button>
-        <Button px="2rem" py="1rem" onClick={() => setFilter("Fullstack")}>
+        <Button
+          px="1rem"
+          py="1rem"
+          onClick={() => handleFilterChange("Fullstack")}
+        >
           Fullstack
         </Button>
       </div>

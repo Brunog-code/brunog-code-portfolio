@@ -231,12 +231,13 @@ export const About = () => {
               unindo boas práticas, performance e design funcional. No futuro,
               pretendo expandir minha atuação também para o desenvolvimento
               mobile, buscando criar experiências completas e conectadas entre
-              web e mobile<span className="about-dot">.</span>
+              web e mobile
+              <span className="about-dot">.</span>
             </p>
             <div>
-            <Button py="1rem" color="#7f00ff">
-              Download Resume
-            </Button>
+              <Button py="1rem" color="#7f00ff">
+                Download Resume
+              </Button>
             </div>
           </div>
         </div>

@@ -6,6 +6,7 @@ interface IButtonProps {
   px?: string;
   color?: string;
   onClick?: () => void;
+  type?: "button" | "submit" | "reset";
 }
 
 export const Button = ({
@@ -13,6 +14,7 @@ export const Button = ({
   py = "0.5rem",
   px = "1rem",
   color = "#ff007f",
+  type = "button",
   onClick,
 }: IButtonProps) => {
   return (
@@ -23,6 +25,7 @@ export const Button = ({
         backgroundColor: color,
       }}
       onClick={onClick}
+      type={type}
     >
       {children}
     </button>

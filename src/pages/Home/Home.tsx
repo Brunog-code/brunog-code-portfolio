@@ -7,6 +7,8 @@ import { ScrollBarAnimation } from "../../components/lib/FramerAnimation/ScrollB
 import { Element } from "react-scroll";
 
 import "./home.css";
+import { Contact } from "../../components/Contact/Contact";
+import { Footer } from "../../components/Footer/Footer";
 
 export const Home = () => {
   return (
@@ -27,7 +29,11 @@ export const Home = () => {
         <Element name="projects">
           <Projects />
         </Element>
+        <Element name="contact">
+          <Contact />
+        </Element>
       </main>
+      <Footer />
     </section>
   );
 };

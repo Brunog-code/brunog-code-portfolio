@@ -20,7 +20,7 @@ header .name-logo {
   font-weight: 700;
 }
 
-header .symbol-logo{
+header .symbol-logo {
   color: var(--accent-pink);
   font-size: 1.4rem;
 }
@@ -109,6 +109,24 @@ header li:hover::before {
   width: 100%;
   padding: 10px;
   cursor: pointer;
+}
+
+/* link ativo */
+.nav-link.active {
+  font-weight: 600;
+  position: relative;
+}
+
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--primary-purple);
+  border-radius: 2px;
+  transition: width 0.3s ease;
 }
 
 /* responsividade */

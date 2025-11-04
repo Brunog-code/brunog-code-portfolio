@@ -32,7 +32,9 @@
 
 .projects-filter {
   display: flex;
-  gap: 50px;
+  gap: 30px;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 /* Linha central */
@@ -44,6 +46,7 @@
   height: 100%;
   background: #333;
   border-radius: 4px;
+  margin-top: 10px;
 }
 
 /* Linha animada */
@@ -82,14 +85,13 @@
   left: 50%;
 }
 
-
-
 /* Layout desktop */
 @media (min-width: 768px) {
   .projects-line {
     left: 50%;
     top: 350px;
     transform: translateX(-50%);
+    margin-top: 100px;
   }
 
   .container-projects::before,
@@ -101,5 +103,11 @@
     background: var(--accent-pink);
     top: 50%;
     left: 50%;
+  }
+}
+
+@media (min-width: 1350px) {
+  .projects-line {
+    margin-top: 10px;
   }
 }

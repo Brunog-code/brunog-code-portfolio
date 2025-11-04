@@ -1,0 +1,156 @@
+.footer-container {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  color: #d6dfed;
+}
+
+.wave-wrapper {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+}
+
+.wave-svg {
+  width: 100%;
+  height: 100%;
+
+  transform: scaleY(1.1);
+}
+
+.footer-content {
+  position: relative;
+  z-index: 2;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+/* icons btns */
+.links {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+.wrap-social-icon {
+  position: relative;
+  border-radius: 50%;
+  background-color: white;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.2s ease-in, transform 0.2s ease-in;
+}
+
+.links a {
+  color: var(--background-dark);
+}
+
+.links a svg {
+  font-size: 30px;
+}
+
+.icon-github:hover,
+.icon-linkedin:hover {
+  color: white;
+  transform: translateY(-4px);
+}
+
+/* ===== TOOLTIP ===== */
+.wrap-social-icon::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 70px;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  padding: 6px 10px;
+  font-size: 14px;
+  color: white;
+  border-radius: 5px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.35s ease;
+  white-space: nowrap;
+}
+
+/* Triângulo inferior (ponteiro do balão) */
+.wrap-social-icon::after {
+  content: "";
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%) scaleY(0);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  opacity: 0;
+  transition: all 0.25s ease;
+}
+
+/* Mostra o balão ao hover */
+.wrap-social-icon:hover::before,
+.wrap-social-icon:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Cores do tooltip por rede */
+.icon-github:hover {
+  background-color: #181717;
+}
+.icon-github:hover::before {
+  background-color: #181717;
+}
+.icon-github:hover::after {
+  border-top: 6px solid #181717;
+}
+
+.icon-linkedin:hover {
+  background-color: #0a66c2;
+}
+.icon-linkedin:hover::before {
+  background-color: #0a66c2;
+}
+.icon-linkedin:hover::after {
+  border-top: 6px solid #0a66c2;
+}
+
+.footer-name {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+/* copyr */
+.legal {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+@media (min-width: 768px) {
+  .wave-svg {
+    transform: scaleY(1.4); /* menos acentuada no mobile */
+  }
+
+  .wave-wrapper {
+    height: 300px; /* opcional: reduz altura da área */
+  }
+
+  .footer-container {
+    /* reduz espaço total no mobile */
+    height: 250px;
+  }
+}
