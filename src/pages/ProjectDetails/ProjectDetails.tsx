@@ -2,10 +2,22 @@ import { useParams, useNavigate } from "react-router-dom";
 import { projectsData } from "../../data/projectsData";
 import "./projectDetails.css";
 import { Button } from "../../components/Button/Button";
-import { FiArrowLeft } from "react-icons/fi";
+import { FiArrowLeft, FiExternalLink } from "react-icons/fi";
 import { useEffect, useState } from "react";
-import { base64ToUtf8 } from "../../utils/base64ToUtf8";
 import { techList } from "../../data/techList";
+import { LoadingPage } from "../../components/lib/FramerAnimation/Loading/Loading";
+import { SlidesFade } from "../../components/lib/Swiper/Slides";
+import { Footer } from "../../components/Footer/Footer";
+
+type ProjectImage = {
+  caption: string;
+  url: string;
+};
+
+type ProjectDeploy = {
+  frontend: string;
+  backend: string;
+};
 
 type ProjectType = {
   id: string;
@@ -14,10 +26,12 @@ type ProjectType = {
   title: string;
   subtitle: string;
   thumbnail: string;
+  images: ProjectImage[];
   repo: string;
   link: string;
   github: string;
   techs: string[];
+  deploy: ProjectDeploy;
 };
 
 export const ProjectDetails = () => {
@@ -28,10 +42,6 @@ export const ProjectDetails = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState<string | null>(null);
   const [project, setProject] = useState<ProjectType | undefined>(undefined);
-  const [readme, setReadme] = useState("");
-
-  //usuario gitHub
-  const userGithub = "Brunog-code";
 
   //procurar o projeto no obj
   useEffect(() => {
@@ -46,48 +56,49 @@ export const ProjectDetails = () => {
     setIsLoading(false);
   }, [id]);
 
-  //requisicao github
-  useEffect(() => {
-    if (!project?.repo) {
-      setIsLoading(false);
-      return;
-    }
-
-    const fetchGitHubData = async () => {
-      try {
-        const url = `https://api.github.com/repos/${userGithub}/${project.repo}/readme`;
-        const response = await fetch(url);
-        const data = await response.json();
-
-        //O conteúdo vem em base64, precisa decodificar:
-        const decodedContent = base64ToUtf8(data.content);
-        // console.log(decodedContent);
-
-        setReadme(decodedContent);
-
-        setIsLoading(false);
-      } catch (error) {
-        console.error(error);
-        setIsError(`Falha ao carregar dados do GitHub}`);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchGitHubData();
-  }, [project, userGithub]);
-
+  //componente carregando
   if (isLoading) {
-    return <p>Carregando....</p>;
+    return <LoadingPage />;
   }
 
+  //se erro
+  if (isError) {
+    return (
+      <section className="container-project-details">
+        <header className="projects-details-header">
+          <div className="project-details-container-logo">
+            <Button
+              onClick={() =>
+                navigate("/", { state: { scrollToProjects: true } })
+              }
+            >
+              <FiArrowLeft size={20} style={{ marginRight: "0.3rem" }} />
+              Voltar aos projetos
+            </Button>
+          </div>
+        </header>
+
+        <div
+          className="error-message"
+          style={{ padding: "2rem", textAlign: "center" }}
+        >
+          <h2>{isError}</h2>
+          <p>Ocorreu um problema ao carregar o projeto.</p>
+        </div>
+      </section>
+    );
+  }
+
+  //se tudo certo
   return (
     <section className="container-project-details">
       {/* header */}
       <header className="projects-details-header">
         {/* imagem */}
         <div className="project-details-container-logo">
-          <Button onClick={() => navigate("/")}>
+          <Button
+            onClick={() => navigate("/", { state: { scrollToProjects: true } })}
+          >
             <FiArrowLeft size={20} style={{ marginRight: "0.3rem" }} />
             Voltar aos projetos
           </Button>
@@ -109,17 +120,71 @@ export const ProjectDetails = () => {
           <div className="details-title">
             {project && <h1>{project.title}</h1>}
             {project && <h3>{project.subtitle}</h3>}
+            <div className="wrap-tech-icons">
+              {techList
+                .filter((tech) => project?.techs.includes(tech.name))
+                .map((tech, index) => (
+                  <span key={index}>{tech.icon}</span>
+                ))}
+            </div>
 
-            {techList
-              .filter((tech) => project?.techs.includes(tech.name))
-              .map((tech, index) => (
-                <span key={index}>{tech.icon}</span>
-              ))}
+            <div className="details-links">
+              <a href={project?.link} target="_blank" rel="noopener noreferrer">
+                Link Projeto
+                <FiExternalLink size={18} style={{ marginLeft: "0.4rem" }} />
+              </a>
+
+              <a
+                href={project?.github}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {" "}
+                Repositório
+                <FiExternalLink size={19} style={{ marginLeft: "0.4rem" }} />
+              </a>
+            </div>
+
+            <div className="details-deploy">
+              <h3>Deploy:</h3>
+              {project?.deploy.frontend != "" && (
+                <p>
+                  Front-end:{" "}
+                  <span className="details-deploy-name">
+                    {project?.deploy.frontend}
+                  </span>
+                </p>
+              )}
+
+              {project?.deploy.backend != "" && (
+                <p>
+                  Back-end:{" "}
+                  <span className="details-deploy-name">
+                    {project?.deploy.backend}
+                  </span>
+                </p>
+              )}
+            </div>
           </div>
+
           {/* imagem  header */}
-          <div className="details-img">imagem</div>
+          <div className="details-img">
+            <SlidesFade images={project!.images} />
+          </div>
+        </div>
+
+        {/* main content */}
+        <div className="projects-details-content-main">
+          <div className="projects-details-content-main-title">
+            <h1>
+              {" "}
+              <span className="bracket">&#91; </span>Detalhes do Projeto
+              <span className="bracket"> &#93;</span>
+            </h1>
+          </div>
         </div>
       </article>
+      <Footer />
     </section>
   );
 };

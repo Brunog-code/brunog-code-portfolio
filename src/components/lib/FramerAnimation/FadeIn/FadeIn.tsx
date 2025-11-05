@@ -6,20 +6,22 @@ type FadeInProps = {
   direction?: "left" | "right" | "bottom" | "top" | "none";
   delay?: number;
   duration?: number;
+  width?: string | null; // opcional
 };
 
 export const FadeIn = ({
   children,
   direction = "bottom",
-  delay = 0.2,
+  delay = 0.4,
   duration = 0.9,
+  width = null,
 }: FadeInProps) => {
   const variants: Variants = {
     hidden: {
       opacity: 0,
       x:
         direction === "left"
-          ? -80
+          ? -200
           : direction === "right"
           ? 80
           : direction === "none"
@@ -48,6 +50,7 @@ export const FadeIn = ({
 
   return (
     <motion.div
+      style={width != null ? { width } : undefined}
       variants={variants}
       initial="hidden"
       whileInView="visible"

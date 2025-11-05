@@ -1,7 +1,7 @@
 import "./about.css";
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { InteractiveCube } from "../lib/three/InteractiveCube";
+import { InteractiveCube } from "../lib/Three/InteractiveCube";
 import { Button } from "../Button/Button";
 
 export const About = () => {

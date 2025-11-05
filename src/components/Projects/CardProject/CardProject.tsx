@@ -6,6 +6,11 @@ import { useNavigate } from "react-router-dom";
 import { techList } from "../../../data/techList";
 
 // Define as props que o componente recebe
+
+type ProjectImage = {
+  caption: string;
+  url: string;
+};
 interface CardProjectProps {
   proj: {
     id: string;
@@ -13,10 +18,12 @@ interface CardProjectProps {
     title: string;
     subtitle: string;
     thumbnail: string;
+    images: ProjectImage[];
     link: string;
     repo: string;
     github: string;
     techs: string[];
+    deploy: Record<string, string>;
   };
   index: number;
   lineHeight: MotionValue<number>;
@@ -42,7 +49,7 @@ export const CardProject = ({ proj, index, lineHeight }: CardProjectProps) => {
         const offsetTop =
           cardRef.current.offsetTop + cardRef.current.offsetHeight / 2;
 
-          const triggerOffset = window.innerHeight * 0.40; // 20% da viewport
+        const triggerOffset = window.innerHeight * 0.4; // 20% da viewport
         //se a altura da linha for maior ou igual ao centro do card, ativa o marker
         setActive(value >= offsetTop - triggerOffset);
       }
@@ -75,7 +82,7 @@ export const CardProject = ({ proj, index, lineHeight }: CardProjectProps) => {
         </div>
 
         <p>
-          <span>Finalizado em: </span>10/10/2025
+          <span>Finalizado em: </span>{proj.date}
         </p>
         <h3>{proj.title}</h3>
         <p>{proj.subtitle}</p>

@@ -1,11 +1,18 @@
 import { Button } from "../Button/Button";
 import { toast } from "react-toastify";
 import "./contact.css";
+import { db } from "../../firebaseConfig";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { LoadingButton } from "../lib/FramerAnimation/Loading/Loading";
+import { useState } from "react";
+import { FadeIn } from "../lib/FramerAnimation/FadeIn/FadeIn";
 
 export const Contact = () => {
-  
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsLoading(true);
 
     //pega o form atual
     const form = e.currentTarget;
@@ -16,6 +23,7 @@ export const Contact = () => {
 
     if (!name || !email || !message) {
       toast.error("Preencha todos os campos");
+      setIsLoading(false);
       return;
     }
 
@@ -23,10 +31,27 @@ export const Contact = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       toast.error("Email inválido!");
+      setIsLoading(false);
       return;
     }
 
     //firebase
+    try {
+      await addDoc(collection(db, "portfolioMessages"), {
+        name,
+        email,
+        message,
+        createdAt: serverTimestamp(),
+      });
+      toast.success("Mensagem enviada com sucesso");
+
+      form.reset();
+    } catch (error) {
+      console.error(error);
+      toast.error("Erro ao enviar email");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -40,15 +65,18 @@ export const Contact = () => {
 
       <article className="contact-wrap-content">
         <div className="contact-content-form">
-          <form className="contact-form" onSubmit={handleSubmit}>
-            <input type="text" placeholder="Nome" />
-            <input type="text" placeholder="Email" />
-            <textarea placeholder="Mensagem" />
-            <Button type="submit" py="1rem">
-              Enviar
-            </Button>
-          </form>
+          <FadeIn direction="left" delay={0.4} width={"100%"}>
+            <form className="contact-form" onSubmit={handleSubmit}>
+              <input type="text" placeholder="Nome" />
+              <input type="text" placeholder="Email" />
+              <textarea placeholder="Mensagem" />
+              <Button type="submit" py="1rem" disabled={isLoading}>
+                {isLoading ? <LoadingButton /> : "Enviar"}
+              </Button>
+            </form>
+          </FadeIn>
         </div>
+
         <div className="contact-content-world-techs">3d three</div>
       </article>
     </section>

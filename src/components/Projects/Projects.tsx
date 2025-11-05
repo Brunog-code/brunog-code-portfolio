@@ -59,7 +59,7 @@ export const Projects = () => {
   };
 
   return (
-    <section ref={ref} className="container-projects">
+    <section ref={ref} className="container-projects" id="projects">
       <div className="title">
         <h1>
           <span className="key-title">&#123; </span>Projetos
@@ -69,13 +69,14 @@ export const Projects = () => {
 
       <div className="projects-desc">
         <FadeIn direction="left">
-        <p>
-          Nesta seção, apresento alguns dos meus projetos organizados em uma
-          timeline por ordem de desenvolvimento. Cada projeto reflete uma etapa
-          da minha evolução como desenvolvedor, mostrando minhas habilidades,
-          aprendizados e experiências adquiridas ao longo do tempo. Filtre por
-          stack desejada<span className="project-dot">.</span>
-        </p>
+          <p>
+            Nesta seção, apresento alguns dos meus projetos organizados em uma
+            timeline por ordem de desenvolvimento. Cada projeto reflete uma
+            etapa da minha evolução como desenvolvedor, mostrando minhas
+            habilidades, aprendizados e experiências adquiridas ao longo do
+            tempo. Filtre por stack desejada
+            <span className="project-dot">.</span>
+          </p>
         </FadeIn>
       </div>
 
