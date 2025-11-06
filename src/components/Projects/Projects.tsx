@@ -4,7 +4,6 @@ import { CardProject } from "./CardProject/CardProject";
 import "./projects.css";
 import { projectsData } from "../../data/projectsData";
 import { Button } from "../Button/Button";
-import { FadeIn } from "../lib/FramerAnimation/FadeIn/FadeIn";
 
 export const Projects = () => {
   //verifica se é mobile
@@ -68,16 +67,14 @@ export const Projects = () => {
       </div>
 
       <div className="projects-desc">
-        <FadeIn direction="left">
-          <p>
-            Nesta seção, apresento alguns dos meus projetos organizados em uma
-            timeline por ordem de desenvolvimento. Cada projeto reflete uma
-            etapa da minha evolução como desenvolvedor, mostrando minhas
-            habilidades, aprendizados e experiências adquiridas ao longo do
-            tempo. Filtre por stack desejada
-            <span className="project-dot">.</span>
-          </p>
-        </FadeIn>
+        <p>
+          Nesta seção, apresento alguns dos meus projetos organizados em uma
+          timeline por ordem de desenvolvimento. Cada projeto reflete uma etapa
+          da minha evolução como desenvolvedor, mostrando minhas habilidades,
+          aprendizados e experiências adquiridas ao longo do tempo. Filtre por
+          stack desejada
+          <span className="project-dot">.</span>
+        </p>
       </div>
 
       <div className="projects-filter">
