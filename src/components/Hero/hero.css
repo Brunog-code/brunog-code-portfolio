@@ -72,6 +72,119 @@
   z-index: 990;
 }
 
+/* btn projects hero */
+/* container principal do botão */
+.wrap-btn-projects-external {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  border-radius: 30px;
+  padding: 10px 20px 10px 60px; /* espaço à esquerda pro círculo */
+  width: 190px;
+  height: 50px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.wrap-btn-projects-external-color-contact {
+  background-color: var(--accent-pink);
+  box-shadow: 0 0 10px rgba(177, 21, 138, 0.5);
+}
+
+.wrap-btn-projects-external-color-projects {
+  background-color: var(--primary-purple);
+  box-shadow: 0 0 10px rgba(123, 44, 191, 0.5);
+}
+
+/* círculo branco de fundo (anima no hover) */
+.wrap-btn-projects-internal {
+  position: absolute;
+  background-color: white;
+  border-radius: 30px;
+  width: 40px;
+  height: 40px;
+  top: 5px;
+  left: 5px;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+/* ícone fixo dentro do círculo */
+.wrap-btn-projects-internal .arrow-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #918a8a;
+  font-size: 18px;
+  transition: transform 0.3s ease;
+  z-index: 2;
+}
+
+/* texto (duas camadas — branco e roxo) */
+.btn-text {
+  position: relative;
+  overflow: hidden;
+  height: 20px;
+  z-index: 3;
+}
+
+.btn-text span {
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.btn-text .text-white {
+  color: white;
+  transform: translateY(0);
+}
+
+.btn-text .text-purple {
+  color: var(--primary-purple);
+  position: absolute;
+  left: 0;
+  top: 100%;
+}
+
+.btn-text .text-pink {
+  color: var(--accent-pink);
+  position: absolute;
+  left: 0;
+  top: 100%;
+}
+
+/* HOVER: fundo cresce e cria o efeito de borda roxa */
+.wrap-btn-projects-external:hover .wrap-btn-projects-internal {
+  width: 92%;
+  height: 85%;
+  left: 4%;
+  border-radius: 25px;
+}
+
+/* texto animado (branco sobe, roxo entra) */
+.wrap-btn-projects-external:hover .btn-text .text-white {
+  transform: translateY(-100%);
+}
+
+.wrap-btn-projects-external:hover .btn-text .text-purple {
+  top: 0;
+  transition: top 0.3s ease;
+}
+
+.wrap-btn-projects-external:hover .btn-text .text-pink {
+  top: 0;
+  transition: top 0.3s ease;
+}
+
+/* movimento sutil da seta */
+.wrap-btn-projects-external:hover .arrow-icon {
+  transform: translate(3px, -50%);
+}
+
 /* IMAGEM */
 .photo-background {
   position: relative;
@@ -213,6 +326,31 @@
   right: 0;
 }
 
+.s-img-circle {
+  position: absolute;
+  top: 8%;
+  right: 5%;
+}
+
+.s-img-circle .text-circle {
+  animation: rotateCircleText 20s linear infinite;
+}
+
+.s-img-circle .icon-circle {
+  position: absolute;
+  top: 38%;
+  right: 38%;
+}
+
+@keyframes rotateCircleText {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 /* responsividade */
 @media (min-width: 950px) {
   .container-hero {
@@ -236,6 +374,12 @@
     top: 250px;
     left: 0;
   }
+
+  .s-img-circle {
+    position: absolute;
+    top: 17%;
+    right: 40%;
+  }
 }
 
 @media (min-width: 950px) and (max-width: 1150px) {
@@ -251,5 +395,13 @@
   .symbol.right {
     right: -35px;
     bottom: -10px;
+  }
+}
+
+@media (min-width: 950px) {
+  .s-img-circle {
+    position: absolute;
+    top: 17%;
+    right: 45%;
   }
 }

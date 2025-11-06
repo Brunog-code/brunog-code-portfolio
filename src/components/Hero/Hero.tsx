@@ -1,11 +1,10 @@
 import "./hero.css";
 import Typed from "typed.js";
 import { useEffect } from "react";
-import { Button } from "../Button/Button";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { Link as ScrollLink } from "react-scroll";
 import { FadeIn } from "../lib/FramerAnimation/FadeIn/FadeIn";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 export const Hero = () => {
   useEffect(() => {
@@ -24,7 +23,7 @@ export const Hero = () => {
   }, []);
 
   return (
-    <section className="container-hero" data-scroll-section>
+    <section className="container-hero">
       <FadeIn direction="left">
         <div className="s-text">
           {/* texto */}
@@ -49,28 +48,40 @@ export const Hero = () => {
           </div>
           <div className="wrap-btn-hero">
             <ScrollLink
-              to="contact" // id da section que quer rolar
-              smooth={true} // rolagem suave
-              duration={500} // duração em ms
-              spy={true} // ativa a classe quando estiver visível
-              offset={-90} // se quiser compensar header fixo
+              to="contact"
+              smooth={true}
+              duration={500}
+              spy={true}
+              offset={-90}
             >
-              <Button py="1rem">
-                Entrar em contato
-                <MailOutlineIcon />
-              </Button>
+              <div className="wrap-btn-projects-external wrap-btn-projects-external-color-contact">
+                <div className="wrap-btn-projects-internal">
+                  <MailOutlineIcon className="arrow-icon" />
+                </div>
+
+                <div className="btn-text">
+                  <span className="text-white">Falar comigo</span>
+                  <span className="text-pink">Falar comigo</span>
+                </div>
+              </div>
             </ScrollLink>
             <ScrollLink
-              to="projects" // id da section que quer rolar
-              smooth={true} // rolagem suave
-              duration={500} // duração em ms
-              spy={true} // ativa a classe quando estiver visível
-              offset={-20} // se quiser compensar header fixo
+              to="projects"
+              smooth={true}
+              duration={500}
+              spy={true}
+              offset={-20}
             >
-              <Button py="1rem" color="#7f00ff">
-                Ver projetos
-                <ArrowForwardIosIcon />
-              </Button>
+              <div className="wrap-btn-projects-external wrap-btn-projects-external-color-projects">
+                <div className="wrap-btn-projects-internal">
+                  <ArrowForwardIosIcon className="arrow-icon" />
+                </div>
+
+                <div className="btn-text">
+                  <span className="text-white">Ver projetos</span>
+                  <span className="text-purple">Ver projetos</span>
+                </div>
+              </div>
             </ScrollLink>
           </div>
         </div>
@@ -90,6 +101,20 @@ export const Hero = () => {
           </div>
         </div>
       </FadeIn>
+
+      {/* img circle */}
+      <div className="s-img-circle">
+        <img
+          className="text-circle"
+          src="text-circle.png"
+          alt="texto-curvado"
+        />
+        <img
+          className="icon-circle"
+          src="icon-circle.png"
+          alt="icone-interno-texto-curvado"
+        />
+      </div>
     </section>
   );
 };
