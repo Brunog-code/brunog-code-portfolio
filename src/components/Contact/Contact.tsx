@@ -4,10 +4,13 @@ import "./contact.css";
 import { db } from "../../firebaseConfig";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { LoadingButton } from "../lib/FramerAnimation/Loading/Loading";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { FadeIn } from "../lib/Gsap/FadeIn";
 
 export const Contact = () => {
   const [isLoading, setIsLoading] = useState(false);
+
+  const formRef = useRef(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -64,14 +67,16 @@ export const Contact = () => {
 
       <article className="contact-wrap-content">
         <div className="contact-content-form">
-          <form className="contact-form" onSubmit={handleSubmit}>
-            <input type="text" placeholder="Nome" />
-            <input type="text" placeholder="Email" />
-            <textarea placeholder="Mensagem" />
-            <Button type="submit" py="1rem" disabled={isLoading}>
-              {isLoading ? <LoadingButton /> : "Enviar"}
-            </Button>
-          </form>
+          <FadeIn ref={formRef} x={-300} width="100%">
+            <form className="contact-form" onSubmit={handleSubmit}>
+              <input type="text" placeholder="Nome" />
+              <input type="text" placeholder="Email" />
+              <textarea placeholder="Mensagem" />
+              <Button type="submit" py="1rem" disabled={isLoading}>
+                {isLoading ? <LoadingButton /> : "Enviar"}
+              </Button>
+            </form>
+          </FadeIn>
         </div>
 
         <div className="contact-content-world-techs">3d three</div>

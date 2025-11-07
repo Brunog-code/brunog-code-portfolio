@@ -1,11 +1,14 @@
 import "./hero.css";
 import Typed from "typed.js";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import { Link as ScrollLink } from "react-scroll";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import { FadeIn } from "../lib/Gsap/FadeIn";
 
 export const Hero = () => {
+  const textRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     //typed-js
     const typed = new Typed(".text-typed", {
@@ -23,66 +26,68 @@ export const Hero = () => {
 
   return (
     <section className="container-hero">
-      <div className="s-text">
-        {/* texto */}
-        <span className="greeting">
-          Olá<span className="dot">.</span>
-        </span>
-        <div>
-          <span className="divisor">|</span>
-          <span className="intro">
-            sou o <span className="name">Bruno Gonçalves</span>
+      <FadeIn ref={textRef} x={-200} duration={1.5}>
+        <div className="s-text">
+          {/* texto */}
+          <span className="greeting">
+            Olá<span className="dot">.</span>
           </span>
-        </div>
+          <div>
+            <span className="divisor">|</span>
+            <span className="intro">
+              sou o <span className="name">Bruno Gonçalves</span>
+            </span>
+          </div>
 
-        <span className="stack">
-          <span className="bracket">&#91;</span> Desenvolvedor Fullstack
-          <span className="bracket"> &#93;</span>
-        </span>
-        <div className="wrap-typed">
-          <span>
-            <span className="text-typed"></span>
+          <span className="stack">
+            <span className="bracket">&#91;</span> Desenvolvedor Fullstack
+            <span className="bracket"> &#93;</span>
           </span>
-        </div>
-        <div className="wrap-btn-hero">
-          <ScrollLink
-            to="contact"
-            smooth={true}
-            duration={500}
-            spy={true}
-            offset={-90}
-          >
-            <div className="wrap-btn-projects-external wrap-btn-projects-external-color-contact">
-              <div className="wrap-btn-projects-internal">
-                <MailOutlineIcon className="arrow-icon" />
-              </div>
+          <div className="wrap-typed">
+            <span>
+              <span className="text-typed"></span>
+            </span>
+          </div>
+          <div className="wrap-btn-hero">
+            <ScrollLink
+              to="contact"
+              smooth={true}
+              duration={500}
+              spy={true}
+              offset={-90}
+            >
+              <div className="wrap-btn-projects-external wrap-btn-projects-external-color-contact">
+                <div className="wrap-btn-projects-internal">
+                  <MailOutlineIcon className="arrow-icon" />
+                </div>
 
-              <div className="btn-text">
-                <span className="text-white">Falar comigo</span>
-                <span className="text-pink">Falar comigo</span>
+                <div className="btn-text">
+                  <span className="text-white">Falar comigo</span>
+                  <span className="text-pink">Falar comigo</span>
+                </div>
               </div>
-            </div>
-          </ScrollLink>
-          <ScrollLink
-            to="projects"
-            smooth={true}
-            duration={500}
-            spy={true}
-            offset={-20}
-          >
-            <div className="wrap-btn-projects-external wrap-btn-projects-external-color-projects">
-              <div className="wrap-btn-projects-internal">
-                <ArrowForwardIosIcon className="arrow-icon" />
-              </div>
+            </ScrollLink>
+            <ScrollLink
+              to="projects"
+              smooth={true}
+              duration={500}
+              spy={true}
+              offset={-20}
+            >
+              <div className="wrap-btn-projects-external wrap-btn-projects-external-color-projects">
+                <div className="wrap-btn-projects-internal">
+                  <ArrowForwardIosIcon className="arrow-icon" />
+                </div>
 
-              <div className="btn-text">
-                <span className="text-white">Ver projetos</span>
-                <span className="text-purple">Ver projetos</span>
+                <div className="btn-text">
+                  <span className="text-white">Ver projetos</span>
+                  <span className="text-purple">Ver projetos</span>
+                </div>
               </div>
-            </div>
-          </ScrollLink>
+            </ScrollLink>
+          </div>
         </div>
-      </div>
+      </FadeIn>
 
       <div className="s-img">
         <div className="photo-background">
