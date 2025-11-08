@@ -88,9 +88,9 @@ export const Scroll3DEffect = ({ children }: Scroll3DEffectProps) => {
           {/* Texto sobreposto */}
           <div className="overlay-text">
             <h1 ref={text1}>
-              <span className="text-stroke">Outlook</span> above
+              <span className="text-stroke">Dev</span> Journey
             </h1>
-            <p ref={text2}>A Showcase of the world's best aerial photography</p>
+            <p ref={text2}>Projetos que contam a história do meu crescimento profissional e da minha paixão por criar.</p>
           </div>
         </div>
 
