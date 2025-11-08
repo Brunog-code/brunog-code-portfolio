@@ -1,0 +1,70 @@
+.scroll3d-wrapper {
+  position: relative;
+  overflow: hidden;
+  padding-top: 10px;
+}
+
+.scroll3d-img-container {
+  perspective: 2200px;
+  transform-style: preserve-3d; /* Mantém elementos filhos no mesmo plano 3D */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+}
+
+.scroll3d-img-bg {
+  -webkit-mask-image: url("../../../../assets/circleEffectZoom.png"); /* Caminho da máscara */
+  -webkit-mask-position: center; /* Centraliza a máscara */
+  -webkit-mask-repeat: no-repeat; /* Evita repetição da imagem */
+  -webkit-mask-size: contain; /* Garante proporção correta */
+  mask-image: url("../../../../assets/circleEffectZoom.png"); /* Versão padrão (não só WebKit) */
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  height: 100%;
+  width: 100%; /* Adicionado para consistência */
+  display: block; /* Garante comportamento previsível */
+}
+
+.overlay-text {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+.overlay-text h1 {
+  font-weight: 700;
+  font-size: 160px;
+  line-height: 1;
+}
+
+.text-stroke {
+  -webkit-text-fill-color: transparent; /* Remove o preenchimento */
+  -webkit-text-stroke-color: white; /* Cor do contorno */
+  -webkit-text-stroke-width: 1px; /* Espessura do contorno */
+  text-transform: uppercase; /* (opcional) padroniza visual */
+  font-weight: 700; /* (opcional) deixa mais legível */
+}
+
+.overlay-text p {
+  opacity: 0.6; /* opacity-60 */
+  margin-top: 1rem; /* mt-4 → 4 * 0.25rem = 1rem (16px) */
+  width: 12rem; /* w-48 → 48 * 0.25rem = 12rem (192px) */
+  font-size: 13px; /* text-[13px] → valor customizado */
+  text-align: center; /* text-center */
+}
+
+.bg-color-zoom {
+  z-index: 1;
+  position: absolute;
+  color: var(--background-dark);
+  width: 100vw;
+  height: 100vh;
+}
