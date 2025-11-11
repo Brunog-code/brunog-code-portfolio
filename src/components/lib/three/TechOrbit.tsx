@@ -10,7 +10,7 @@ import {
   SiTypescript,
   SiNodedotjs,
   SiReact,
-  SiPrisma,
+  SiTailwindcss ,
   SiHtml5,
   SiPostgresql,
 } from "react-icons/si";
@@ -107,7 +107,7 @@ function Scene() {
       <OrbitingIcon
         angle={(5 * Math.PI) / 3}
         radius={2.8}
-        icon={<SiPrisma color="#2D3748" size={36} />}
+        icon={<SiTailwindcss  color="#38BDF8" size={36} />}
         occluderRef={centralRef}
       />
     </group>

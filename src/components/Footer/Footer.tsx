@@ -14,6 +14,7 @@ export const Footer = () => {
         >
           <motion.path
             fill="#2a0a68"
+            initial={{ d: "M0,160 C360,320 1080,0 1440,160 L1440,320 L0,320 Z" }}
             animate={{
               d: [
                 "M0,160 C360,320 1080,0 1440,160 L1440,320 L0,320 Z",
@@ -30,6 +31,7 @@ export const Footer = () => {
           <motion.path
             fill="#7f00ff"
             opacity={0.7}
+            initial={{ d: "M0,160 C360,320 1080,0 1440,160 L1440,320 L0,320 Z" }}
             animate={{
               d: [
                 "M0,180 C400,260 1000,40 1440,200 L1440,320 L0,320 Z",

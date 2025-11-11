@@ -18,6 +18,56 @@
   padding: 10px;
 }
 
+.wrap-contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.wrap-contacts a {
+  color: #d1d1d1;
+}
+
+.contact-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.link-whats {
+  color: #25d366;
+}
+
+.link-email {
+  color: rgb(66, 66, 252);
+}
+
+.contact-info {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-info span {
+  color: #d1d1d1;
+}
+
+.contact-dot {
+  color: var(--accent-pink) !important;
+  font-size: 2rem !important;
+  line-height: 0 !important;
+}
+
 .contact-content-form,
 .contact-content-world-techs {
   flex: 1;
@@ -62,7 +112,7 @@ textarea {
   color: #aaa;
 }
 
-.contact-content-world-techs{
+.contact-content-world-techs {
   cursor: pointer;
 }
 

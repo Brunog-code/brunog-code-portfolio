@@ -9,6 +9,8 @@ import { FadeIn } from "../lib/Gsap/FadeIn";
 import { useScrollTitle } from "../../hooks/useScrollTitle";
 import { motion } from "framer-motion";
 import { TechOrbit } from "../lib/Three/TechOrbit";
+import { SiWhatsapp } from "react-icons/si";
+import { MdEmail } from "react-icons/md";
 
 export const Contact = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -67,7 +69,6 @@ export const Contact = () => {
 
   return (
     <section className="container-contact">
-
       <div className="title">
         <motion.h1
           ref={refTitle}
@@ -82,9 +83,26 @@ export const Contact = () => {
       </div>
 
       <article className="contact-wrap-content">
-        
         <div className="contact-content-form">
           <FadeIn ref={formRef} x={-300} width="100%">
+            <div className="wrap-contacts">
+              <span className="contact-link link-email">
+                <MdEmail size={22} style={{ marginRight: "8px" }} />
+                <a href="mailto:brunogon.silva@hotmail.com">Enviar email</a>
+              </span>
+              <span className="contact-link link-whats">
+                <SiWhatsapp size={22} style={{ marginRight: "8px" }} />
+                <a href="https://wa.me/5519999107390" target="_blank">
+                  Conversar no WhatsApp
+                </a>
+              </span>
+            </div>
+            <div className="contact-info">
+              <span>
+                Ou se preferir, preencha o formulário abaixo
+                <span className="contact-dot">.</span>
+              </span>
+            </div>
             <form className="contact-form" onSubmit={handleSubmit}>
               <input type="text" placeholder="Nome" />
               <input type="text" placeholder="Email" />
@@ -97,8 +115,8 @@ export const Contact = () => {
         </div>
 
         <div className="contact-content-world-techs">
-          < TechOrbit />
-          </div>
+          <TechOrbit />
+        </div>
       </article>
     </section>
   );

@@ -57,7 +57,6 @@ export const Projects = () => {
   return (
     <Scroll3DEffect>
       <section ref={ref} className="container-projects" id="projects">
-
         <div className="projects-filter">
           <div>
             <p>Filtre pela categoria</p>
@@ -68,6 +67,7 @@ export const Projects = () => {
               px="1rem"
               py="1rem"
               onClick={() => handleFilterChange("all")}
+              active={filter == "all" && true}
             >
               Todos
             </Button>
@@ -75,6 +75,7 @@ export const Projects = () => {
               px="1rem"
               py="1rem"
               onClick={() => handleFilterChange("Front-end")}
+              active={filter == "Front-end" && true}
             >
               Front-end
             </Button>
@@ -82,6 +83,7 @@ export const Projects = () => {
               px="1rem"
               py="1rem"
               onClick={() => handleFilterChange("Fullstack")}
+              active={filter == "Fullstack" && true}
             >
               Fullstack
             </Button>

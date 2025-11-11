@@ -98,7 +98,7 @@
     filter: blur(0px);
   }
   50% {
-    filter: blur(1px);
+    filter: blur(1.2px);
   }
   100% {
     filter: blur(0px);
@@ -116,10 +116,10 @@
   }
 
   .overlay-text p {
-    opacity: 0.6; /* opacity-60 */
-    margin-top: 1.4rem; /* mt-4 → 4 * 0.25rem = 1rem (16px) */
-    width: 16rem; /* w-48 → 48 * 0.25rem = 12rem (192px) */
-    font-size: 1rem; /* text-[13px] → valor customizado */
-    text-align: center; /* text-center */
+    opacity: 0.6;
+    margin-top: 1.4rem;
+    width: 18rem;
+    font-size: 1.1rem;
+    text-align: center;
   }
 }

@@ -8,6 +8,7 @@ interface IButtonProps {
   onClick?: () => void;
   type?: "button" | "submit" | "reset";
   disabled?: boolean;
+  active: boolean;
 }
 
 export const Button = ({
@@ -18,13 +19,14 @@ export const Button = ({
   type = "button",
   onClick,
   disabled = false,
+  active = false,
 }: IButtonProps) => {
   return (
     <button
-      className="btn"
+      className={`btn ${active && "active"}`}
       style={{
         padding: `${py} ${px}`,
-        backgroundColor: color,
+        backgroundColor: active ? "var(--primary-purple)" : color,
       }}
       onClick={onClick}
       type={type}

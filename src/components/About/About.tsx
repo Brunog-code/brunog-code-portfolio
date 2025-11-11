@@ -66,9 +66,15 @@ export const About = () => {
               <span className="about-dot">.</span>
             </p>
             <div>
-              <Button py="1rem" color="#7f00ff">
-                Download Resume
-              </Button>
+              <a
+                href="/resume.pdf"
+                download
+                style={{ color: "inherit", textDecoration: "none" }}
+              >
+                <Button py="1rem" color="#7f00ff">
+                  Download Resume
+                </Button>
+              </a>
             </div>
           </div>
         </div>
