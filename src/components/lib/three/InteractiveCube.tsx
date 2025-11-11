@@ -94,8 +94,8 @@ function CubeAndParticles() {
   // --- 4. Animação ---
   useFrame(() => {
     // Rotação contínua do cubo
-    cubeRef.current.rotation.x += 0.02; // Velocidade no eixo X
-    cubeRef.current.rotation.y += 0.02; // Velocidade no eixo Y
+    cubeRef.current.rotation.x += 0.013; // Velocidade no eixo X
+    cubeRef.current.rotation.y += 0.013; // Velocidade no eixo Y
     cubeRef.current.rotation.z += 0.01; // Velocidade no eixo Z
 
     // Rotação das partículas em torno do cubo

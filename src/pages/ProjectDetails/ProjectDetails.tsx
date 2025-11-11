@@ -8,6 +8,7 @@ import { techList } from "../../data/techList";
 import { LoadingPage } from "../../components/lib/FramerAnimation/Loading/Loading";
 import { SlidesFade } from "../../components/lib/Swiper/Slides";
 import { Footer } from "../../components/Footer/Footer";
+import { ScrollBarAnimation } from "../../components/lib/FramerAnimation/ScrollBarAnimation/ScrollBarAnimation";
 
 type ProjectImage = {
   caption: string;
@@ -27,11 +28,14 @@ type ProjectType = {
   subtitle: string;
   thumbnail: string;
   images: ProjectImage[];
+  video?: string;
   repo: string;
   link: string;
   github: string;
   techs: string[];
   deploy: ProjectDeploy;
+  content: string[];
+  highlights: string[];
 };
 
 export const ProjectDetails = () => {
@@ -46,8 +50,10 @@ export const ProjectDetails = () => {
   //procurar o projeto no obj
   useEffect(() => {
     if (!id) return;
+
     const foundProject = projectsData.find((project) => project.id === id);
     console.log("Projeto encontrado:", foundProject);
+
     if (!foundProject) {
       setIsError("Projeto não encontrado");
     } else {
@@ -92,6 +98,7 @@ export const ProjectDetails = () => {
   //se tudo certo
   return (
     <section className="container-project-details">
+      <ScrollBarAnimation />
       {/* header */}
       <header className="projects-details-header">
         {/* imagem */}
@@ -182,6 +189,78 @@ export const ProjectDetails = () => {
               <span className="bracket"> &#93;</span>
             </h1>
           </div>
+
+          <div className="projects-details-content-main-text">
+            {project!.content.map((paragraph, index) =>
+              index == 1 ? (
+                // table
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Tecnologia utilizadas</th>
+                      <th>Badge</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {techList
+                      .filter((tech) => project?.techs.includes(tech.name))
+                      .map((tech, i) => (
+                        <tr key={i}>
+                          <td>{tech.name}</td>
+                          <td>{tech.icon}</td>
+                        </tr>
+                      ))}
+                  </tbody>
+                </table>
+              ) : index == 2 ? (
+                <div>
+                  <p>{paragraph}</p>
+
+                  <ul className="list-highlights">
+                    <h2>Destaques</h2>
+                    {project?.highlights.map((high, i) => (
+                      <li key={i}>{high}</li>
+                    ))}
+                  </ul>
+                </div>
+              ) : index == 3 ? (
+                <>
+                  <p>{paragraph}</p>
+                  <div className="container-img-content">
+                    <img
+                      src={project?.images[0].url}
+                      alt={project?.images[0].caption}
+                    />
+                  </div>
+                </>
+              ) : (
+                // paragraph
+                <p key={index}>{paragraph}</p>
+              )
+            )}
+          </div>
+        </div>
+        <div className="footer-details">
+          <span className="footer-details-container-github">
+            Para mais detalhes, entre no repositório do projeto
+            {techList.map(
+              (tech, i) =>
+                tech.name == "GitHub" && (
+                  <a
+                    key={i}
+                    href={project?.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={`Ver código relacionado a ${tech.name}`}
+                    className="tech-icon-link"
+                  >
+                    <span className="footer-details-icon-github">
+                      {tech.icon}
+                    </span>
+                  </a>
+                )
+            )}
+          </span>
         </div>
       </article>
       <Footer />

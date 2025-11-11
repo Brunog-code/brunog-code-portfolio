@@ -8,6 +8,7 @@ import { useRef, useState } from "react";
 import { FadeIn } from "../lib/Gsap/FadeIn";
 import { useScrollTitle } from "../../hooks/useScrollTitle";
 import { motion } from "framer-motion";
+import { TechOrbit } from "../lib/Three/TechOrbit";
 
 export const Contact = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -66,6 +67,7 @@ export const Contact = () => {
 
   return (
     <section className="container-contact">
+
       <div className="title">
         <motion.h1
           ref={refTitle}
@@ -80,6 +82,7 @@ export const Contact = () => {
       </div>
 
       <article className="contact-wrap-content">
+        
         <div className="contact-content-form">
           <FadeIn ref={formRef} x={-300} width="100%">
             <form className="contact-form" onSubmit={handleSubmit}>
@@ -93,7 +96,9 @@ export const Contact = () => {
           </FadeIn>
         </div>
 
-        <div className="contact-content-world-techs">3d three</div>
+        <div className="contact-content-world-techs">
+          < TechOrbit />
+          </div>
       </article>
     </section>
   );

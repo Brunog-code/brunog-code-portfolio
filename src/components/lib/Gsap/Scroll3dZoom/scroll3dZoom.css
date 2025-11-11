@@ -44,6 +44,7 @@
   font-weight: 700;
   font-size: 5rem;
   line-height: 1;
+  animation: animationTitle 2s ease-in-out infinite;
 }
 
 /* .text-stroke {
@@ -74,19 +75,33 @@
 .key-title-projects {
   color: var(--primary-purple);
   font-size: 70px;
-  animation: colorKey 2s ease-in-out infinite;
+  animation: animationKey 2s ease-in-out infinite;
 }
 
-@keyframes colorKey {
+/* chaves */
+@keyframes animationKey {
   0% {
     opacity: 1;
   }
   50% {
-    opacity: 0.5;
+    opacity: 0.6;
     filter: blur(1.2px);
   }
   100% {
     opacity: 1;
+  }
+}
+
+/* h1 */
+@keyframes animationTitle {
+  0% {
+    filter: blur(0px);
+  }
+  50% {
+    filter: blur(1px);
+  }
+  100% {
+    filter: blur(0px);
   }
 }
 

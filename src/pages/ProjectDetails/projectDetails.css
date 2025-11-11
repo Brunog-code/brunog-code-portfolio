@@ -8,7 +8,6 @@
   margin-top: 10px;
   gap: 10px;
   border-bottom: 1px solid var(--primary-purple);
-
 }
 
 .projects-details-content {
@@ -16,11 +15,11 @@
   padding-left: 20px;
   padding-right: 20px;
   display: flex;
+
   flex-direction: column;
   width: 100%;
   height: auto;
   gap: 50px;
-  
 }
 
 .projects-details-content-header {
@@ -193,17 +192,226 @@
   background-color: #111;
   width: 100%;
   padding: 10px;
-  border-radius: 5px;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   height: auto;
 }
 
 .projects-details-content-main-title {
-  margin: 0 auto;
+  margin: 30px auto;
 }
 .projects-details-content-main-title h1 {
   font-size: 2rem;
+}
+
+/* text content */
+.projects-details-content-main-text {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+}
+
+.projects-details-content-main-text p {
+  font-size: 1.06rem;
+  line-height: 1.8;
+  letter-spacing: 0.017em;
+  color: #d1d1d1;
+  margin-bottom: 1.5rem;
+  text-align: justify;
+}
+
+/* realce leve em palavras-chave dentro dos textos */
+.projects-details-content-main-text strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* table */
+.projects-details-content-main-text table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+  font-size: 0.95rem;
+  color: #e5e5e5;
+}
+
+.projects-details-content-main-text th,
+.projects-details-content-main-text td {
+  padding: 1rem 1.2rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.projects-details-content-main-text th {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--primary-purple);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.projects-details-content-main-text tr:last-child td {
+  border-bottom: none;
+}
+
+.projects-details-content-main-text tr:hover {
+  background: rgba(255, 255, 255, 0.04);
+  transition: background 0.2s ease;
+}
+
+.projects-details-content-main-text td:first-child {
+  font-weight: 500;
+  color: #fff;
+}
+
+/*  Estilo dos ícones de tecnologias */
+.projects-details-content-main-text td svg {
+  font-size: 1.6rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.projects-details-content-main-text td svg:hover {
+  transform: scale(1.15);
+}
+
+/* Cores por tecnologia */
+.projects-details-content-main-text td:has(svg[aria-label*="HTML"]) {
+  color: #e34f26;
+}
+
+.projects-details-content-main-text td:has(svg[aria-label*="CSS"]) {
+  color: #1572b6;
+}
+
+.projects-details-content-main-text td:has(svg[aria-label*="JavaScript"]) {
+  color: #f7df1e;
+}
+
+.projects-details-content-main-text td:has(svg[aria-label*="TypeScript"]) {
+  color: #3178c6;
+}
+
+.projects-details-content-main-text td:has(svg[aria-label*="Node"]) {
+  color: #68a063;
+}
+
+.projects-details-content-main-text td:has(svg[aria-label*="React"]) {
+  color: #61dafb;
+}
+
+.projects-details-content-main-text td:has(svg[aria-label*="Next"]) {
+  color: #000000;
+}
+
+.projects-details-content-main-text td:has(svg[aria-label*="Tailwind"]) {
+  color: #38bdf8;
+}
+
+.projects-details-content-main-text td:has(svg[aria-label*="MySQL"]) {
+  color: #00758f;
+}
+
+.projects-details-content-main-text td:has(svg[aria-label*="PostgreSQL"]) {
+  color: #336791;
+}
+
+.projects-details-content-main-text td:has(svg[aria-label*="MongoDB"]) {
+  color: #47a248;
+}
+
+.projects-details-content-main-text td:has(svg[aria-label*="Prisma"]) {
+  color: #2d3748;
+}
+
+.projects-details-content-main-text td:has(svg[aria-label*="Git"]) {
+  color: #f05033;
+}
+
+.projects-details-content-main-text td:has(svg[aria-label*="GitHub"]) {
+  color: #181717;
+}
+
+.list-highlights {
+  margin-bottom: 1.5rem;
+  width: 100%;
+  font-size: 1.06rem;
+  line-height: 1.8;
+  letter-spacing: 0.017em;
+  color: #d1d1d1;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.list-highlights h2 {
+  font-size: 1.2rem;
+  color: var(--primary-purple);
+  text-transform: uppercase;
+}
+
+.list-highlights li {
+  padding: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+}
+
+.list-highlights li:hover {
+  background: rgba(255, 255, 255, 0.04);
+  transition: background 0.2s ease;
+}
+
+.list-highlights li:last-child {
+  border: 0;
+}
+
+.container-img-content {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.container-img-content img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+}
+
+.footer-details {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-details-container-github {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+    to right,
+    var(--background-dark),
+    var(--primary-purple)
+  );
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.footer-details-icon-github {
+  margin-left: 10px;
+}
+
+.footer-details-icon-github svg {
+  font-size: 30px;
+  color: black;
 }
 
 /* efeito bg */

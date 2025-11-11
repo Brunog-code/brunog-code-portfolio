@@ -4,7 +4,7 @@ import { About } from "../../components/About/About";
 import { Technologies } from "../../components/Technologies/Technologies";
 import { Projects } from "../../components/Projects/Projects";
 import { ScrollBarAnimation } from "../../components/lib/FramerAnimation/ScrollBarAnimation/ScrollBarAnimation";
-import { Element } from "react-scroll";
+import { Element, scroller } from "react-scroll";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./home.css";
 import { Contact } from "../../components/Contact/Contact";
@@ -16,18 +16,15 @@ export const Home = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // 1. Verifica se o state existe
     if (location.state?.scrollToProjects) {
-      // 2. Faz o scroll
-      const section = document.getElementById("projects");
-      if (section) {
-        section.scrollIntoView({ behavior: "smooth" });
-      }
-      // 3. Limpa o state
+      scroller.scrollTo("projects", {
+        duration: 600,
+        smooth: "easeInOutQuart",
+        offset: -50, // opcional: ajusta a distância do topo
+      });
       navigate(location.pathname, { replace: true, state: {} });
     }
   }, [location, navigate]);
-
   return (
     <section>
       {/* Barra de progresso fixada */}

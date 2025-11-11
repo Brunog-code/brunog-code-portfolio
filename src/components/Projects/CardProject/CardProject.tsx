@@ -19,11 +19,14 @@ interface CardProjectProps {
     subtitle: string;
     thumbnail: string;
     images: ProjectImage[];
+    video?: string;
     link: string;
     repo: string;
     github: string;
     techs: string[];
     deploy: Record<string, string>;
+    content: string[];
+    highlights: string[];
   };
   index: number;
   lineHeight: MotionValue<number>;
