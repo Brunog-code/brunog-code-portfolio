@@ -67,12 +67,12 @@ export const About = () => {
             </p>
             <div>
               <a
-                href="/resume.pdf"
+                href="/resumo.pdf"
                 download
                 style={{ color: "inherit", textDecoration: "none" }}
               >
                 <Button py="1rem" color="#7f00ff">
-                  Download Resume
+                  Download Resumo
                 </Button>
               </a>
             </div>

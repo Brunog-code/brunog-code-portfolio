@@ -8,7 +8,7 @@ interface IButtonProps {
   onClick?: () => void;
   type?: "button" | "submit" | "reset";
   disabled?: boolean;
-  active: boolean;
+  active?: boolean;
 }
 
 export const Button = ({
