@@ -13,6 +13,7 @@
   width: 100vw;
   height: 100vh;
   z-index: 1;
+  pointer-events: none;
 }
 
 .scroll3d-img-bg {
@@ -41,23 +42,24 @@
 
 .overlay-text h1 {
   font-weight: 700;
-  font-size: 160px;
+  font-size: 5rem;
   line-height: 1;
 }
 
-.text-stroke {
-  -webkit-text-fill-color: transparent; /* Remove o preenchimento */
-  -webkit-text-stroke-color: white; /* Cor do contorno */
-  -webkit-text-stroke-width: 1px; /* Espessura do contorno */
-  text-transform: uppercase; /* (opcional) padroniza visual */
-  font-weight: 700; /* (opcional) deixa mais legível */
-}
+/* .text-stroke {
+  -webkit-text-fill-color: transparent; 
+  -webkit-text-stroke-color: white; 
+  -webkit-text-stroke-width: 1px; 
+  text-transform: uppercase; 
+  font-weight: 700; 
+  font-size: 3rem;
+} */
 
 .overlay-text p {
   opacity: 0.6; /* opacity-60 */
-  margin-top: 1rem; /* mt-4 → 4 * 0.25rem = 1rem (16px) */
-  width: 12rem; /* w-48 → 48 * 0.25rem = 12rem (192px) */
-  font-size: 13px; /* text-[13px] → valor customizado */
+  margin-top: 1.4rem; /* mt-4 → 4 * 0.25rem = 1rem (16px) */
+  width: 14rem; /* w-48 → 48 * 0.25rem = 12rem (192px) */
+  font-size: 1rem; /* text-[13px] → valor customizado */
   text-align: center; /* text-center */
 }
 
@@ -67,4 +69,42 @@
   color: var(--background-dark);
   width: 100vw;
   height: 100vh;
+}
+
+.key-title-projects {
+  color: var(--primary-purple);
+  font-size: 70px;
+  animation: colorKey 2s ease-in-out infinite;
+}
+
+@keyframes colorKey {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+    filter: blur(1.2px);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (min-width: 768px) {
+  .overlay-text h1 {
+    font-size: 7rem;
+  }
+
+  .key-title-projects {
+    color: var(--primary-purple);
+    font-size: 90px;
+  }
+
+  .overlay-text p {
+    opacity: 0.6; /* opacity-60 */
+    margin-top: 1.4rem; /* mt-4 → 4 * 0.25rem = 1rem (16px) */
+    width: 16rem; /* w-48 → 48 * 0.25rem = 12rem (192px) */
+    font-size: 1rem; /* text-[13px] → valor customizado */
+    text-align: center; /* text-center */
+  }
 }

@@ -71,9 +71,8 @@
   justify-content: center;
   position: relative;
   gap: 15px;
-  z-index: 2000;
+  z-index: 1;
   padding-bottom: 100px;
-  isolation: isolate;
 }
 
 .photo-perfil,
@@ -340,7 +339,6 @@
   top: 8%;
   right: 5%;
 }
-
 
 .s-img-circle .text-circle {
   animation: rotateCircleText 20s linear infinite;

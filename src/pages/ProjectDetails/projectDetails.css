@@ -95,6 +95,7 @@
   text-decoration: none;
   padding: 10px;
   gap: 40px;
+  z-index: 20000;
 }
 
 .details-links a {
@@ -106,6 +107,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 20000;
 }
 
 .details-links a:hover {
@@ -201,7 +203,7 @@
   margin: 0 auto;
 }
 .projects-details-content-main-title h1 {
-  font-size: 1.4rem;
+  font-size: 2rem;
 }
 
 /* efeito bg */
@@ -215,6 +217,7 @@
   filter: blur(300px);
   opacity: 0.6;
   z-index: 0;
+  pointer-events: none;
 }
 
 /* Um blob rosa */

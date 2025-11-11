@@ -7,7 +7,6 @@ import { Button } from "../Button/Button";
 import { Scroll3DEffect } from "../lib/Gsap/Scroll3dZoom/Scroll3dZoom";
 
 export const Projects = () => {
-  //verifica se é mobile
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   useEffect(() => {
     const handleResize = () => {
@@ -58,42 +57,35 @@ export const Projects = () => {
   return (
     <Scroll3DEffect>
       <section ref={ref} className="container-projects" id="projects">
-        <div className="title">
-          <h1>
-            <span className="key-title">&#123; </span>Projetos
-            <span className="key-title"> &#125;</span>
-          </h1>
-        </div>
-
-        <div className="projects-desc">
-          <p>
-            Nesta seção, apresento alguns dos meus projetos organizados em uma
-            timeline por ordem de desenvolvimento. Cada projeto reflete uma
-            etapa da minha evolução como desenvolvedor, mostrando minhas
-            habilidades, aprendizados e experiências adquiridas ao longo do
-            tempo. Filtre por stack desejada
-            <span className="project-dot">.</span>
-          </p>
-        </div>
 
         <div className="projects-filter">
-          <Button px="1rem" py="1rem" onClick={() => handleFilterChange("all")}>
-            Todas
-          </Button>
-          <Button
-            px="1rem"
-            py="1rem"
-            onClick={() => handleFilterChange("Front-end")}
-          >
-            Front-end
-          </Button>
-          <Button
-            px="1rem"
-            py="1rem"
-            onClick={() => handleFilterChange("Fullstack")}
-          >
-            Fullstack
-          </Button>
+          <div>
+            <p>Filtre pela categoria</p>
+          </div>
+
+          <div className="btns-filter">
+            <Button
+              px="1rem"
+              py="1rem"
+              onClick={() => handleFilterChange("all")}
+            >
+              Todos
+            </Button>
+            <Button
+              px="1rem"
+              py="1rem"
+              onClick={() => handleFilterChange("Front-end")}
+            >
+              Front-end
+            </Button>
+            <Button
+              px="1rem"
+              py="1rem"
+              onClick={() => handleFilterChange("Fullstack")}
+            >
+              Fullstack
+            </Button>
+          </div>
         </div>
 
         {/* Linha central */}

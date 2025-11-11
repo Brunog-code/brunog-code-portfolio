@@ -49,7 +49,7 @@ export const CardProject = ({ proj, index, lineHeight }: CardProjectProps) => {
         const offsetTop =
           cardRef.current.offsetTop + cardRef.current.offsetHeight / 2;
 
-        const triggerOffset = window.innerHeight * 0.4; // 20% da viewport
+        const triggerOffset = window.innerHeight * 0.5; // 50% da viewport
         //se a altura da linha for maior ou igual ao centro do card, ativa o marker
         setActive(value >= offsetTop - triggerOffset);
       }
@@ -82,7 +82,8 @@ export const CardProject = ({ proj, index, lineHeight }: CardProjectProps) => {
         </div>
 
         <p>
-          <span>Finalizado em: </span>{proj.date}
+          <span>Finalizado em: </span>
+          {proj.date}
         </p>
         <h3>{proj.title}</h3>
         <p>{proj.subtitle}</p>

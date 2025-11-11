@@ -7,7 +7,7 @@ header {
   align-items: center;
   position: fixed;
   background-color: var(--background-dark);
-  z-index: 999;
+  z-index: 99998;
 }
 
 header .text-logo {
@@ -68,7 +68,7 @@ header li:hover::before {
   background-color: transparent;
   border: 0;
   padding: 6px;
-  z-index: 9999;
+  z-index: 100000;
 }
 
 /* mobile menu */
@@ -85,7 +85,7 @@ header li:hover::before {
   display: flex;
   flex-direction: column;
   transition: right 0.36s ease;
-  z-index: 9998;
+  z-index: 99999;
 }
 .mobile-menu.open {
   right: 0;

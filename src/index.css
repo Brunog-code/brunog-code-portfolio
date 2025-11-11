@@ -40,16 +40,21 @@ li {
 
 /* titulos sections */
 .title {
-  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
 }
 
+
+
 .title h1 {
-  font-size: 1.5rem;
+  font-size: 3rem;
 }
 
 .key-title {
   color: var(--primary-purple);
-  font-size: 1.5rem;
+  font-size: 3rem;
 }
 
 /* Barra rolagem */

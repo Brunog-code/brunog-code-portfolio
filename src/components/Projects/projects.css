@@ -8,19 +8,6 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  margin-top: 50px;
-}
-
-.projects-desc,
-.projects-filter {
-  margin: 30px auto;
-}
-
-.projects-desc p {
-  line-height: 2.2;
-  text-align: justify;
-  text-justify: inter-word;
-  font-size: 1.1rem;
 }
 
 .project-dot {
@@ -32,21 +19,30 @@
 
 .projects-filter {
   display: flex;
+  flex-direction: column;
   gap: 30px;
   justify-content: flex-start;
   align-items: center;
+  z-index: 20000;
+}
+
+.btns-filter {
+  display: flex;
+  gap: 25px;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 200005;
 }
 
 /* Linha central */
 .projects-line {
   position: absolute;
   left: 24px;
-  top: 500px;
+  top: 300px;
   width: 6px;
   height: 100%;
   background: #333;
   border-radius: 4px;
-  margin-top: 10px;
 }
 
 /* Linha animada */
@@ -62,7 +58,7 @@
 /* Container dos cards */
 .projects-content {
   position: relative;
-  padding-top: 100px;
+  padding-top: 250px;
 }
 
 /* efeito bg */

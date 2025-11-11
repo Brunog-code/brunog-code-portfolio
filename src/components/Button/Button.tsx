@@ -21,7 +21,7 @@ export const Button = ({
 }: IButtonProps) => {
   return (
     <button
-      className="btn-hero-contact"
+      className="btn"
       style={{
         padding: `${py} ${px}`,
         backgroundColor: color,

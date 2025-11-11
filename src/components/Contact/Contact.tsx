@@ -6,6 +6,8 @@ import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { LoadingButton } from "../lib/FramerAnimation/Loading/Loading";
 import { useRef, useState } from "react";
 import { FadeIn } from "../lib/Gsap/FadeIn";
+import { useScrollTitle } from "../../hooks/useScrollTitle";
+import { motion } from "framer-motion";
 
 export const Contact = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -56,13 +58,25 @@ export const Contact = () => {
     }
   };
 
+  ///animacao title
+  const { refTitle, scale, opacity } = useScrollTitle({
+    scaleRange: [4, 1],
+    opacityRange: [0, 1],
+  });
+
   return (
     <section className="container-contact">
       <div className="title">
-        <h1>
+        <motion.h1
+          ref={refTitle}
+          style={{
+            scale,
+            opacity,
+          }}
+        >
           <span className="key-title">&#123; </span>Contato
           <span className="key-title"> &#125;</span>
-        </h1>
+        </motion.h1>
       </div>
 
       <article className="contact-wrap-content">
