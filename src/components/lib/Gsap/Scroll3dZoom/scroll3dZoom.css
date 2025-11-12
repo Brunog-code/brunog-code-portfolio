@@ -2,6 +2,9 @@
   position: relative;
   overflow: hidden;
   padding-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .scroll3d-img-container {
@@ -44,7 +47,7 @@
   font-weight: 700;
   font-size: 5rem;
   line-height: 1;
-  animation: animationTitle 2s ease-in-out infinite;
+  animation: animationTitle 4s ease-in-out infinite;
 }
 
 /* .text-stroke {
@@ -75,7 +78,7 @@
 .key-title-projects {
   color: var(--primary-purple);
   font-size: 70px;
-  animation: animationKey 2s ease-in-out infinite;
+  animation: animationKey 4s ease-in-out infinite;
 }
 
 /* chaves */
@@ -95,13 +98,24 @@
 /* h1 */
 @keyframes animationTitle {
   0% {
-    filter: blur(0px);
+    transform: scaleY(1) skewY(0deg);
+    filter: blur(0px) brightness(1);
+  }
+  25% {
+    transform: scaleY(1.015) skewY(0.3deg);
+    filter: blur(0.3px) brightness(1.05);
   }
   50% {
-    filter: blur(1.2px);
+    transform: scaleY(0.985) skewY(-0.3deg);
+    filter: blur(0.4px) brightness(0.95);
+  }
+  75% {
+    transform: scaleY(1.01) skewY(0.15deg);
+    filter: blur(0.2px) brightness(1);
   }
   100% {
-    filter: blur(0px);
+    transform: scaleY(1) skewY(0deg);
+    filter: blur(0px) brightness(1);
   }
 }
 

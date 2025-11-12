@@ -48,7 +48,7 @@ export const Header = () => {
   }, [isOpen]);
 
   return (
-    <header>
+    <header className="header-navbar-home">
       {/* imagem */}
       <div className="container-logo">
         <span className="text-logo">
