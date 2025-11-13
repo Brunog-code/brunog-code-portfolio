@@ -174,7 +174,7 @@ export const Header = () => {
               smooth={true} // rolagem suave
               duration={500} // duração em ms
               spy={true} // ativa a classe quando estiver visível
-              offset={-14} // se quiser compensar header fixo
+              offset={-13} // se quiser compensar header fixo
               className="nav-link"
               activeClass="active"
             >
