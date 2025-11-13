@@ -5,6 +5,8 @@ import { InteractiveCube } from "../lib/Three/InteractiveCube";
 import { Button } from "../Button/Button";
 import { useScrollTitle } from "../../hooks/useScrollTitle";
 
+import { SiTypescript, SiNodedotjs, SiReact, SiHtml5 } from "react-icons/si";
+
 export const About = () => {
   const refPipe = useRef<HTMLDivElement | null>(null);
   const [isWebGLSupported, setIsWebGLSupported] = useState(true);
@@ -111,13 +113,39 @@ export const About = () => {
             {isWebGLSupported && !isMobile ? (
               <InteractiveCube />
             ) : (
-              <div className="wrap-img-fallback-about">
-                <img
-                  src="/img-about.png"
-                  alt="Imagem-homem-computador-fallback cubo"
-                  className="fallback-cube"
-                />
-              </div>
+              <>
+                <div className="wrap-img-fallback-about">
+                  <img
+                    src="/img-about.png"
+                    alt="Imagem-homem-computador-fallback cubo"
+                    className="fallback-cube"
+                  />
+                </div>
+
+                {/* novo container, sem overflow */}
+                <div className="icons-around-fallback">
+                  <SiReact
+                    color="#61DAFB"
+                    size={50}
+                    className="icon-about-animation icon-about-react"
+                  />
+                  <SiTypescript
+                    color="#3178C6"
+                    size={50}
+                    className="icon-about-animation  icon-about-ts"
+                  />
+                  <SiNodedotjs
+                    color="#5FA04E"
+                    size={50}
+                    className="icon-about-animation icon-about-node"
+                  />
+                  <SiHtml5
+                    color="#E34F26"
+                    size={50}
+                    className="icon-about-animation icon-about-html"
+                  />
+                </div>
+              </>
             )}
           </div>
         </div>

@@ -92,7 +92,8 @@
   border-radius: 50%;
   overflow: hidden;
   margin-top: 50px;
-  cursor: default; 
+  cursor: default;
+  position: relative;
 }
 
 .wrap-img-fallback-about img {
@@ -120,6 +121,117 @@
   background: var(--accent-pink);
   bottom: 0px;
   right: 0px;
+}
+
+.icons-around-fallback {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 250px;
+  height: 250px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.icon-about-animation {
+  position: absolute;
+  filter: blur(0px);
+  opacity: 0.9;
+}
+
+/* ========================= */
+/* POSIÇÕES FIXAS DOS ÍCONES */
+/* ========================= */
+.icon-about-react {
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: reactFloat 3s ease-in-out infinite;
+}
+
+.icon-about-ts {
+  top: 50%;
+  right: 0;
+  transform: translate(50%, -50%);
+  animation: tsFloat 3.2s ease-in-out infinite;
+}
+
+.icon-about-node {
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  animation: nodeFloat 2.8s ease-in-out infinite;
+}
+
+.icon-about-html {
+  top: 50%;
+  left: 0;
+  transform: translate(-50%, -50%);
+  animation: htmlFloat 3.5s ease-in-out infinite;
+}
+
+/* ========================= */
+/* ANIMAÇÕES INDIVIDUAIS     */
+/* ========================= */
+@keyframes reactFloat {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    filter: blur(0px);
+  }
+  50% {
+    transform: translate(-50%, -53%) scale(1.05);
+    filter: blur(1px);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    filter: blur(0px);
+  }
+}
+
+@keyframes tsFloat {
+  0% {
+    transform: translate(50%, -50%) rotate(0deg);
+    filter: blur(0px);
+  }
+  50% {
+    transform: translate(48%, -48%) rotate(3deg);
+    filter: blur(1px);
+  }
+  100% {
+    transform: translate(50%, -50%) rotate(0deg);
+    filter: blur(0px);
+  }
+}
+
+@keyframes nodeFloat {
+  0% {
+    transform: translate(-50%, 50%) scale(1);
+    filter: blur(0px);
+  }
+  50% {
+    transform: translate(-52%, 52%) scale(1.07);
+    filter: blur(1px);
+  }
+  100% {
+    transform: translate(-50%, 50%) scale(1);
+    filter: blur(0px);
+  }
+}
+
+@keyframes htmlFloat {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    filter: blur(0px);
+  }
+  50% {
+    transform: translate(-53%, -48%) scale(1.05);
+    filter: blur(1px);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    filter: blur(0px);
+  }
 }
 
 /* responsividade */
