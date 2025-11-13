@@ -59,7 +59,7 @@
 .wrap-typed {
   display: flex;
   width: 100%;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   margin-bottom: 10px;
 }

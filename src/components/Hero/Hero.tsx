@@ -118,8 +118,8 @@ export const Hero = () => {
                 </div>
 
                 <div className="btn-text">
-                  <span className="text-white">Ver projetos</span>
-                  <span className="text-purple">Ver projetos</span>
+                  <span className="text-white">Ver Projetos</span>
+                  <span className="text-purple">Ver Projetos</span>
                 </div>
               </div>
             </ScrollLink>
