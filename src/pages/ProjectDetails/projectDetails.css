@@ -2,6 +2,7 @@
   max-width: 1600px;
   margin: 0 auto;
   width: 100%;
+  overflow-x: hidden;
 }
 
 .project-details-container-logo {
@@ -197,7 +198,6 @@
 .projects-details-content-main {
   background-color: #111;
   width: 100%;
-  padding: 10px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
