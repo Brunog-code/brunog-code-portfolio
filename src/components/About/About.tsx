@@ -65,10 +65,11 @@ export const About = () => {
             <p>
               Apaixonado por tecnologia e pela criação de soluções que realmente
               fazem a diferença, venho me dedicando ao desenvolvimento web há
-              mais de um ano, com foco em React, Node.js, TypeScript e Next.js.
-              Atualmente, curso Análise e Desenvolvimento de Sistemas, e meu
+              mais de um ano, com foco em <span className="about-text-Highlight-purple">JavaScript, TypeScript, React, Node.js, Next.js, 
+              e banco de dados</span><span className="about-dot">. </span>
+              Atualmente, curso <span className="about-text-Highlight-pink">Análise e Desenvolvimento de Sistemas</span>, e meu
               objetivo é continuar evoluindo como desenvolvedor fullstack,
-              unindo boas práticas, performance e design funcional. No futuro,
+              unindo boas práticas, performance e design funcional<span className="about-dot">.</span> No futuro,
               pretendo expandir minha atuação também para o desenvolvimento
               mobile, buscando criar experiências completas e conectadas entre
               web e mobile
