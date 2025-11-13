@@ -145,29 +145,28 @@
 /* ========================= */
 .icon-about-react {
   top: 0;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  left: 0;
+
   animation: reactFloat 3s ease-in-out infinite;
 }
 
 .icon-about-ts {
-  top: 50%;
+  top: 0;
   right: 0;
-  transform: translate(50%, -50%);
   animation: tsFloat 3.2s ease-in-out infinite;
 }
 
 .icon-about-node {
   bottom: 0;
-  left: 50%;
-  transform: translate(-50%, 50%);
+  right: 0;
+
   animation: nodeFloat 2.8s ease-in-out infinite;
 }
 
 .icon-about-html {
-  top: 50%;
+  bottom: 0;
   left: 0;
-  transform: translate(-50%, -50%);
+
   animation: htmlFloat 3.5s ease-in-out infinite;
 }
 
@@ -176,60 +175,60 @@
 /* ========================= */
 @keyframes reactFloat {
   0% {
-    transform: translate(-50%, -50%) scale(1);
+    transform: scale(1) rotate(0deg);
     filter: blur(0px);
   }
   50% {
-    transform: translate(-50%, -53%) scale(1.05);
+    transform: scale(1.05) rotate(5deg);
     filter: blur(1px);
   }
   100% {
-    transform: translate(-50%, -50%) scale(1);
+    transform: scale(1) rotate(0deg);
     filter: blur(0px);
   }
 }
 
 @keyframes tsFloat {
   0% {
-    transform: translate(50%, -50%) rotate(0deg);
+    transform: scale(1) rotate(0deg);
     filter: blur(0px);
   }
   50% {
-    transform: translate(48%, -48%) rotate(3deg);
+    transform: scale(1.07) rotate(5deg);
     filter: blur(1px);
   }
   100% {
-    transform: translate(50%, -50%) rotate(0deg);
+    transform: scale(1) rotate(0deg);
     filter: blur(0px);
   }
 }
 
 @keyframes nodeFloat {
   0% {
-    transform: translate(-50%, 50%) scale(1);
+    transform: scale(1) rotate(0deg);
     filter: blur(0px);
   }
   50% {
-    transform: translate(-52%, 52%) scale(1.07);
+    transform: scale(1.07) rotate(5deg);
     filter: blur(1px);
   }
   100% {
-    transform: translate(-50%, 50%) scale(1);
+    transform: scale(1) rotate(0deg);
     filter: blur(0px);
   }
 }
 
 @keyframes htmlFloat {
   0% {
-    transform: translate(-50%, -50%) scale(1);
+    transform: scale(1) rotate(0deg);
     filter: blur(0px);
   }
   50% {
-    transform: translate(-53%, -48%) scale(1.05);
+    transform: scale(1.05) rotate(5deg);
     filter: blur(1px);
   }
   100% {
-    transform: translate(-50%, -50%) scale(1);
+    transform: scale(1) rotate(0deg);
     filter: blur(0px);
   }
 }
@@ -242,5 +241,32 @@
 
   .wrap-img-fallback-about {
     margin-top: 0;
+  }
+
+  .icon-about-react {
+    top: -30px;
+    left: -10px;
+
+    animation: reactFloat 3s ease-in-out infinite;
+  }
+
+  .icon-about-ts {
+    top: -30px;
+    right: -10px;
+    animation: tsFloat 3.2s ease-in-out infinite;
+  }
+
+  .icon-about-node {
+    bottom: 40px;
+    right: 0;
+
+    animation: nodeFloat 2.8s ease-in-out infinite;
+  }
+
+  .icon-about-html {
+    bottom: 40px;
+    left: 0;
+
+    animation: htmlFloat 3.5s ease-in-out infinite;
   }
 }
