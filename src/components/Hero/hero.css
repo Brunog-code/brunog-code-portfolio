@@ -39,11 +39,11 @@
 
 .intro {
   font-size: 1.6rem;
-  margin-left: 20px;
+  margin-left: 15px;
 }
 
 .name {
-  font-size: 2rem;
+  font-size: 1.7rem;
   color: var(--accent-pink);
   font-weight: 800;
 }
@@ -367,6 +367,12 @@
     flex-direction: row;
     min-height: auto;
     padding-bottom: 35px;
+  }
+
+  .name {
+    font-size: 2rem;
+    color: var(--accent-pink);
+    font-weight: 800;
   }
 
   .wrap-btn-hero {
