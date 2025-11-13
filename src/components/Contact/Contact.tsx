@@ -86,8 +86,9 @@ export const Contact = () => {
       </div>
 
       <article className="contact-wrap-content">
+        
         <div className="contact-content-form">
-          <FadeIn ref={formRef} x={-300} width="100%">
+          <FadeIn ref={formRef} x={-200} width="100%">
             <div className="wrap-contacts">
               <span className="contact-link link-email">
                 <MdEmail size={22} style={{ marginRight: "8px" }} />

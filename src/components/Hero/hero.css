@@ -282,20 +282,20 @@
 @keyframes floatLeft {
   0%,
   100% {
-    transform: translateY(0) rotate(-10deg);
+    transform: translateY(0) rotate(-5deg);
   }
   50% {
-    transform: translateY(-20px) rotate(5deg);
+    transform: translateY(-7px) rotate(5deg);
   }
 }
 
 @keyframes floatRight {
   0%,
   100% {
-    transform: translateY(0) rotate(10deg);
+    transform: translateY(0) rotate(5deg);
   }
   50% {
-    transform: translateY(20px) rotate(-5deg);
+    transform: translateY(7px) rotate(-5deg);
   }
 }
 

@@ -52,7 +52,7 @@ export const Hero = () => {
 
   return (
     <section className="container-hero">
-      <FadeIn ref={textRef} x={-200} duration={1.5}>
+      <FadeIn ref={textRef} x={-200} duration={1} zIndex={5}>
         <div className="s-text">
           {/* texto */}
           <span className="greeting">
@@ -81,7 +81,7 @@ export const Hero = () => {
               smooth={true}
               duration={500}
               spy={true}
-              offset={-90}
+              offset={-70}
             >
               <div className="wrap-btn-projects-external wrap-btn-projects-external-color-contact">
                 <div className="wrap-btn-projects-internal">
@@ -89,8 +89,8 @@ export const Hero = () => {
                 </div>
 
                 <div className="btn-text">
-                  <span className="text-white">Falar comigo</span>
-                  <span className="text-pink">Falar comigo</span>
+                  <span className="text-white">Contato</span>
+                  <span className="text-pink">Contato</span>
                 </div>
               </div>
             </ScrollLink>
@@ -99,7 +99,7 @@ export const Hero = () => {
               smooth={true}
               duration={500}
               spy={true}
-              offset={-20}
+              offset={-14}
             >
               <div className="wrap-btn-projects-external wrap-btn-projects-external-color-projects">
                 <div className="wrap-btn-projects-internal">
@@ -158,11 +158,12 @@ export const Hero = () => {
             display: "block",
             width: "100%",
             height: "100%",
+            zIndex: 0,
           }}
         >
           <ForceTransparentCanvas />
           {/* 🔹 Basta passar o caminho do vídeo em vez da imagem */}
-          <ImageReveal video="/vids/vid-3.mp4" />
+          <ImageReveal video="/vids/vid-medium.mp4" />
         </Canvas>
       </div>
     </section>

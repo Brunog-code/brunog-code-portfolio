@@ -8,8 +8,8 @@ varying vec2 vUv;
 
 void main() {
     float dist = distance(vUv, u_mouse);
-    float radius = 0.25;
-    float softness = 0.20;
+    float radius = 0.22;
+    float softness = 0.18;
     float mask = smoothstep(radius, radius - softness, dist);
     mask *= u_strength;
 

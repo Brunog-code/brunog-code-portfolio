@@ -11,6 +11,7 @@ interface IFadeInProps {
   ease?: string;
   width?: string | number; // 👈 adiciona o width como opcional
   children: React.ReactNode;
+  zIndex?: number
 }
 
 export const FadeIn = forwardRef<HTMLDivElement, IFadeInProps>(
@@ -22,8 +23,9 @@ export const FadeIn = forwardRef<HTMLDivElement, IFadeInProps>(
       duration = 1,
       delay = 0.5,
       ease = "power2.out",
-      width, // 👈 recebe opcionalmente
+      width, //recebe opcionalmente
       children,
+      zIndex
     },
     ref
   ) => {
@@ -62,7 +64,10 @@ export const FadeIn = forwardRef<HTMLDivElement, IFadeInProps>(
     }, [opacity, x, y, duration, delay, ease, ref]);
 
     // 👇 só aplica width se ele foi passado
-    const style = width ? { width } : undefined;
+    const style: React.CSSProperties = {
+      ...(width ? { width } : {}),
+      ...(zIndex !== undefined ? { position: "relative", zIndex } : {}),
+    };
 
     return (
       <div ref={ref} style={style}>

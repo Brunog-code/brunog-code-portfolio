@@ -8,6 +8,7 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
+  margin-bottom: 60px;
 }
 
 .project-dot {
@@ -68,10 +69,10 @@
 .container-projects::after {
   content: "";
   position: absolute;
-  width: 350px;
-  height: 350px;
+  width: 250px;
+  height: 250px;
   border-radius: 50%;
-  filter: blur(300px);
+  filter: blur(200px);
   opacity: 0.6;
   z-index: 0;
 }
@@ -79,8 +80,8 @@
 /* Um blob rosa */
 .container-projects::before {
   background: var(--accent-pink);
-  top: 70%;
-  left: 50%;
+  top: 20%;
+  left: 30%;
 }
 
 /* Layout desktop */
@@ -99,7 +100,7 @@
 
   .container-projects::before {
     background: var(--accent-pink);
-    top: 50%;
+    top: 30%;
     left: 50%;
   }
 }
