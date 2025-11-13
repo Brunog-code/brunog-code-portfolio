@@ -4,8 +4,7 @@ import "./contact.css";
 import { db } from "../../firebaseConfig";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { LoadingButton } from "../lib/FramerAnimation/Loading/Loading";
-import { useRef, useState, useEffect } from "react";
-import { FadeIn } from "../lib/Gsap/FadeIn";
+import { useState, useEffect } from "react";
 import { useScrollTitle } from "../../hooks/useScrollTitle";
 import { motion } from "framer-motion";
 import { TechOrbit } from "../lib/Three/TechOrbit";
@@ -16,7 +15,6 @@ export const Contact = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isWebGLSupported, setIsWebGLSupported] = useState(true);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
-  const formRef = useRef(null);
 
   // Verifica se o navegador suporta WebGL
   useEffect(() => {
@@ -97,35 +95,33 @@ export const Contact = () => {
 
       <article className="contact-wrap-content">
         <div className="contact-content-form">
-          <FadeIn ref={formRef} x={-200} width="100%">
-            <div className="wrap-contacts">
-              <span className="contact-link link-email">
-                <MdEmail size={22} style={{ marginRight: "8px" }} />
-                <a href="mailto:brunogon.silva@hotmail.com">Enviar email</a>
-              </span>
-              <span className="contact-link link-whats">
-                <SiWhatsapp size={22} style={{ marginRight: "8px" }} />
-                <a href="https://wa.me/5519999107390" target="_blank">
-                  Conversar no WhatsApp
-                </a>
-              </span>
-            </div>
-            <div className="contact-info">
-              <span>
-                Ou se preferir, preencha o formulário abaixo
-                <span className="contact-dot">.</span>
-              </span>
-            </div>
+          <div className="wrap-contacts">
+            <span className="contact-link link-email">
+              <MdEmail size={22} style={{ marginRight: "8px" }} />
+              <a href="mailto:brunogon.silva@hotmail.com">Enviar email</a>
+            </span>
+            <span className="contact-link link-whats">
+              <SiWhatsapp size={22} style={{ marginRight: "8px" }} />
+              <a href="https://wa.me/5519999107390" target="_blank">
+                Conversar no WhatsApp
+              </a>
+            </span>
+          </div>
+          <div className="contact-info">
+            <span>
+              Ou se preferir, preencha o formulário abaixo
+              <span className="contact-dot">.</span>
+            </span>
+          </div>
 
-            <form className="contact-form" onSubmit={handleSubmit}>
-              <input type="text" placeholder="Nome" />
-              <input type="text" placeholder="Email" />
-              <textarea placeholder="Mensagem" />
-              <Button type="submit" py="1rem" disabled={isLoading}>
-                {isLoading ? <LoadingButton /> : "Enviar"}
-              </Button>
-            </form>
-          </FadeIn>
+          <form className="contact-form" onSubmit={handleSubmit}>
+            <input type="text" placeholder="Nome" />
+            <input type="text" placeholder="Email" />
+            <textarea placeholder="Mensagem" />
+            <Button type="submit" py="1rem" disabled={isLoading}>
+              {isLoading ? <LoadingButton /> : "Enviar"}
+            </Button>
+          </form>
         </div>
 
         <div className="contact-content-world-techs">
