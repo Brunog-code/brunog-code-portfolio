@@ -1,7 +1,7 @@
 import { Header } from "../../components/Header/Header";
 import { Hero } from "../../components/Hero/Hero";
 import { About } from "../../components/About/About";
-import { Technologies } from "../../components/Technologies/Technologies";
+import { Technologies } from "../../components/Technologiess/Technologies";
 import { Projects } from "../../components/Projects/Projects";
 import { ScrollBarAnimation } from "../../components/lib/FramerAnimation/ScrollBarAnimation/ScrollBarAnimation";
 import { Element, scroller } from "react-scroll";
