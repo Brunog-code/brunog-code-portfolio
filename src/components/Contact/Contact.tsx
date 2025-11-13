@@ -8,7 +8,7 @@ import { useRef, useState, useEffect } from "react";
 import { FadeIn } from "../lib/Gsap/FadeIn";
 import { useScrollTitle } from "../../hooks/useScrollTitle";
 import { motion } from "framer-motion";
-import { TechOrbit } from "../lib/Three_temp/TechOrbit";
+import { TechOrbit } from "../lib/Three/TechOrbit";
 import { SiWhatsapp } from "react-icons/si";
 import { MdEmail } from "react-icons/md";
 
