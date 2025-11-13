@@ -88,8 +88,8 @@ export const Contact = () => {
             opacity,
           }}
         >
-          <span className="key-title">&#123; </span>Contato
-          <span className="key-title"> &#125;</span>
+          <span className="key-title">&#123;</span>Contato
+          <span className="key-title">&#125;</span>
         </motion.h1>
       </div>
 

@@ -53,8 +53,8 @@ export const About = () => {
             opacity,
           }}
         >
-          <span className="key-title">&#123; </span>Sobre
-          <span className="key-title"> &#125;</span>
+          <span className="key-title">&#123;</span>Sobre
+          <span className="key-title">&#125;</span>
         </motion.h1>
       </div>
 
