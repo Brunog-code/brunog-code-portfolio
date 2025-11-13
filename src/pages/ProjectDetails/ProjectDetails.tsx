@@ -184,8 +184,8 @@ export const ProjectDetails = () => {
           <div className="projects-details-content-main-title">
             <h1>
               {" "}
-              <span className="bracket">&#91; </span>Detalhes do Projeto
-              <span className="bracket"> &#93;</span>
+              <span className="bracket">&#91;</span>Detalhes do Projeto
+              <span className="bracket">&#93;</span>
             </h1>
           </div>
 
