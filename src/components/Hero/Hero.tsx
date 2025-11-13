@@ -6,9 +6,15 @@ import { Link as ScrollLink } from "react-scroll";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { FadeIn } from "../lib/Gsap/FadeIn";
 
+// reveal-effect-import
+import { Canvas, useThree } from "@react-three/fiber";
+import * as THREE from "three";
+import { ImageReveal } from "../lib/Three/ImageReveal";
+
 export const Hero = () => {
   const textRef = useRef<HTMLDivElement>(null);
 
+  // typed
   useEffect(() => {
     //typed-js
     const typed = new Typed(".text-typed", {
@@ -23,6 +29,26 @@ export const Hero = () => {
       typed.destroy();
     };
   }, []);
+
+  // Força o canvas a ser realmente transparente
+  function ForceTransparentCanvas() {
+    const { gl, scene } = useThree();
+
+    useEffect(() => {
+      // 🔹 Garante transparência real
+      gl.setClearColor(0x000000, 0); // Preto, mas alpha = 0
+      scene.background = null;
+
+      // 🔹 Corrige espaço de cor (mantém cores corretas)
+      gl.outputColorSpace = THREE.SRGBColorSpace;
+      gl.toneMapping = THREE.NoToneMapping;
+
+      // 🔹 Garante que o elemento DOM do canvas não tenha cor
+      gl.domElement.style.backgroundColor = "transparent";
+    }, [gl, scene]);
+
+    return null;
+  }
 
   return (
     <section className="container-hero">
@@ -48,6 +74,7 @@ export const Hero = () => {
               <span className="text-typed"></span>
             </span>
           </div>
+
           <div className="wrap-btn-hero">
             <ScrollLink
               to="contact"
@@ -103,7 +130,6 @@ export const Hero = () => {
       </div>
 
       {/* img circle */}
-
       <div className="s-img-circle">
         <img
           className="text-circle"
@@ -115,6 +141,29 @@ export const Hero = () => {
           src="icon-circle.png"
           alt="icone-interno-texto-curvado"
         />
+      </div>
+
+      <div className="container-canvas-hero">
+        <Canvas
+          orthographic
+          camera={{ zoom: 1, position: [0, 0, 1] }}
+          gl={{
+            antialias: true,
+            alpha: true,
+            toneMapping: THREE.NoToneMapping,
+            outputColorSpace: THREE.SRGBColorSpace,
+          }}
+          style={{
+            backgroundColor: "transparent",
+            display: "block",
+            width: "100%",
+            height: "100%",
+          }}
+        >
+          <ForceTransparentCanvas />
+          {/* 🔹 Basta passar o caminho do vídeo em vez da imagem */}
+          <ImageReveal video="/vids/vid-3.mp4" />
+        </Canvas>
       </div>
     </section>
   );

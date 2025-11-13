@@ -9,6 +9,7 @@
   justify-content: center;
   align-items: center;
   border: 1px solid var(--primary-purple);
+  z-index: 222;
 }
 
 .list-tech {

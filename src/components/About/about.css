@@ -63,11 +63,29 @@
   height: 300px;
   position: relative;
   cursor: pointer;
+
+  display: flex;               
+  justify-content: center;     
+  align-items: flex-start;          
 }
 
 .wrap-cube-about canvas {
   width: 100% !important;
   height: 100% !important;
+  display: block;
+}
+
+.wrap-img-fallback-about {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.wrap-img-fallback-about img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
 

@@ -6,6 +6,7 @@ import { projectsData } from "../../data/projectsData";
 import { Button } from "../Button/Button";
 import { Scroll3DEffect } from "../lib/Gsap/Scroll3dZoom/Scroll3dZoom";
 
+
 export const Projects = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   useEffect(() => {
@@ -53,6 +54,8 @@ export const Projects = () => {
       window.scrollTo({ top: scrollPos });
     });
   };
+
+
 
   return (
     <Scroll3DEffect>
@@ -109,6 +112,8 @@ export const Projects = () => {
             />
           ))}
         </div>
+
+       
       </section>
     </Scroll3DEffect>
   );

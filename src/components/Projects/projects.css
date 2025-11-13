@@ -43,6 +43,7 @@
   height: 100%;
   background: #333;
   border-radius: 4px;
+  z-index: 2;
 }
 
 /* Linha animada */
@@ -59,6 +60,7 @@
 .projects-content {
   position: relative;
   padding-top: 250px;
+  z-index: 2;
 }
 
 /* efeito bg */
@@ -107,5 +109,3 @@
     margin-top: 10px;
   }
 }
-
-

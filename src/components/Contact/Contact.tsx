@@ -4,7 +4,7 @@ import "./contact.css";
 import { db } from "../../firebaseConfig";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { LoadingButton } from "../lib/FramerAnimation/Loading/Loading";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { FadeIn } from "../lib/Gsap/FadeIn";
 import { useScrollTitle } from "../../hooks/useScrollTitle";
 import { motion } from "framer-motion";
@@ -14,16 +14,22 @@ import { MdEmail } from "react-icons/md";
 
 export const Contact = () => {
   const [isLoading, setIsLoading] = useState(false);
-
+  const [isWebGLSupported, setIsWebGLSupported] = useState(true);
   const formRef = useRef(null);
+
+  // ✅ Verifica se o navegador suporta WebGL
+  useEffect(() => {
+    const canvas = document.createElement("canvas");
+    const gl =
+      canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
+    if (!gl) setIsWebGLSupported(false);
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
 
-    //pega o form atual
     const form = e.currentTarget;
-
     const name = (form[0] as HTMLInputElement).value.trim();
     const email = (form[1] as HTMLInputElement).value.trim();
     const message = (form[2] as HTMLTextAreaElement).value.trim();
@@ -34,7 +40,6 @@ export const Contact = () => {
       return;
     }
 
-    //validar email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       toast.error("Email inválido!");
@@ -42,7 +47,6 @@ export const Contact = () => {
       return;
     }
 
-    //firebase
     try {
       await addDoc(collection(db, "portfolioMessages"), {
         name,
@@ -50,18 +54,17 @@ export const Contact = () => {
         message,
         createdAt: serverTimestamp(),
       });
-      toast.success("Mensagem enviada com sucesso");
-
+      toast.success("Mensagem enviada com sucesso!");
       form.reset();
     } catch (error) {
       console.error(error);
-      toast.error("Erro ao enviar email");
+      toast.error("Erro ao enviar mensagem");
     } finally {
       setIsLoading(false);
     }
   };
 
-  ///animacao title
+  // animação do título
   const { refTitle, scale, opacity } = useScrollTitle({
     scaleRange: [4, 1],
     opacityRange: [0, 1],
@@ -103,6 +106,7 @@ export const Contact = () => {
                 <span className="contact-dot">.</span>
               </span>
             </div>
+
             <form className="contact-form" onSubmit={handleSubmit}>
               <input type="text" placeholder="Nome" />
               <input type="text" placeholder="Email" />
@@ -115,7 +119,17 @@ export const Contact = () => {
         </div>
 
         <div className="contact-content-world-techs">
-          <TechOrbit />
+          {isWebGLSupported ? (
+            <TechOrbit />
+          ) : (
+          <div className="wrap-img-fallback-contact">
+              <img
+              src="/tel-fallback.png"
+              alt="Imagem-telefone-fallback globo-terrestre"
+              className="fallback-orbit"
+            />
+          </div>
+          )}
         </div>
       </article>
     </section>

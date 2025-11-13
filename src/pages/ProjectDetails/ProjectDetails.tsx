@@ -52,7 +52,6 @@ export const ProjectDetails = () => {
     if (!id) return;
 
     const foundProject = projectsData.find((project) => project.id === id);
-    console.log("Projeto encontrado:", foundProject);
 
     if (!foundProject) {
       setIsError("Projeto não encontrado");
@@ -194,7 +193,7 @@ export const ProjectDetails = () => {
             {project!.content.map((paragraph, index) =>
               index == 1 ? (
                 // table
-                <table>
+                <table key={index}>
                   <thead>
                     <tr>
                       <th>Tecnologia utilizadas</th>
@@ -213,7 +212,7 @@ export const ProjectDetails = () => {
                   </tbody>
                 </table>
               ) : index == 2 ? (
-                <div>
+                <div key={index}>
                   <p>{paragraph}</p>
 
                   <ul className="list-highlights">
@@ -224,7 +223,7 @@ export const ProjectDetails = () => {
                   </ul>
                 </div>
               ) : index == 3 ? (
-                <>
+                <div key={index}>
                   <p>{paragraph}</p>
                   <div className="container-img-content">
                     <img
@@ -232,11 +231,21 @@ export const ProjectDetails = () => {
                       alt={project?.images[0].caption}
                     />
                   </div>
-                </>
+                </div>
               ) : (
                 // paragraph
                 <p key={index}>{paragraph}</p>
               )
+            )}
+            {project?.video && (
+              <div className="container-video">
+                <iframe
+                  src={project.video.replace("watch?v=", "embed/")}
+                  title={project?.title || "Vídeo do projeto"}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
             )}
           </div>
         </div>

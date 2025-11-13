@@ -1,5 +1,5 @@
 import "./about.css";
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { InteractiveCube } from "../lib/Three/InteractiveCube";
 import { Button } from "../Button/Button";
@@ -7,17 +7,25 @@ import { useScrollTitle } from "../../hooks/useScrollTitle";
 
 export const About = () => {
   const refPipe = useRef<HTMLDivElement | null>(null);
+  const [isWebGLSupported, setIsWebGLSupported] = useState(true);
 
-  ////animacao div
+  // ✅ Verifica suporte ao WebGL (fallback se não suportar)
+  useEffect(() => {
+    const canvas = document.createElement("canvas");
+    const gl =
+      canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
+    if (!gl) setIsWebGLSupported(false);
+  }, []);
+
+  // animação da div (linha)
   const { scrollYProgress: scrollPipe } = useScroll({
     target: refPipe,
     offset: ["start end", "end 70%"],
   });
 
-  //cor do início (roxo) para o final (rosa)
   const lineColor = useTransform(scrollPipe, [0, 1], ["#6a11cb", "#ff007f"]);
 
-  ////animacao title
+  // animação do título
   const { refTitle, scale, opacity } = useScrollTitle({
     scaleRange: [4, 1],
     opacityRange: [0, 1],
@@ -39,6 +47,7 @@ export const About = () => {
       </div>
 
       <div className="content">
+
         <div className="about-text">
           <motion.div
             ref={refPipe}
@@ -65,6 +74,7 @@ export const About = () => {
               web e mobile
               <span className="about-dot">.</span>
             </p>
+
             <div>
               <a
                 href="/resumo.pdf"
@@ -81,9 +91,20 @@ export const About = () => {
 
         <div className="about-img">
           <div className="wrap-cube-about">
-            <InteractiveCube />
+            {isWebGLSupported ? (
+              <InteractiveCube />
+            ) : (
+             <div className="wrap-img-fallback-about">
+               <img
+                src="/img-about.png"
+                alt="Imagem-homem-computador-fallback cubo"
+                className="fallback-cube"
+              />
+             </div>
+            )}
           </div>
         </div>
+
       </div>
     </section>
   );
