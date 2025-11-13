@@ -208,7 +208,7 @@
   margin: 30px auto;
 }
 .projects-details-content-main-title h1 {
-  font-size: 2rem;
+  font-size: 1.7rem;
 }
 
 /* text content */
@@ -456,6 +456,10 @@
 @media (min-width: 768px) {
   .projects-details-content {
     padding-top: 130px;
+  }
+
+  .projects-details-content-main-title h1 {
+    font-size: 2em;
   }
   .project-details-container-logo {
     flex-direction: row;
