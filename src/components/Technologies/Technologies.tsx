@@ -10,8 +10,8 @@ export const Technologies = () => {
   return (
     <section className="container-technologies" data-scroll-section>
       <div className="title">
-        <FadeIn ref={techRef} x={200}>
-          <h1 ref={techRefTitle}>
+        <FadeIn ref={techRefTitle} x={200} duration={0.7}>
+          <h1>
             <span className="key-title">&#123; </span>Tecnologias
             <span className="key-title"> &#125;</span>
           </h1>
