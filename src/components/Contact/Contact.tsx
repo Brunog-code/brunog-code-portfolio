@@ -94,7 +94,9 @@ export const Contact = () => {
       </div>
 
       <article className="contact-wrap-content">
+        {/* form */}
         <div className="contact-content-form">
+          
           <div className="wrap-contacts">
             <span className="contact-link link-email">
               <MdEmail size={22} style={{ marginRight: "8px" }} />
@@ -124,6 +126,7 @@ export const Contact = () => {
           </form>
         </div>
 
+          {/* animation and img */}
         <div className="contact-content-world-techs">
           {isWebGLSupported && !isMobile ? (
             <TechOrbit />

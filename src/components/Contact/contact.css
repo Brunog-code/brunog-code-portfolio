@@ -74,9 +74,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  width: 100%;
 }
 
-.contact-content-form{
+.contact-content-form {
   width: 100%;
   max-width: 900px;
   margin: 0 auto;
@@ -86,7 +88,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-
+  width: 100%;
   padding: 10px;
   will-change: transform;
 }
@@ -164,7 +166,6 @@ textarea {
 }
 
 @media (min-width: 768px) {
-
   .container-contact::before,
   .container-contact::after {
     content: "";
