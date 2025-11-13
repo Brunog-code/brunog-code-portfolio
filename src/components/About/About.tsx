@@ -8,13 +8,23 @@ import { useScrollTitle } from "../../hooks/useScrollTitle";
 export const About = () => {
   const refPipe = useRef<HTMLDivElement | null>(null);
   const [isWebGLSupported, setIsWebGLSupported] = useState(true);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
-  // ✅ Verifica suporte ao WebGL (fallback se não suportar)
+  // Verifica suporte ao WebGL (fallback se não suportar)
   useEffect(() => {
     const canvas = document.createElement("canvas");
     const gl =
       canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
     if (!gl) setIsWebGLSupported(false);
+  }, []);
+
+  //verifica se é mobile
+  useEffect(() => {
+    const checkScreen = () => setIsMobile(window.innerWidth < 768);
+    checkScreen();
+    window.addEventListener("resize", checkScreen);
+
+    return () => window.removeEventListener("resize", checkScreen);
   }, []);
 
   // animação da div (linha)
@@ -98,7 +108,7 @@ export const About = () => {
 
         <div className="about-img">
           <div className="wrap-cube-about">
-            {isWebGLSupported ? (
+            {isWebGLSupported && !isMobile ? (
               <InteractiveCube />
             ) : (
               <div className="wrap-img-fallback-about">
