@@ -1,6 +1,6 @@
 import "./hero.css";
 import Typed from "typed.js";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import { Link as ScrollLink } from "react-scroll";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
@@ -13,6 +13,17 @@ import { ImageReveal } from "../lib/Three/ImageReveal";
 
 export const Hero = () => {
   const textRef = useRef<HTMLDivElement>(null);
+
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  //verifica se é mobile
+  useEffect(() => {
+    const checkScreen = () => setIsMobile(window.innerWidth < 768);
+    checkScreen();
+    window.addEventListener("resize", checkScreen);
+
+    return () => window.removeEventListener("resize", checkScreen);
+  }, []);
 
   // typed
   useEffect(() => {
@@ -143,29 +154,31 @@ export const Hero = () => {
         />
       </div>
 
-      <div className="container-canvas-hero">
-        <Canvas
-          orthographic
-          camera={{ zoom: 1, position: [0, 0, 1] }}
-          gl={{
-            antialias: true,
-            alpha: true,
-            toneMapping: THREE.NoToneMapping,
-            outputColorSpace: THREE.SRGBColorSpace,
-          }}
-          style={{
-            backgroundColor: "transparent",
-            display: "block",
-            width: "100%",
-            height: "100%",
-            zIndex: 0,
-          }}
-        >
-          <ForceTransparentCanvas />
-          {/* 🔹 Basta passar o caminho do vídeo em vez da imagem */}
-          <ImageReveal video="/vids/vid-medium.mp4" />
-        </Canvas>
-      </div>
+      {!isMobile && (
+        <div className="container-canvas-hero">
+          <Canvas
+            orthographic
+            camera={{ zoom: 1, position: [0, 0, 1] }}
+            gl={{
+              antialias: true,
+              alpha: true,
+              toneMapping: THREE.NoToneMapping,
+              outputColorSpace: THREE.SRGBColorSpace,
+            }}
+            style={{
+              backgroundColor: "transparent",
+              display: "block",
+              width: "100%",
+              height: "100%",
+              zIndex: 0,
+            }}
+          >
+            <ForceTransparentCanvas />
+            {/* 🔹 Basta passar o caminho do vídeo em vez da imagem */}
+            <ImageReveal video="/vids/vid-medium.mp4" />
+          </Canvas>
+        </div>
+      )}
     </section>
   );
 };

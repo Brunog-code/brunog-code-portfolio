@@ -15,14 +15,24 @@ import { MdEmail } from "react-icons/md";
 export const Contact = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isWebGLSupported, setIsWebGLSupported] = useState(true);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const formRef = useRef(null);
 
-  // ✅ Verifica se o navegador suporta WebGL
+  // Verifica se o navegador suporta WebGL
   useEffect(() => {
     const canvas = document.createElement("canvas");
     const gl =
       canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
     if (!gl) setIsWebGLSupported(false);
+  }, []);
+
+  //verifica se é mobile
+  useEffect(() => {
+    const checkScreen = () => setIsMobile(window.innerWidth < 768);
+    checkScreen();
+    window.addEventListener("resize", checkScreen);
+
+    return () => window.removeEventListener("resize", checkScreen);
   }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -119,7 +129,7 @@ export const Contact = () => {
         </div>
 
         <div className="contact-content-world-techs">
-          {isWebGLSupported ? (
+          {isWebGLSupported && !isMobile ? (
             <TechOrbit />
           ) : (
             <div className="wrap-img-fallback-contact">
