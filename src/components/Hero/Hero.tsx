@@ -66,8 +66,8 @@ export const Hero = () => {
           </div>
 
           <span className="stack">
-            <span className="bracket">&#91;</span> Desenvolvedor Fullstack
-            <span className="bracket"> &#93;</span>
+            <span className="bracket">&#91;</span>Desenvolvedor Fullstack
+            <span className="bracket">&#93;</span>
           </span>
           <div className="wrap-typed">
             <span>
