@@ -1,73 +1,101 @@
-# React + TypeScript + Vite
+# 🖥️ Portfolio Pessoal - Bruno Gonçalves
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+👉 **[Acesse o projeto aqui](https://brunog-code-portfolio.vercel.app/)**
 
-Currently, two official plugins are available:
+Portfolio pessoal desenvolvido com **React** e **TypeScript**, apresentando minhas habilidades, projetos e experiência como desenvolvedor.  
+Inclui seções interativas, animações em Three.js (com fallback para dispositivos móveis e computadores que não suportam WebGL), integração com **Firebase** para envio de mensagens via formulário de contato e design responsivo para desktop e mobile.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🚀 Tecnologias Utilizadas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+O projeto foi construído utilizando uma stack moderna de frontend com foco em performance, interatividade e boas práticas de desenvolvimento.
 
-## Expanding the ESLint configuration
+### 🖥️ Frontend
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+| Tecnologia     | Badge                                                                                                           |
+| :------------- | :-------------------------------------------------------------------------------------------------------------- |
+| **React**      | ![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black)                |
+| **TypeScript** | ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat-square&logo=typescript&logoColor=white) |
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### ⚙️ Backend / Serviços
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+| Tecnologia   | Badge                                                                                                     |
+| :----------- | :-------------------------------------------------------------------------------------------------------- |
+| **Firebase** | ![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=flat-square&logo=firebase&logoColor=black) |
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 🛠️ Ferramentas e Infraestrutura
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- **Editor de Código:** Visual Studio Code
+- **Controle de Versão:** Git & GitHub
+- **Hospedagem:** Vercel
+- **Gerenciamento de Formulário:** Firebase Firestore
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+
+## ✨ Funcionalidades em Destaque
+
+O portfolio foi desenvolvido para apresentar minhas habilidades, projetos e formas de contato de maneira clara e interativa.
+
+---
+
+### 🔗 Integração com Firebase
+
+- **Envio de Contato:** Mensagens enviadas pelo formulário são armazenadas no Firestore.
+- **Validação de Campos:** Os campos são validados antes do envio para evitar entradas inválidas.
+- **Notificação Visual:** Usuário recebe feedback de envio bem-sucedido ou erro.
+
+---
+
+### 🔐 Boas Práticas e Performance
+
+- **Componentização React:** Código organizado em componentes reutilizáveis.
+- **TypeScript:** Tipagem forte para maior confiabilidade e manutenção.
+- **Responsividade:** Layout adaptável a todas as resoluções, incluindo desktop e mobile.
+- **Fallback para WebGL:** Caso o dispositivo não suporte WebGL ou seja mobile, exibe uma versão estática com ícones animados via CSS.
+
+---
+
+## 📸 Visualização
+
+### Hero Section - EFEITO IMG REVEAL
+
+![Hero](https://i.imgur.com/G58RttX.png)
+
+### Hero Section - COM FALLBACK
+
+![Hero-fallback](https://i.imgur.com/LtZhiih.png)
+
+### About Section
+
+![About](https://i.imgur.com/oSYB4W6.png)
+
+### About Section - COM FALLBACK
+
+![About-fallback](https://i.imgur.com/AWRt3kB.png)
+
+### Projetos - ENTRADA SECTION
+
+![Projects](https://i.imgur.com/cux62tJ.png)
+
+### Projetos - FILTRO
+
+![Projects-filter](https://i.imgur.com/F20L0oQ.png)
+
+### Projetos - CARDS
+
+![Projects-cards](https://i.imgur.com/iVvEB3p.png)
+
+### Formulário de Contato
+
+![Contact](https://i.imgur.com/nkYyI1M.png)
+
+### Footer
+
+![Footer](https://i.imgur.com/Vglee3W.png)
+
+### Footer - COM FALLBACK
+
+![Footer-fallback](https://i.imgur.com/CvxvmiJ.png)
