@@ -5,14 +5,17 @@ import { useRef } from "react";
 
 export const Technologies = () => {
   const techRef = useRef<HTMLDivElement>(null);
+  const techRefTitle = useRef<HTMLDivElement>(null);
 
   return (
     <section className="container-technologies" data-scroll-section>
       <div className="title">
-        <h1>
-          <span className="key-title">&#123; </span>Tecnologias
-          <span className="key-title"> &#125;</span>
-        </h1>
+        <FadeIn ref={techRef} x={200}>
+          <h1 ref={techRefTitle}>
+            <span className="key-title">&#123; </span>Tecnologias
+            <span className="key-title"> &#125;</span>
+          </h1>
+        </FadeIn>
       </div>
       <FadeIn ref={techRef} x={-150}>
         <ul className="list-tech">
