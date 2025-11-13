@@ -86,7 +86,6 @@ export const Contact = () => {
       </div>
 
       <article className="contact-wrap-content">
-        
         <div className="contact-content-form">
           <FadeIn ref={formRef} x={-200} width="100%">
             <div className="wrap-contacts">
@@ -123,13 +122,13 @@ export const Contact = () => {
           {isWebGLSupported ? (
             <TechOrbit />
           ) : (
-          <div className="wrap-img-fallback-contact">
+            <div className="wrap-img-fallback-contact">
               <img
-              src="/tel-fallback.png"
-              alt="Imagem-telefone-fallback globo-terrestre"
-              className="fallback-orbit"
-            />
-          </div>
+                src="/tel-fallback.png"
+                alt="Imagem-telefone-fallback globo-terrestre"
+                className="fallback-orbit"
+              />
+            </div>
           )}
         </div>
       </article>

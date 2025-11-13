@@ -2,13 +2,13 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCqDbR1Gt9MJXO13bPw9XsmSP4Btn4LSYk",
-  authDomain: "portfolio-brunog-code.firebaseapp.com",
-  projectId: "portfolio-brunog-code",
-  storageBucket: "portfolio-brunog-code.firebasestorage.app",
-  messagingSenderId: "943885352425",
-  appId: "1:943885352425:web:5afbe795dfa31e1ab09f78",
-  measurementId: "G-JL002S33LY",
+  apiKey: import.meta.env.VITE_API_KEY,
+  authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_APP_ID,
+  measurementId: import.meta.env.VITE_MEASUREMENT_ID,
 };
 
 //inicializa o firebase
