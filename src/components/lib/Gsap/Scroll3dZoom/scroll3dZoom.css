@@ -45,7 +45,7 @@
 
 .overlay-text h1 {
   font-weight: 700;
-  font-size: 5rem;
+  font-size: 4.5rem !important;
   line-height: 1;
   animation: animationTitle 4s ease-in-out infinite;
 }
@@ -112,7 +112,7 @@
 
 @media (min-width: 768px) {
   .overlay-text h1 {
-    font-size: 7rem;
+    font-size: 6rem !important;
   }
 
   .key-title-projects {
