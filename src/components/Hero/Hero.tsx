@@ -9,7 +9,7 @@ import { FadeIn } from "../lib/Gsap/FadeIn";
 // reveal-effect-import
 import { Canvas, useThree } from "@react-three/fiber";
 import * as THREE from "three";
-import { ImageReveal } from "../lib/Three/ImageReveal";
+import { ImageReveal } from "../lib/Three_temp/ImageReveal";
 
 export const Hero = () => {
   const textRef = useRef<HTMLDivElement>(null);

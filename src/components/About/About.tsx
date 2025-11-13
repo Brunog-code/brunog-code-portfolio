@@ -1,7 +1,7 @@
 import "./about.css";
 import { useRef, useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { InteractiveCube } from "../lib/Three/InteractiveCube";
+import { InteractiveCube } from "../lib/Three_temp/InteractiveCube";
 import { Button } from "../Button/Button";
 import { useScrollTitle } from "../../hooks/useScrollTitle";
 
