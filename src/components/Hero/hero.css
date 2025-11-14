@@ -438,6 +438,7 @@
   .wrap-btn-hero {
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
+    margin-top: 10px;
   }
 }
