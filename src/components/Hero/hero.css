@@ -174,7 +174,7 @@
 /* HOVER: fundo cresce e cria o efeito de borda roxa */
 .wrap-btn-projects-external:hover .wrap-btn-projects-internal {
   width: 92%;
-  height: 85%;
+  height: 81%;
   left: 4%;
   border-radius: 25px;
 }
