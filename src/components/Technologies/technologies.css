@@ -10,7 +10,7 @@
   align-items: center;
   border: 1px solid var(--primary-purple);
   position: relative;
-  z-index: 9999; /* bem alto */
+  z-index: 9999; 
 }
 
 .list-tech {
