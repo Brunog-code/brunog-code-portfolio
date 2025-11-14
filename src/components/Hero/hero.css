@@ -24,7 +24,7 @@
 
 .greeting {
   font-weight: 700;
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 
 .dot {
@@ -431,5 +431,13 @@
     position: absolute;
     top: 17%;
     right: 45%;
+  }
+}
+
+@media (max-width: 420px) {
+  .wrap-btn-hero {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
   }
 }
