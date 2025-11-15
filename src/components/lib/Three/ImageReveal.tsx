@@ -7,8 +7,8 @@ import vertexShader from "../../../shaders/vertex.glsl?raw";
 import fragmentShader from "../../../shaders/fragment.glsl?raw";
 
 interface ImageRevealProps {
-  image?: string; // opcional, caso queira manter compatibilidade
-  video?: string; // 🔹 novo: caminho do vídeo
+  image?: string; 
+  video?: string;
 }
 
 export const ImageReveal = ({ image, video }: ImageRevealProps) => {
@@ -18,7 +18,7 @@ export const ImageReveal = ({ image, video }: ImageRevealProps) => {
   const mouse = useRef(new THREE.Vector2(-10, -10));
   const strength = useRef({ value: 0 });
 
-  // 🔹 Cria textura — vídeo OU imagem
+  //Cria textura — vídeo OU imagem
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const texture = useRef<any>(null);
 
@@ -54,7 +54,7 @@ export const ImageReveal = ({ image, video }: ImageRevealProps) => {
     u_bgColor: { value: new THREE.Color("#0a001a") },
   });
 
-  // Atualiza textura no primeiro render após load
+  //Atualiza textura no primeiro render após load
   useEffect(() => {
     uniforms.current.u_image.value = texture.current;
   });
@@ -98,7 +98,7 @@ export const ImageReveal = ({ image, video }: ImageRevealProps) => {
     uniforms.current.u_mouse.value.copy(mouse.current);
     uniforms.current.u_strength.value = strength.current.value;
 
-    // 🔹 Atualiza textura de vídeo a cada frame
+    //Atualiza textura de vídeo a cada frame
     if (texture.current instanceof THREE.VideoTexture) {
       texture.current.needsUpdate = true;
     }
