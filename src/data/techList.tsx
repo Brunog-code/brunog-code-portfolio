@@ -13,6 +13,7 @@ import {
   SiGithub,
   SiTailwindcss,
   SiPrisma,
+  SiDocker 
 } from "react-icons/si";
 
 export const techList = [
@@ -30,4 +31,5 @@ export const techList = [
   { name: "Prisma ORM", icon: <SiPrisma aria-label="Prisma ORM"/> },
   { name: "Git", icon: <SiGit aria-label="Git"/> },
   { name: "GitHub", icon: <SiGithub aria-label="GitHub"/> },
+  { name: "Docker", icon: <SiDocker aria-label="Docker"/> },
 ];
