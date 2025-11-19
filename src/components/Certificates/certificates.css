@@ -1,0 +1,49 @@
+.container-certificates {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 50px;
+  margin-top: 50px;
+  z-index: 20000;
+}
+
+.container-certificates h2 {
+  /* background-color: var(--accent-pink); */
+  background: linear-gradient(to right, var(--primary-purple), transparent);
+  padding: 5px;
+  width: 100%;
+  text-align: center;
+  border-radius: 10px 010px 0 0;
+  font-size: 1.4rem;
+}
+
+.wrap-formation,
+.wrap-courses {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrap-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+@media (min-width: 768px) {
+  .container-certificates h2 {
+    width: 80%;
+  }
+
+  .wrap-card {
+    flex-direction: row;
+  }
+}

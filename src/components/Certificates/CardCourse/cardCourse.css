@@ -1,0 +1,43 @@
+.container-card-course {
+  padding: 10px;
+  background-color: #111;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.wrap-img-course {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.wrap-img-course img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.wrap-content-course h3 {
+  margin-bottom: 10px;
+  color: var(--primary-purple);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.wrap-btn-course-action {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.container-card-course:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 15px rgba(106, 17, 203, 0.5);
+}

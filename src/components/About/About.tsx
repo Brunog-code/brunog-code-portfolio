@@ -1,10 +1,11 @@
 import "./about.css";
+
 import { useRef, useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { InteractiveCube } from "../lib/Three/InteractiveCube";
 import { Button } from "../Button/Button";
 import { useScrollTitle } from "../../hooks/useScrollTitle";
-
+import { Certificates } from "../Certificates/Certificates";
 import { SiTypescript, SiNodedotjs, SiReact, SiHtml5 } from "react-icons/si";
 
 export const About = () => {
@@ -122,7 +123,7 @@ export const About = () => {
                   />
                 </div>
 
-                {/* novo container, sem overflow */}
+                {/* container, sem overflow */}
                 <div className="icons-around-fallback">
                   <SiReact
                     color="#61DAFB"
@@ -150,6 +151,8 @@ export const About = () => {
           </div>
         </div>
       </div>
+
+      <Certificates />
     </section>
   );
 };
