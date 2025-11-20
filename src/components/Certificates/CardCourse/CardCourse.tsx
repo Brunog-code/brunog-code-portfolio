@@ -2,41 +2,53 @@ import "./cardCourse.css";
 import { Button } from "../../Button/Button";
 import { FiExternalLink } from "react-icons/fi";
 
-// type Status = "Cursando" | "Finalizado";
+interface ICertificateProps {
+  id: string;
+  title: string;
+  institution: string;
+  status: string;
+  date: string;
+  img: string;
+  certificate: string;
+}
 
-// interface ICertificateProps {
-//   id: string;
-//   title: string;
-//   institution: string;
-//   status: Status;
-//   date: string;
-//   img: string;
-// }
+interface IData {
+  data: ICertificateProps;
+}
 
-
-export const CardCourse = () => {
-
-
+export const CardCourse = ({ data }: IData) => {
   return (
     <div className="container-card-course">
-
       <div className="wrap-img-course">
-        <img src="https://i.imgur.com/0pBMS5f.jpeg" alt="" />
+        <img src={data.img} alt={data.title} />
       </div>
 
       <div className="wrap-content-course">
-        <h3>Análise e desenvolvimento de sistemas</h3>
-        <p>Faculdade Anhnaguera de Piracicaba</p>
+        <h3>{data.title}</h3>
+        <p className="wrap-content-course-institution">{data.institution}</p>
         <p>
-          Status: <span>Cursando</span>
+          Status:{" "}
+          <span
+            className={`${
+              data.status == "Cursando"
+                ? "course-in-progress"
+                : "course-finally"
+            }`}
+          >
+            {data.status}
+          </span>
         </p>
-        <p>Finalização: 2026</p>
-        <div className="wrap-btn-course-action">
-          <Button>
-            Certificado
-            <FiExternalLink size={20} style={{ marginLeft: "s0.1rem" }} />
-          </Button>
-        </div>
+        <p>
+          Finalização: <span className="wrap-content-course-date">{data.date}</span>
+        </p>
+        {data.status == "Finalizado" && (
+          <div className="wrap-btn-course-action">
+            <Button>
+              Certificado
+              <FiExternalLink size={20} style={{ marginLeft: "s0.1rem" }} />
+            </Button>
+          </div>
+        )}
       </div>
     </div>
   );

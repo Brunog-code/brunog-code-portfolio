@@ -12,7 +12,7 @@
 .container-certificates h2 {
   /* background-color: var(--accent-pink); */
   background: linear-gradient(to right, var(--primary-purple), transparent);
-  padding: 5px;
+  padding: 3px;
   width: 100%;
   text-align: center;
   border-radius: 10px 010px 0 0;

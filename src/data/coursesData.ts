@@ -5,7 +5,8 @@ export const formation = [
     institution: "Faculdade Anhanguera de Piracicaba",
     status: "Cursando",
     date: "2026",
-    img: "blob:https://imgur.com/d109c07b-60c3-440a-a2b1-e2a186ab5ffb",
+    img: "https://i.imgur.com/bcAUFI8.png",
+    certificate: "",
   },
 ];
 
@@ -15,8 +16,9 @@ export const courses = [
     title: "Fullstack Pro",
     institution: "Sujeito Programador",
     status: "Cursando",
-    date: "",
-    img: "https://i.imgur.com/jSxLy98.png",
+    date: "2026",
+    img: "https://i.imgur.com/Nt263Qt.png",
+    certificate: "",
   },
   {
     id: "2",
@@ -24,7 +26,9 @@ export const courses = [
     institution: "Udemy",
     status: "Finalizado",
     date: "2025",
-    img: "https://i.imgur.com/0pBMS5f.jpeg",
+    img: "https://i.imgur.com/LIHD4B7.jpeg",
+    certificate:
+      "https://www.udemy.com/certificate/UC-e293896e-fce6-4bad-817d-2db75025cc02/",
   },
   {
     id: "3",
@@ -32,6 +36,8 @@ export const courses = [
     institution: "Udemy",
     status: "Finalizado",
     date: "2025",
-    img: "https://i.imgur.com/uTLlklo.jpeg",
+    img: "https://i.imgur.com/RKji5JE.jpeg",
+    certificate:
+      "https://www.udemy.com/certificate/UC-6d226802-6d5f-4862-aaa1-abf11665094f/",
   },
 ];

@@ -1,4 +1,8 @@
 .container-card-course {
+  width: 300px;
+  max-width: 350px;
+  min-width: 250px;
+  height: 420px;
   padding: 10px;
   background-color: #111;
   display: flex;
@@ -6,11 +10,12 @@
   gap: 10px;
   border-radius: 12px;
   transition: all 0.3s ease;
+  flex-shrink: 0;
 }
 
 .wrap-img-course {
   width: 100%;
-  height: 200px;
+  height: 180px;
   overflow: hidden;
   border-radius: 12px;
   margin-bottom: 15px;
@@ -20,7 +25,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: left;
   display: block;
 }
 
@@ -29,6 +34,38 @@
   color: var(--primary-purple);
   font-size: 1.1rem;
   font-weight: 700;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* mostra no máximo 2 linhas */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+  line-height: 1.3rem; /* altura de cada linha */
+  min-height: calc(1.3rem * 2); /* mínimo = 2 linhas */
+  max-height: calc(1.3rem * 2); /* máximo = 2 linhas */
+}
+
+.wrap-content-course p {
+  font-weight: 600;
+}
+
+.wrap-content-course-institution {
+  color: #9ca3af;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.course-in-progress {
+  color: orange;
+  font-weight: normal;
+}
+
+.course-finally {
+  color: rgb(42, 204, 42);
+  font-weight: normal;
+}
+.wrap-content-course-date {
+  font-weight: normal;
 }
 
 .wrap-btn-course-action {

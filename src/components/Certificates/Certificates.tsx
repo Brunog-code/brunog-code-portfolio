@@ -12,7 +12,7 @@ export const Certificates = () => {
         </h2>
         {formation.map((f) => (
           <div key={f.id}>
-            <CardCourse />
+            <CardCourse data={f}/>
           </div>
         ))}
       </div>
@@ -25,7 +25,7 @@ export const Certificates = () => {
         <div className="wrap-card">
           {courses.map((c) => (
             <div key={c.id}>
-              <CardCourse />
+              <CardCourse data={c}/>
             </div>
           ))}
         </div>
