@@ -72,6 +72,27 @@
   margin-top: 20px;
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+.wrap-btn-course-action a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  color: white;
+  transition: 0.3s;
+  border-radius: 30px;
+  background-color: var(--accent-pink);
+  padding: 0.5rem 1rem;
+}
+
+.wrap-btn-course-action a:hover {
+  opacity: 0.8;
 }
 
 .container-card-course:hover {

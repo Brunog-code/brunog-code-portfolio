@@ -1,5 +1,4 @@
 import "./cardCourse.css";
-import { Button } from "../../Button/Button";
 import { FiExternalLink } from "react-icons/fi";
 
 interface ICertificateProps {
@@ -39,14 +38,19 @@ export const CardCourse = ({ data }: IData) => {
           </span>
         </p>
         <p>
-          Finalização: <span className="wrap-content-course-date">{data.date}</span>
+          Finalização:{" "}
+          <span className="wrap-content-course-date">{data.date}</span>
         </p>
         {data.status == "Finalizado" && (
           <div className="wrap-btn-course-action">
-            <Button>
+            <a
+              href={data.certificate}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Certificado
               <FiExternalLink size={20} style={{ marginLeft: "s0.1rem" }} />
-            </Button>
+            </a>
           </div>
         )}
       </div>
