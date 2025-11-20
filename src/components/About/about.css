@@ -179,7 +179,7 @@
     filter: blur(0px);
   }
   50% {
-    transform: scale(1.05) rotate(5deg);
+    transform: scale(1.15) rotate(5deg);
     filter: blur(1px);
   }
   100% {
@@ -194,7 +194,7 @@
     filter: blur(0px);
   }
   50% {
-    transform: scale(1.07) rotate(5deg);
+    transform: scale(1.2) rotate(5deg);
     filter: blur(1px);
   }
   100% {
@@ -209,7 +209,7 @@
     filter: blur(0px);
   }
   50% {
-    transform: scale(1.07) rotate(5deg);
+    transform: scale(1.12) rotate(5deg);
     filter: blur(1px);
   }
   100% {
@@ -224,7 +224,7 @@
     filter: blur(0px);
   }
   50% {
-    transform: scale(1.05) rotate(5deg);
+    transform: scale(1.13) rotate(5deg);
     filter: blur(1px);
   }
   100% {
