@@ -11,6 +11,30 @@
   border-radius: 12px;
   transition: all 0.3s ease;
   flex-shrink: 0;
+  border: 1px solid var(--primary-purple);
+
+  position: relative;
+  overflow: visible;
+}
+
+/* ponto rosa animado */
+.container-card-course::after {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: var(--accent-pink);
+  border-radius: 50%;
+  offset-path: rect(0px 100% 100% 0px round 12px);
+  offset-rotate: 0deg;
+  animation: moveDot 15s linear infinite;
+}
+
+/* animação que faz o ponto percorrer todo o caminho */
+@keyframes moveDot {
+  to {
+    offset-distance: 100%;
+  }
 }
 
 .wrap-img-course {
