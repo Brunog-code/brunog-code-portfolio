@@ -93,11 +93,6 @@ export const projectsData = [
         url: "https://i.imgur.com/b8IjrAK.png",
       },
       {
-        caption: "Navbar",
-        url: "https://i.imgur.com/0KTjxn4.png",
-      },
-
-      {
         caption: "Carrinho",
         url: "https://i.imgur.com/6fHjOel.png",
       },
