@@ -86,16 +86,20 @@ export const projectsData = [
     title: "Dev Shop",
     subtitle:
       "Mini e-commerce que simula uma loja online, com carrinho de compras gerenciado por useContext, consumindo api ViaCep para localizar endereço no carrinho.",
-    thumbnail:
-      "https://camo.githubusercontent.com/30f618a7a7821779b985eaea0581eb43d9460a5c33ddb3a8d9cfe64bf9c400bc/68747470733a2f2f692e696d6775722e636f6d2f6238496a72414b2e706e67",
+    thumbnail: "https://i.imgur.com/b8IjrAK.png",
     images: [
       {
         caption: "Hero",
-        url: "https://camo.githubusercontent.com/30f618a7a7821779b985eaea0581eb43d9460a5c33ddb3a8d9cfe64bf9c400bc/68747470733a2f2f692e696d6775722e636f6d2f6238496a72414b2e706e67",
+        url: "https://i.imgur.com/b8IjrAK.png",
       },
       {
+        caption: "Navbar",
+        url: "https://i.imgur.com/0KTjxn4.png",
+      },
+
+      {
         caption: "Carrinho",
-        url: "https://camo.githubusercontent.com/a0a68f512c1fd2e5f29fe51a575930c23d598a6f3081ac0551a478023a116f57/68747470733a2f2f692e696d6775722e636f6d2f3666486a4f656c2e706e67",
+        url: "https://i.imgur.com/6fHjOel.png",
       },
     ],
     link: "https://mini-ecommerce-frontend-three.vercel.app/",
