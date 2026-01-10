@@ -11,7 +11,7 @@ export const projectsData = [
     images: [
       {
         caption: "Hero",
-        url: "https://camo.githubusercontent.com/c9fe85167d8b26aac15d6e433bc76c8370262f6084b829aff362478b19f09bcc/68747470733a2f2f687772766b79696579766a6d7a6e6369766d6d742e73757061626173652e636f2f73746f726167652f76312f6f626a6563742f7075626c69632f696d616765732d686f74656c2f7072696e74732d6769746875622f6865726f2e504e47",
+        url: "https://hwrvkyieyvjmzncivmmt.supabase.co/storage/v1/object/public/images-hotel/hotel/hotel-bg-hero.jpg",
       },
       {
         caption: "Opções de quartos",
