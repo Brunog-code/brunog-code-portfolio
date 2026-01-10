@@ -11,35 +11,35 @@ export const projectsData = [
     images: [
       {
         caption: "Hero",
-        url: "https://camo.githubusercontent.com/c9fe85167d8b26aac15d6e433bc76c8370262f6084b829aff362478b19f09bcc/68747470733a2f2f687772766b79696579766a6d7a6e6369766d6d742e73757061626173652e636f2f73746f726167652f76312f6f626a6563742f7075626c69632f696d616765732d686f74656c2f7072696e74732d6769746875622f6865726f2e504e47",
+        url: "https://hwrvkyieyvjmzncivmmt.supabase.co/storage/v1/object/public/images-hotel/prints-github/hero.PNG",
       },
       {
         caption: "Opções de quartos",
-        url: "https://camo.githubusercontent.com/259ffa39400faf784d7bab933ad21efe56ebc3ffd95c6b25519ace4c71a5c755/68747470733a2f2f687772766b79696579766a6d7a6e6369766d6d742e73757061626173652e636f2f73746f726167652f76312f6f626a6563742f7075626c69632f696d616765732d686f74656c2f7072696e74732d6769746875622f726f6f6d2d73656374696f6e2e504e47",
+        url: "https://hwrvkyieyvjmzncivmmt.supabase.co/storage/v1/object/public/images-hotel/prints-github/room-section.PNG",
       },
       {
         caption: "Confirmar reserva",
-        url: "https://camo.githubusercontent.com/8a5fd68a43ba6ad4e34948c8c7688bab56b0807174ef3b3699969f005494f897/68747470733a2f2f687772766b79696579766a6d7a6e6369766d6d742e73757061626173652e636f2f73746f726167652f76312f6f626a6563742f7075626c69632f696d616765732d686f74656c2f7072696e74732d6769746875622f636f6e6669726d2d7265736572766174696f6e2e504e47",
+        url: "https://hwrvkyieyvjmzncivmmt.supabase.co/storage/v1/object/public/images-hotel/prints-github/confirm-reservation.PNG",
       },
       {
         caption: "Checkout Pro",
-        url: "https://camo.githubusercontent.com/05be75ee936c4fc6e329959006be9bd9e1a105f39a83037307a3f6f872e449ba/68747470733a2f2f687772766b79696579766a6d7a6e6369766d6d742e73757061626173652e636f2f73746f726167652f76312f6f626a6563742f7075626c69632f696d616765732d686f74656c2f7072696e74732d6769746875622f636865636b6f75742d70726f2e504e47",
+        url: "https://hwrvkyieyvjmzncivmmt.supabase.co/storage/v1/object/public/images-hotel/prints-github/checkout-pro.PNG",
       },
       {
         caption: "Checkout Pro",
-        url: "https://camo.githubusercontent.com/71b15fec5bb95c4f9461a5e3e6eee9d1b30f06488c6ec16d59566b239be683f7/68747470733a2f2f687772766b79696579766a6d7a6e6369766d6d742e73757061626173652e636f2f73746f726167652f76312f6f626a6563742f7075626c69632f696d616765732d686f74656c2f7072696e74732d6769746875622f726573657276612d652d706167616d656e746f2d6170726f7661646f2e504e47",
+        url: "https://hwrvkyieyvjmzncivmmt.supabase.co/storage/v1/object/public/images-hotel/prints-github/reserva-e-pagamento-aprovado.PNG",
       },
       {
         caption: "Email confirmação",
-        url: "http://camo.githubusercontent.com/3bb79ada9bf3d88fad90959bd1c2f4b46ec14db5c685819038943e921f02446f/68747470733a2f2f687772766b79696579766a6d7a6e6369766d6d742e73757061626173652e636f2f73746f726167652f76312f6f626a6563742f7075626c69632f696d616765732d686f74656c2f7072696e74732d6769746875622f656d61696c2d726573657276612d636f6e6669726d6164612e504e47",
+        url: "https://hwrvkyieyvjmzncivmmt.supabase.co/storage/v1/object/public/images-hotel/prints-github/email-reserva-confirmada.PNG",
       },
       {
         caption: "Minhas reservas",
-        url: "https://camo.githubusercontent.com/4c09985be413c01f1551fec9c09bf583ee81ffbcd39baedba918275f72a2bfd4/68747470733a2f2f687772766b79696579766a6d7a6e6369766d6d742e73757061626173652e636f2f73746f726167652f76312f6f626a6563742f7075626c69632f696d616765732d686f74656c2f7072696e74732d6769746875622f726573657276612d636f6e6669726d6164612e504e47",
+        url: "https://hwrvkyieyvjmzncivmmt.supabase.co/storage/v1/object/public/images-hotel/prints-github/reserva-confirmada.PNG",
       },
       {
         caption: "Minhas reservas - pagamento pendente",
-        url: "https://camo.githubusercontent.com/190248759b2f998135ee28ccde311082b22eb16c8fb318e4cb0a59c39c833b1e/68747470733a2f2f687772766b79696579766a6d7a6e6369766d6d742e73757061626173652e636f2f73746f726167652f76312f6f626a6563742f7075626c69632f696d616765732d686f74656c2f7072696e74732d6769746875622f62746e2d7067746f2d70656e64656e74652e504e47",
+        url: "https://hwrvkyieyvjmzncivmmt.supabase.co/storage/v1/object/public/images-hotel/prints-github/btn-pgto-pendente.PNG",
       },
     ],
     video: "https://www.youtube.com/watch?v=JsoISZGQEOM",
