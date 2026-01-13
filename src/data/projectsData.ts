@@ -1,4 +1,49 @@
-export const projectsData = [
+type TCategoryProject = "Fullstack" | "Front-end" | "Back-end" | "Mobile";
+
+type TTechs =
+  | "HTML"
+  | "CSS"
+  | "JavaScript"
+  | "TypeScript"
+  | "Node.js"
+  | "React"
+  | "Next.js"
+  | "Tailwind"
+  | "MySQL"
+  | "PostgreSQL"
+  | "MongoDB"
+  | "Prisma ORM"
+  | "Git"
+  | "GitHub"
+  | "Docker"
+  | "n8n";
+
+interface IProjectsData {
+  id: string;
+  date: string;
+  category: TCategoryProject;
+  title: string;
+  subtitle: string;
+  thumbnail: string;
+  images: Array<{
+    caption: string;
+    url: string;
+  }>;
+  video?: string;
+  repo: string;
+  link: string;
+  github: string;
+  techs: TTechs[];
+  deploy: {
+    frontend?: string;
+    backend?: string;
+    n8n?: string;
+  };
+  content: string[];
+  highlights: string[];
+}
+
+export const projectsData: IProjectsData[] = [
   {
     id: "100",
     date: "28/10/2025",
@@ -123,6 +168,91 @@ export const projectsData = [
       "🧩 Interface responsiva e moderna com Tailwind CSS.",
       "⚛️ Componentização e boas práticas com React e TypeScript.",
       "👤 Simulação de usuário logado para testar o fluxo completo sem autenticação real.",
+    ],
+  },
+
+  {
+    id: "102",
+    date: "13/01/2026",
+    category: "Fullstack",
+    title: "Agropet Dev",
+    subtitle:
+      "Mini e-commerce que simula uma loja online, com carrinho de compras gerenciado por useContext, consumindo api ViaCep para localizar endereço no carrinho.",
+    thumbnail:
+      "https://wcpvdrfhvnarjagqwhho.supabase.co/storage/v1/object/public/images-agropet/imagens-agropet/prints-doc/hero.png",
+    images: [
+      {
+        caption: "Pagina inicial",
+        url: "https://wcpvdrfhvnarjagqwhho.supabase.co/storage/v1/object/public/images-agropet/imagens-agropet/prints-doc/hero.png",
+      },
+      {
+        caption: "Pagina inicial - Mobile",
+        url: "https://wcpvdrfhvnarjagqwhho.supabase.co/storage/v1/object/public/images-agropet/imagens-agropet/prints-doc/mobile-hero.png",
+      },
+      {
+        caption: "Principais categorias",
+        url: "https://wcpvdrfhvnarjagqwhho.supabase.co/storage/v1/object/public/images-agropet/imagens-agropet/prints-doc/principais-categorias.png",
+      },
+      {
+        caption: "Carrinho - drawer",
+        url: "https://wcpvdrfhvnarjagqwhho.supabase.co/storage/v1/object/public/images-agropet/imagens-agropet/prints-doc/carrinho-drawer.png",
+      },
+      {
+        caption: "Chat com agente de IA",
+        url: "https://wcpvdrfhvnarjagqwhho.supabase.co/storage/v1/object/public/images-agropet/imagens-agropet/prints-doc/agente%20de%20ia%20chat.png",
+      },
+
+      {
+        caption: "Página carrinho",
+        url: "https://wcpvdrfhvnarjagqwhho.supabase.co/storage/v1/object/public/images-agropet/imagens-agropet/prints-doc/page-carrinho.png",
+      },
+      {
+        caption: "Checkout Stripe",
+        url: "https://wcpvdrfhvnarjagqwhho.supabase.co/storage/v1/object/public/images-agropet/imagens-agropet/prints-doc/cehckout%20stripe.png",
+      },
+      {
+        caption: "n8n workflow",
+        url: "https://wcpvdrfhvnarjagqwhho.supabase.co/storage/v1/object/public/images-agropet/imagens-agropet/prints-doc/workflow.png",
+      },
+    ],
+    link: "https://agropetdev-ecommerce.vercel.app/",
+    repo: "agropetdev-ecommerce",
+    github: "https://github.com/Brunog-code/agropetdev-ecommerce",
+    techs: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind",
+      "PostgreSQL",
+      "Prisma ORM",
+      "n8n",
+    ],
+    deploy: {
+      frontend: "Vercel.com",
+      backend: "Vercel.com",
+      n8n: "Oracle VPS",
+    },
+    content: [
+      "O AgroPetDev é um sistema completo de e-commerce para uma agropecuária fictícia, desenvolvido em Next.js com arquitetura full-stack, unificando frontend e backend em uma única aplicação moderna, performática e escalável.",
+      "A plataforma oferece um fluxo de compra completo, incluindo navegação por produtos, gerenciamento de carrinho, checkout integrado e confirmação automática de pedidos, proporcionando uma experiência fluida tanto em desktop quanto em dispositivos móveis.",
+      "O sistema de pagamentos é totalmente integrado à API do Stripe, garantindo segurança e confiabilidade nas transações. Após o pagamento, webhooks do Stripe notificam o backend em tempo real, permitindo a confirmação automática dos pedidos no banco de dados somente após a validação do pagamento.",
+      "Para evitar pedidos inconsistentes, foi implementado um CronJob que monitora compras pendentes. Caso o pagamento não seja confirmado em até 24 horas, o pedido é automaticamente cancelado, mantendo a integridade dos dados e do estoque.",
+      "O gerenciamento de estado do carrinho de compras é feito com Zustand, garantindo alta performance, persistência dos dados e uma arquitetura mais simples e eficiente em comparação a abordagens tradicionais.",
+      "O projeto conta ainda com um chat integrado com agente de Inteligência Artificial, utilizando fluxos personalizados no n8n. Esse agente é capaz de responder dúvidas sobre produtos, pedidos e informações gerais, oferecendo suporte automatizado em tempo real aos usuários.",
+      "A autenticação e segurança da aplicação são gerenciadas pela biblioteca Better Auth, com suporte a login social via Google (OAuth 2.0), autenticação por e-mail e senha, além de um fluxo completo de recuperação de senha com envio de e-mails transacionais via Nodemailer.",
+      "Toda a aplicação utiliza validação de dados com Zod, garantindo que apenas informações válidas sejam processadas em formulários, APIs e fluxos críticos do sistema. O deploy do frontend e backend é realizado na Vercel, enquanto o n8n é hospedado em uma VPS Oracle Cloud.",
+    ],
+
+    highlights: [
+      "💳 Pagamentos integrados com a API do Stripe e confirmação automática via Webhooks.",
+      "⚡ Confirmação de pedidos em tempo real após validação do pagamento.",
+      "⏱️ CronJob para cancelamento automático de pedidos não pagos em até 24 horas.",
+      "🛒 Gerenciamento de carrinho performático com Zustand e persistência de dados.",
+      "🤖 Chat com agente de IA integrado via n8n, com fluxos de automação personalizados.",
+      "🔐 Sistema completo de autenticação com Better Auth (OAuth Google, e-mail e senha).",
+      "📧 Recuperação de senha via e-mail com tokens seguros e Nodemailer.",
+      "🧩 Validação de dados em toda a aplicação utilizando Zod.",
+      "🚀 Arquitetura Full-Stack com Next.js (Frontend + Backend integrados).",
+      "📱 Interface moderna, responsiva e otimizada com Tailwind CSS.",
     ],
   },
 ];
