@@ -1,5 +1,5 @@
 import { MotionValue, motion, useInView } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./cardProject.css";
 import { Button } from "../../Button/Button";
 import { useNavigate } from "react-router-dom";
@@ -94,7 +94,11 @@ export const CardProject = ({ proj, index, lineHeight }: CardProjectProps) => {
           {techList
             .filter((tech) => proj.techs.includes(tech.name))
             .map((tech, index) => (
-              <span key={index}>{tech.icon}</span>
+              <span key={index}>
+                {tech.name === "n8n"
+                  ? React.cloneElement(tech.icon, { filterWhite: true })
+                  : tech.icon}
+              </span>
             ))}
         </div>
         <div className="card-body-buttons">

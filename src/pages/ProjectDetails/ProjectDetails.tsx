@@ -3,7 +3,7 @@ import { IProjectsData, projectsData } from "../../data/projectsData";
 import "./projectDetails.css";
 import { Button } from "../../components/Button/Button";
 import { FiArrowLeft, FiExternalLink } from "react-icons/fi";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { techList } from "../../data/techList";
 import { LoadingPage } from "../../components/lib/FramerAnimation/Loading/Loading";
 import { SlidesFade } from "../../components/lib/Swiper/Slides";
@@ -102,7 +102,11 @@ export const ProjectDetails = () => {
               {techList
                 .filter((tech) => project?.techs.includes(tech.name))
                 .map((tech, index) => (
-                  <span key={index}>{tech.icon}</span>
+                  <span key={index}>
+                    {tech.name === "n8n"
+                      ? React.cloneElement(tech.icon, { filterWhite: true })
+                      : tech.icon}
+                  </span>
                 ))}
             </div>
 

@@ -1,7 +1,7 @@
 import "./technologies.css";
 import { techList } from "../../data/techList";
 import { FadeIn } from "../lib/Gsap/FadeIn";
-import { useRef } from "react";
+import React, { useRef } from "react";
 
 export const Technologies = () => {
   const techRef = useRef<HTMLDivElement>(null);
@@ -21,7 +21,12 @@ export const Technologies = () => {
         <ul className="list-tech">
           {techList.map((tech) => (
             <li key={tech.name}>
-              <div className="tech-icon">{tech.icon}</div>
+              <div className="tech-icon">
+                {tech.name === "n8n"
+                  ? React.cloneElement(tech.icon, { filterPurple: true })
+                  : tech.icon}
+              </div>
+
               <span>{tech.name}</span>
             </li>
           ))}

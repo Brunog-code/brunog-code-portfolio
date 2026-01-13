@@ -46,6 +46,52 @@ export interface IProjectsData {
 export const projectsData: IProjectsData[] = [
   {
     id: "100",
+    date: "11/09/2025",
+    category: "Front-end",
+    title: "Dev Shop",
+    subtitle:
+      "Mini e-commerce que simula uma loja online, com carrinho de compras gerenciado por useContext, consumindo api ViaCep para localizar endereço no carrinho.",
+    thumbnail: "https://i.imgur.com/b8IjrAK.png",
+    images: [
+      {
+        caption: "Hero",
+        url: "https://i.imgur.com/b8IjrAK.png",
+      },
+      {
+        caption: "Carrinho",
+        url: "https://i.imgur.com/6fHjOel.png",
+      },
+    ],
+    link: "https://mini-ecommerce-frontend-three.vercel.app/",
+    repo: "mini-ecommerce-frontend",
+    github: "https://github.com/Brunog-code/mini-ecommerce-frontend",
+    techs: ["React", "TypeScript", "Tailwind"],
+    deploy: {
+      frontend: "Vercel.com",
+      backend: "",
+    },
+    content: [
+      "O Dev Shop é um mini e-commerce desenvolvido com foco em simular uma loja online moderna, com páginas de listagem de produtos e carrinho de compras, oferecendo uma experiência fluida e responsiva.",
+      "A aplicação foi desenvolvida com React, TypeScript e Tailwind CSS, priorizando a componentização e o gerenciamento de estado para controle do carrinho de compras, com persistência de dados via localStorage.",
+      "Para o gerenciamento global do carrinho, foi implementado o Context API em conjunto com o hook useReducer, garantindo uma estrutura escalável, performática e de fácil manutenção.",
+      "Na página Home, o usuário pode visualizar produtos com imagem, título, descrição e preço, além de aplicar filtros por categoria. Todo o layout foi planejado para funcionar bem em desktops e dispositivos móveis.",
+      "No carrinho de compras, é possível visualizar os itens adicionados, calcular subtotal, total e frete com base no CEP informado, consumindo a API do ViaCEP para busca automática de endereço.",
+      "O sistema também oferece seleção de tipo de envio (PAC ou SEDEX) e simula um usuário logado, permitindo testar o fluxo completo sem autenticação real. O projeto é uma demonstração de boas práticas em front-end, com foco em UX e integração com APIs externas.",
+    ],
+    highlights: [
+      "🛒 Carrinho de compras global gerenciado com Context API e useReducer.",
+      "💾 Persistência dos itens do carrinho via localStorage.",
+      "📦 Listagem dinâmica de produtos com filtros por categoria.",
+      "📍 Cálculo de frete e endereço automático com a API ViaCEP.",
+      "🚚 Opções de envio: escolha entre PAC e SEDEX.",
+      "💰 Cálculo automático de subtotal e total do carrinho.",
+      "🧩 Interface responsiva e moderna com Tailwind CSS.",
+      "⚛️ Componentização e boas práticas com React e TypeScript.",
+      "👤 Simulação de usuário logado para testar o fluxo completo sem autenticação real.",
+    ],
+  },
+  {
+    id: "101",
     date: "28/10/2025",
     category: "Fullstack",
     title: "Mia - Encanto da serra Hotel",
@@ -122,52 +168,6 @@ export const projectsData: IProjectsData[] = [
       "🖥️ Frontend moderno com React, TypeScript e Tailwind CSS.",
       "🧩 Validação de dados com Zod para segurança e integridade.",
       "📱 Layout totalmente responsivo, otimizado para desktop e mobile.",
-    ],
-  },
-  {
-    id: "101",
-    date: "11/09/2025",
-    category: "Front-end",
-    title: "Dev Shop",
-    subtitle:
-      "Mini e-commerce que simula uma loja online, com carrinho de compras gerenciado por useContext, consumindo api ViaCep para localizar endereço no carrinho.",
-    thumbnail: "https://i.imgur.com/b8IjrAK.png",
-    images: [
-      {
-        caption: "Hero",
-        url: "https://i.imgur.com/b8IjrAK.png",
-      },
-      {
-        caption: "Carrinho",
-        url: "https://i.imgur.com/6fHjOel.png",
-      },
-    ],
-    link: "https://mini-ecommerce-frontend-three.vercel.app/",
-    repo: "mini-ecommerce-frontend",
-    github: "https://github.com/Brunog-code/mini-ecommerce-frontend",
-    techs: ["React", "TypeScript", "Tailwind"],
-    deploy: {
-      frontend: "Vercel.com",
-      backend: "",
-    },
-    content: [
-      "O Dev Shop é um mini e-commerce desenvolvido com foco em simular uma loja online moderna, com páginas de listagem de produtos e carrinho de compras, oferecendo uma experiência fluida e responsiva.",
-      "A aplicação foi desenvolvida com React, TypeScript e Tailwind CSS, priorizando a componentização e o gerenciamento de estado para controle do carrinho de compras, com persistência de dados via localStorage.",
-      "Para o gerenciamento global do carrinho, foi implementado o Context API em conjunto com o hook useReducer, garantindo uma estrutura escalável, performática e de fácil manutenção.",
-      "Na página Home, o usuário pode visualizar produtos com imagem, título, descrição e preço, além de aplicar filtros por categoria. Todo o layout foi planejado para funcionar bem em desktops e dispositivos móveis.",
-      "No carrinho de compras, é possível visualizar os itens adicionados, calcular subtotal, total e frete com base no CEP informado, consumindo a API do ViaCEP para busca automática de endereço.",
-      "O sistema também oferece seleção de tipo de envio (PAC ou SEDEX) e simula um usuário logado, permitindo testar o fluxo completo sem autenticação real. O projeto é uma demonstração de boas práticas em front-end, com foco em UX e integração com APIs externas.",
-    ],
-    highlights: [
-      "🛒 Carrinho de compras global gerenciado com Context API e useReducer.",
-      "💾 Persistência dos itens do carrinho via localStorage.",
-      "📦 Listagem dinâmica de produtos com filtros por categoria.",
-      "📍 Cálculo de frete e endereço automático com a API ViaCEP.",
-      "🚚 Opções de envio: escolha entre PAC e SEDEX.",
-      "💰 Cálculo automático de subtotal e total do carrinho.",
-      "🧩 Interface responsiva e moderna com Tailwind CSS.",
-      "⚛️ Componentização e boas práticas com React e TypeScript.",
-      "👤 Simulação de usuário logado para testar o fluxo completo sem autenticação real.",
     ],
   },
   {

@@ -24,19 +24,41 @@ type TechItem = {
   icon: JSX.Element;
 };
 
-// Componente do ícone n8n
-const SiN8n = ({ size = "1em", ...props }) => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="currentColor" // Isso permite que o ícone herde a cor do texto/parent
-    height={size}
-    width={size}
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
-    <path d="M1.371 3.543c-.457 0-.857.228-1.086.629-.228.343-.228.857.057 1.257l8.286 13.886c.228.4.686.628 1.143.628.457 0 .857-.228 1.086-.628l2.228-3.715c.115-.2.115-.457 0-.657l-4.571-7.714c-.229-.4-.686-.629-1.143-.629-.457 0-.857.229-1.086.629l-3.828 6.4h2.285l2.686-4.514 3.486 5.885-1.143 1.943L2.572 5.829h18.228l-5.6 9.371c-.114.2-.114.457 0 .657l2.286 3.829c.228.4.686.628 1.143.628.457 0 .857-.228 1.086-.628l4.228-7.086c.286-.4.286-.914.058-1.257-.229-.4-.629-.629-1.086-.629H1.371z" />
-  </svg>
-);
+//Componente do ícone n8n
+const N8nIcon = ({
+  size = 29,
+  filterWhite = false,
+  filterPurple = false,
+}: {
+  size?: number;
+  filterWhite?: boolean;
+  filterPurple?: boolean;
+}) => {
+  let filter =
+    "invert(54%) sepia(88%) saturate(3750%) hue-rotate(346deg) brightness(101%) contrast(101%)";
+
+  if (filterWhite) {
+    filter = "invert(100%) brightness(200%) contrast(100%)";
+  } else if (filterPurple) {
+    // Aproximação fiel do #7f00ff
+    filter =
+      "invert(17%) sepia(96%) saturate(7476%) hue-rotate(268deg) brightness(96%) contrast(108%)";
+  }
+
+  return (
+    <img
+      src="https://logo.svgcdn.com/simple-icons/n8n-dark.svg"
+      alt="n8n"
+      width={size}
+      height={size}
+      style={{
+        objectFit: "contain",
+        display: "block",
+        filter,
+      }}
+    />
+  );
+};
 
 export const techList: TechItem[] = [
   { name: "HTML", icon: <SiHtml5 aria-label="HTML" /> },
@@ -54,5 +76,5 @@ export const techList: TechItem[] = [
   { name: "Git", icon: <SiGit aria-label="Git" /> },
   { name: "GitHub", icon: <SiGithub aria-label="GitHub" /> },
   { name: "Docker", icon: <SiDocker aria-label="Docker" /> },
-  { name: "n8n", icon: <SiN8n aria-label="n8n" /> },
+  { name: "n8n", icon: <N8nIcon /> },
 ];
