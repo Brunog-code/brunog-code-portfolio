@@ -251,7 +251,7 @@ export const projectsData: IProjectsData[] = [
       "📧 Recuperação de senha via e-mail com tokens seguros e Nodemailer.",
       "🧩 Validação de dados em toda a aplicação utilizando Zod.",
       "🚀 Arquitetura Full-Stack com Next.js (Frontend + Backend integrados).",
-      "📱 Interface moderna, responsiva e otimizada com Tailwind CSS.",
+      "🎨 Design moderno com Tailwind CSS e shadcn/ui, focado em componentes reutilizáveis.",
     ],
   },
 ];
