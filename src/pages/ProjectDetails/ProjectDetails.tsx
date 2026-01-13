@@ -142,6 +142,15 @@ export const ProjectDetails = () => {
                   </span>
                 </p>
               )}
+
+              {project?.deploy.n8n != "" && (
+                <p>
+                  n8n:{" "}
+                  <span className="details-deploy-name">
+                    {project?.deploy.n8n}
+                  </span>
+                </p>
+              )}
             </div>
           </div>
 

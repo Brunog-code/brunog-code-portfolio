@@ -176,7 +176,7 @@ export const projectsData: IProjectsData[] = [
     category: "Fullstack",
     title: "Agropet Dev",
     subtitle:
-      "E-commerce full-stack de uma agropecuária fictícia, com autenticação social, carrinho performático, pagamentos integrados via Stripe, automações com n8n e chat com agente de IA.",
+      "E-commerce full-stack de uma agropecuária fictícia, com autenticação social, carrinho performático, pagamentos integrados via Stripe e chat com agente de IA desenvolvido com n8n.",
     thumbnail:
       "https://wcpvdrfhvnarjagqwhho.supabase.co/storage/v1/object/public/images-agropet/imagens-agropet/prints-doc/hero.png",
     images: [
