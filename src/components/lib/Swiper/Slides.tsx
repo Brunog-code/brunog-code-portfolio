@@ -8,6 +8,8 @@ import "swiper/css/pagination";
 
 // Import required modules
 import { EffectFade, Navigation, Pagination, Autoplay } from "swiper/modules";
+import { ModalImage } from "../../ModalImage/ModalImage";
+import { useState } from "react";
 
 type ProjectImage = {
   caption: string;
@@ -18,6 +20,8 @@ interface ISlidesFadeProps {
   images: ProjectImage[];
 }
 export const SlidesFade = ({ images }: ISlidesFadeProps) => {
+  const [openModal, setOpenModal] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<string>("");
   return (
     <>
       <Swiper
@@ -31,16 +35,28 @@ export const SlidesFade = ({ images }: ISlidesFadeProps) => {
         modules={[EffectFade, Navigation, Pagination, Autoplay]}
         className="mySwiper"
         autoplay={{
-          delay: 3000, 
-          disableOnInteraction: false, 
+          delay: 3000,
+          disableOnInteraction: false,
         }}
       >
         {images.map((img, i) => (
           <SwiperSlide>
-            <img key={i} src={img.url} alt={img.caption} />
+            <img
+              style={{ cursor: "pointer" }}
+              key={i}
+              src={img.url}
+              alt={img.caption}
+              onClick={() => {
+                setOpenModal(true);
+                setSelectedImage(img.url);
+              }}
+            />
           </SwiperSlide>
         ))}
       </Swiper>
+      {openModal && selectedImage && (
+        <ModalImage image={selectedImage} setOpenModal={setOpenModal} />
+      )}
     </>
   );
 };

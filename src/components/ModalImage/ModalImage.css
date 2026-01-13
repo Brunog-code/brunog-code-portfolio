@@ -1,0 +1,50 @@
+.container-modal-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.content-modal-image {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+}
+
+.content-modal-image img {
+  width: 100%; /* faz a imagem ocupar todo o container */
+  height: auto; /* mantém proporção */
+  max-height: 80vh; /* limita altura para caber na tela */
+  object-fit: contain; /* mantém proporção sem cortar */
+  border-radius: 8px; /* opcional, deixa mais bonito */
+}
+
+.content-modal-image-btn-close {
+  position: absolute;
+  top: 100px;
+  right: 50px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.content-modal-image-btn-close:hover {
+  color: var(--accent-pink);
+  transform: scale(1.2);
+}
+
+/* medias */
+@media (max-width: 768px) {
+  .content-modal-image-btn-close {
+    top: 150px;
+  }
+}
