@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { projectsData } from "../../data/projectsData";
+import { IProjectsData, projectsData } from "../../data/projectsData";
 import "./projectDetails.css";
 import { Button } from "../../components/Button/Button";
 import { FiArrowLeft, FiExternalLink } from "react-icons/fi";
@@ -10,34 +10,6 @@ import { SlidesFade } from "../../components/lib/Swiper/Slides";
 import { Footer } from "../../components/Footer/Footer";
 import { ScrollBarAnimation } from "../../components/lib/FramerAnimation/ScrollBarAnimation/ScrollBarAnimation";
 
-type ProjectImage = {
-  caption: string;
-  url: string;
-};
-
-type ProjectDeploy = {
-  frontend: string;
-  backend: string;
-};
-
-type ProjectType = {
-  id: string;
-  date: string;
-  category: string;
-  title: string;
-  subtitle: string;
-  thumbnail: string;
-  images: ProjectImage[];
-  video?: string;
-  repo: string;
-  link: string;
-  github: string;
-  techs: string[];
-  deploy: ProjectDeploy;
-  content: string[];
-  highlights: string[];
-};
-
 export const ProjectDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -45,7 +17,7 @@ export const ProjectDetails = () => {
   //states
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState<string | null>(null);
-  const [project, setProject] = useState<ProjectType | undefined>(undefined);
+  const [project, setProject] = useState<IProjectsData | undefined>(undefined);
 
   //procurar o projeto no obj
   useEffect(() => {

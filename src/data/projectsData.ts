@@ -1,6 +1,6 @@
 type TCategoryProject = "Fullstack" | "Front-end" | "Back-end" | "Mobile";
 
-type TTechs =
+export type TTechs =
   | "HTML"
   | "CSS"
   | "JavaScript"
@@ -18,7 +18,7 @@ type TTechs =
   | "Docker"
   | "n8n";
 
-interface IProjectsData {
+export interface IProjectsData {
   id: string;
   date: string;
   category: TCategoryProject;
@@ -170,14 +170,13 @@ export const projectsData: IProjectsData[] = [
       "👤 Simulação de usuário logado para testar o fluxo completo sem autenticação real.",
     ],
   },
-
   {
     id: "102",
     date: "13/01/2026",
     category: "Fullstack",
     title: "Agropet Dev",
     subtitle:
-      "Mini e-commerce que simula uma loja online, com carrinho de compras gerenciado por useContext, consumindo api ViaCep para localizar endereço no carrinho.",
+      "E-commerce full-stack de uma agropecuária fictícia, com autenticação social, carrinho performático, pagamentos integrados via Stripe, automações com n8n e chat com agente de IA.",
     thumbnail:
       "https://wcpvdrfhvnarjagqwhho.supabase.co/storage/v1/object/public/images-agropet/imagens-agropet/prints-doc/hero.png",
     images: [

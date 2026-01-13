@@ -1,3 +1,6 @@
+import { JSX } from "react";
+import { TTechs } from "./projectsData";
+
 import {
   SiHtml5,
   SiCss3,
@@ -16,6 +19,11 @@ import {
   SiDocker,
 } from "react-icons/si";
 
+type TechItem = {
+  name: TTechs;
+  icon: JSX.Element;
+};
+
 // Componente do ícone n8n
 const SiN8n = ({ size = "1em", ...props }) => (
   <svg
@@ -30,7 +38,7 @@ const SiN8n = ({ size = "1em", ...props }) => (
   </svg>
 );
 
-export const techList = [
+export const techList: TechItem[] = [
   { name: "HTML", icon: <SiHtml5 aria-label="HTML" /> },
   { name: "CSS", icon: <SiCss3 aria-label="CSS" /> },
   { name: "JavaScript", icon: <SiJavascript aria-label="JavaScript" /> },
