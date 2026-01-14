@@ -213,6 +213,10 @@ export const projectsData: IProjectsData[] = [
         caption: "n8n workflow",
         url: "https://wcpvdrfhvnarjagqwhho.supabase.co/storage/v1/object/public/images-agropet/imagens-agropet/prints-doc/workflow.png",
       },
+      {
+        caption: "redeﬁnição de senha",
+        url: "https://wcpvdrfhvnarjagqwhho.supabase.co/storage/v1/object/public/images-agropet/imagens-agropet/prints-doc/redefinicao.png",
+      },
     ],
     video: "https://www.youtube.com/watch?v=tkUVgq111Gg",
     link: "https://agropetdev-ecommerce.vercel.app/",
