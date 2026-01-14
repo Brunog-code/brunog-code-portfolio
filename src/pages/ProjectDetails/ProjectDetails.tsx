@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { IProjectsData, projectsData } from "../../data/projectsData";
 import "./projectDetails.css";
 import { Button } from "../../components/Button/Button";
@@ -80,13 +80,17 @@ export const ProjectDetails = () => {
             <FiArrowLeft size={20} style={{ marginRight: "0.3rem" }} />
             Voltar aos projetos
           </Button>
-
-          <span className="text-logo">
-            Portfólio{" "}
-            <span className="name-logo">
-              BrunoGonçalves<span className="symbol-logo">/&gt;</span>
+          <Link
+            to="/"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          >
+            <span className="text-logo">
+              Portfólio{" "}
+              <span className="name-logo">
+                BrunoGonçalves<span className="symbol-logo">/&gt;</span>
+              </span>
             </span>
-          </span>
+          </Link>
         </div>
       </header>
 

@@ -8,7 +8,14 @@
   position: fixed;
   background-color: var(--background-dark);
   z-index: 99998;
+}
+.container-logo{
+  color: white;
+}
 
+.container-logo a:focus,
+.container-logo a:active {
+  color: white; /* força a manter branco */
 }
 
 header .text-logo {

@@ -20,6 +20,15 @@
   max-width: 1600px;
 }
 
+.text-logo {
+  color: white;
+}
+
+.project-details-container-logo a:focus,
+.project-details-container-logo a:active {
+  color: white; /* força a manter branco */
+}
+
 .projects-details-content {
   padding-top: 200px;
   padding-left: 20px;
@@ -387,7 +396,7 @@
 
 .container-img-content img {
   width: 100%;
-  height: auto;       /* 👈 importante */
+  height: auto; /* 👈 importante */
   object-fit: contain;
   border-radius: 10px;
   margin-bottom: 1.5rem;

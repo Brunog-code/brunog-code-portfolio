@@ -3,6 +3,7 @@ import { Sling as Hamburger } from "hamburger-react";
 import { Link as ScrollLink } from "react-scroll";
 
 import "./header.css";
+import { Link } from "react-router-dom";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -51,12 +52,17 @@ export const Header = () => {
     <header className="header-navbar-home">
       {/* imagem */}
       <div className="container-logo">
-        <span className="text-logo">
-          Portfólio{" "}
-          <span className="name-logo">
-            BrunoGonçalves<span className="symbol-logo">/&gt;</span>
+        <Link
+          to="/"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        >
+          <span className="text-logo">
+            Portfólio{" "}
+            <span className="name-logo">
+              BrunoGonçalves<span className="symbol-logo">/&gt;</span>
+            </span>
           </span>
-        </span>
+        </Link>
       </div>
 
       {/* menu desktop */}
@@ -64,11 +70,11 @@ export const Header = () => {
         <ul>
           <li>
             <ScrollLink
-              to="hero" // id da section que quer rolar
-              smooth={true} // rolagem suave
-              duration={500} // duração em ms
-              spy={true} // ativa a classe quando estiver visível
-              offset={-80} // se quiser compensar header fixo
+              to="hero" //id da section que quer rolar
+              smooth={true} //rolagem suave
+              duration={500} //duração em ms
+              spy={true} //ativa a classe quando estiver visível
+              offset={-80} //compensar header fixo
               className="nav-link"
               activeClass="active"
             >
@@ -77,11 +83,11 @@ export const Header = () => {
           </li>
           <li>
             <ScrollLink
-              to="about" // id da section que quer rolar
-              smooth={true} // rolagem suave
-              duration={500} // duração em ms
-              spy={true} // ativa a classe quando estiver visível
-              offset={-80} // se quiser compensar header fixo
+              to="about" //id da section que quer rolar
+              smooth={true} //rolagem suave
+              duration={500} //duração em ms
+              spy={true} //ativa a classe quando estiver visível
+              offset={-80} //compensar header fixo
               className="nav-link"
               activeClass="active"
             >
@@ -94,7 +100,7 @@ export const Header = () => {
               smooth={true} // rolagem suave
               duration={500} // duração em ms
               spy={true} // ativa a classe quando estiver visível
-              offset={-14} // se quiser compensar header fixo
+              offset={-14} //compensar header fixo
               className="nav-link"
               activeClass="active"
             >
