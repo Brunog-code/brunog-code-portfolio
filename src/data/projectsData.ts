@@ -214,6 +214,7 @@ export const projectsData: IProjectsData[] = [
         url: "https://wcpvdrfhvnarjagqwhho.supabase.co/storage/v1/object/public/images-agropet/imagens-agropet/prints-doc/workflow.png",
       },
     ],
+    video: "https://www.youtube.com/watch?v=tkUVgq111Gg",
     link: "https://agropetdev-ecommerce.vercel.app/",
     repo: "agropetdev-ecommerce",
     github: "https://github.com/Brunog-code/agropetdev-ecommerce",

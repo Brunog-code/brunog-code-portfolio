@@ -13,8 +13,10 @@
 
 .content-modal-image {
   width: 80%;
+  height: 90%;
   display: flex;
   justify-content: center;
+  align-items: end;
 }
 
 .content-modal-image img {
@@ -35,6 +37,10 @@
   font-size: 24px;
   cursor: pointer;
   transition: transform 0.2s ease, color 0.2s ease;
+  border: 1px solid var(--accent-pink);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .content-modal-image-btn-close:hover {
@@ -44,7 +50,18 @@
 
 /* medias */
 @media (max-width: 768px) {
+  .content-modal-image {
+    width: 95%;
+  }
   .content-modal-image-btn-close {
     top: 150px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .content-modal-image {
+    height: 100%;
+
+    align-items: center;
   }
 }
