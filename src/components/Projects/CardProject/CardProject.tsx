@@ -23,6 +23,7 @@ interface CardProjectProps {
     link: string;
     repo: string;
     github: string;
+    slug: string;
     techs: string[];
     deploy: Record<string, string>;
     content: string[];
@@ -63,8 +64,8 @@ export const CardProject = ({ proj, index, lineHeight }: CardProjectProps) => {
   }, [lineHeight]);
 
   //redireciona até page do projeto
-  const onViewProject = (id: string) => {
-    navigate(`/projeto/${id}`);
+  const onViewProject = (slug: string) => {
+    navigate(`/projeto/${slug}`);
   };
 
   return (
@@ -102,7 +103,7 @@ export const CardProject = ({ proj, index, lineHeight }: CardProjectProps) => {
             ))}
         </div>
         <div className="card-body-buttons">
-          <Button px="1rem" py="1rem" onClick={() => onViewProject(proj.id)}>
+          <Button px="1rem" py="1rem" onClick={() => onViewProject(proj.slug)}>
             Ver projeto
           </Button>
         </div>

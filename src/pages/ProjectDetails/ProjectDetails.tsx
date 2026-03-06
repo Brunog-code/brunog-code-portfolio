@@ -11,7 +11,7 @@ import { Footer } from "../../components/Footer/Footer";
 import { ScrollBarAnimation } from "../../components/lib/FramerAnimation/ScrollBarAnimation/ScrollBarAnimation";
 
 export const ProjectDetails = () => {
-  const { id } = useParams();
+  const { slug } = useParams();
   const navigate = useNavigate();
 
   //states
@@ -21,9 +21,9 @@ export const ProjectDetails = () => {
 
   //procurar o projeto no obj
   useEffect(() => {
-    if (!id) return;
+    if (!slug) return;
 
-    const foundProject = projectsData.find((project) => project.id === id);
+    const foundProject = projectsData.find((project) => project.slug === slug);
 
     if (!foundProject) {
       setIsError("Projeto não encontrado");
@@ -31,7 +31,7 @@ export const ProjectDetails = () => {
       setProject(foundProject);
     }
     setIsLoading(false);
-  }, [id]);
+  }, [slug]);
 
   //componente carregando
   if (isLoading) {
@@ -151,7 +151,7 @@ export const ProjectDetails = () => {
                 </p>
               )}
 
-              {project?.deploy.n8n != "" && (
+              {project?.deploy.n8n && project?.deploy.n8n != "" && (
                 <p>
                   n8n:{" "}
                   <span className="details-deploy-name">
@@ -214,10 +214,20 @@ export const ProjectDetails = () => {
               ) : index == 3 ? (
                 <div key={index}>
                   <p>{paragraph}</p>
-                  <div className="container-img-content">
+                  <div
+                    className="container-img-content"
+                    style={{
+                      display: project?.techs.includes("React Native") ? "flex" : "",
+                      justifyContent: project?.techs.includes("React Native") ? "center" : "",
+                    }}
+                  >
                     <img
                       src={project?.images[0].url}
                       alt={project?.images[0].caption}
+                      style={{
+                        width: project?.techs.includes("React Native") ? "300px" : "",
+                        height: project?.techs.includes("React Native") ? "auto" : "",
+                      }}
                     />
                   </div>
                 </div>

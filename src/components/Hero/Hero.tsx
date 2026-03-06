@@ -140,19 +140,6 @@ export const Hero = () => {
         </div>
       </div>
 
-      {/* img circle */}
-      <div className="s-img-circle">
-        <img
-          className="text-circle"
-          src="text-circle.png"
-          alt="texto-curvado"
-        />
-        <img
-          className="icon-circle"
-          src="icon-circle.png"
-          alt="icone-interno-texto-curvado"
-        />
-      </div>
 
       {!isMobile && (
         <div className="container-canvas-hero">

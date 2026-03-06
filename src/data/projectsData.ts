@@ -1,4 +1,4 @@
-type TCategoryProject = "Fullstack" | "Front-end" | "Back-end" | "Mobile";
+type TCategoryProject = "Fullstack" | "Front-end" | "Back-end";
 
 export type TTechs =
   | "HTML"
@@ -13,6 +13,7 @@ export type TTechs =
   | "PostgreSQL"
   | "MongoDB"
   | "Prisma ORM"
+  | "React Native"
   | "Git"
   | "GitHub"
   | "Docker"
@@ -33,6 +34,7 @@ export interface IProjectsData {
   repo: string;
   link: string;
   github: string;
+  slug: string
   techs: TTechs[];
   deploy: {
     frontend?: string;
@@ -65,6 +67,7 @@ export const projectsData: IProjectsData[] = [
     link: "https://mini-ecommerce-frontend-three.vercel.app/",
     repo: "mini-ecommerce-frontend",
     github: "https://github.com/Brunog-code/mini-ecommerce-frontend",
+    slug: "mini-ecommerce",
     techs: ["React", "TypeScript", "Tailwind"],
     deploy: {
       frontend: "Vercel.com",
@@ -137,6 +140,7 @@ export const projectsData: IProjectsData[] = [
     repo: "mia-encanto-da-serra-hotel",
     link: "https://mia-encanto-da-serra-hotel.vercel.app/",
     github: "https://github.com/Brunog-code/mia-encanto-da-serra-hotel",
+    slug: "mia-encanto-da-serra",
     techs: [
       "React",
       "TypeScript",
@@ -222,6 +226,7 @@ export const projectsData: IProjectsData[] = [
     link: "https://agropetdev-ecommerce.vercel.app/",
     repo: "agropetdev-ecommerce",
     github: "https://github.com/Brunog-code/agropetdev-ecommerce",
+    slug: "agropet-dev",
     techs: [
       "Next.js",
       "TypeScript",
@@ -259,4 +264,92 @@ export const projectsData: IProjectsData[] = [
       "🎨 Design moderno com Tailwind CSS e shadcn/ui, focado em componentes reutilizáveis.",
     ],
   },
+  {
+    id: "103",
+    date: "06/03/2026",
+    category: "Fullstack",
+    title: "Stack Chat",
+    subtitle:
+      "Aplicativo de chat em tempo real desenvolvido com React Native e Expo, permitindo comunicação instantânea entre usuários através de WebSockets com Socket.IO.",
+
+    thumbnail:
+      "https://res.cloudinary.com/dcxpgtvqf/image/upload/v1772831630/thumbnail-1_nx5bzx.png",
+
+    images: [
+      {
+        caption: "Login",
+        url: "https://res.cloudinary.com/dcxpgtvqf/image/upload/v1772829784/thumbnail-2_fayuxr.png",
+      },
+      {
+        caption: "Registrar",
+        url: "https://res.cloudinary.com/dcxpgtvqf/image/upload/v1772829783/register_l1q0nl.png",
+      },
+      {
+        caption: "Home",
+        url: "https://res.cloudinary.com/dcxpgtvqf/image/upload/v1772829783/home_aynzw8.png",
+      },
+      {
+        caption: "Sala de chat",
+        url: "https://res.cloudinary.com/dcxpgtvqf/image/upload/v1772829783/chat_flbovh.png",
+      },
+      {
+        caption: "Buscar grupo",
+        url: "https://res.cloudinary.com/dcxpgtvqf/image/upload/v1772829783/search_rvv7ky.png",
+      },
+      {
+        caption: "Perfil",
+        url: "https://res.cloudinary.com/dcxpgtvqf/image/upload/v1772829783/perfil_nvkrtt.png",
+      },
+      {
+        caption: "Alterar nome",
+        url: "https://res.cloudinary.com/dcxpgtvqf/image/upload/v1772830334/change-name_jed1mo.png",
+      },
+      {
+        caption: "Protótipo no Figma",
+        url: "https://res.cloudinary.com/dcxpgtvqf/image/upload/v1772830477/figma_afacje.png",
+      },
+    ],
+
+    video: "",
+    repo: "stack-chat-react-native",
+    link: "https://github.com/Brunog-code/stack-chat-react-native/releases/download/v1.0.0/stack-chat-v1.0.0.zip",
+    github: "https://github.com/Brunog-code/stack-chat-react-native",
+    slug: "stack-chat",
+    techs: [
+      "React Native",
+      "TypeScript",
+      "Node.js",
+      "MongoDB",
+      "Prisma ORM",
+      "Docker",
+    ],
+
+    deploy: {
+      frontend: "Expo",
+      backend: "Oracle VPS",
+    },
+
+    content: [
+      "Stack Chat é um aplicativo mobile de chat em tempo real desenvolvido com React Native e Expo, com foco em explorar comunicação instantânea entre usuários utilizando WebSockets.",
+      "A aplicação permite que usuários conversem em tempo real por meio de uma arquitetura cliente-servidor utilizando Socket.IO, garantindo baixa latência e sincronização imediata das mensagens.",
+      "O frontend mobile foi construído com React Native utilizando TypeScript, priorizando componentização, organização de código e uma interface fluida para navegação entre chats e envio de mensagens.",
+      "A sessão do usuário é persistida no dispositivo utilizando AsyncStorage, permitindo manter o usuário autenticado entre reinicializações do aplicativo e evitando a necessidade de login a cada abertura do app.",
+      "O backend foi desenvolvido com Node.js e Socket.IO, sendo responsável por gerenciar conexões WebSocket, autenticação via JWT e distribuição de mensagens entre usuários conectados.",
+      "A aplicação utiliza dois protocolos de comunicação: requisições HTTP para operações como autenticação, registro e busca de dados, e WebSockets para comunicação em tempo real, responsável pelo envio e recebimento instantâneo das mensagens.",
+      "A persistência de dados é realizada com MongoDB utilizando Prisma ORM, permitindo armazenar usuários, grupos e mensagens de forma escalável para aplicações de chat.",
+      "O projeto também utiliza Docker para padronizar o ambiente do servidor e facilitar o deploy em uma VPS, garantindo consistência entre desenvolvimento e produção.",
+    ],
+
+    highlights: [
+      "💬 Chat em tempo real utilizando WebSockets com Socket.IO.",
+      "📱 Aplicação mobile construída com React Native e Expo.",
+      "⚡ Envio e recebimento instantâneo de mensagens.",
+      "🔐 Autenticação segura utilizando JWT.",
+      "🗄️ Persistência de dados com MongoDB e Prisma ORM.",
+      "🐳 Backend containerizado com Docker.",
+      "🧠 Arquitetura cliente-servidor separando app mobile e backend Node.js.",
+      "🚀 Deploy do servidor em VPS para comunicação em tempo real.",
+    ],
+  }
+
 ];

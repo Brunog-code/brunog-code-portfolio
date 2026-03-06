@@ -89,17 +89,15 @@ export const About = () => {
               </span>
               , e meu objetivo é continuar evoluindo como desenvolvedor
               fullstack, unindo boas práticas, performance e design funcional
-              <span className="about-dot">.</span> Além disso, iniciei meus
-              estudos em{" "}
+              <span className="about-dot">.</span> Também possuo experiência no desenvolvimento mobile com{" "}
               <span className="about-text-Highlight-purple">React Native</span>{" "}
-              para expandir meu conhecimento, focado em entregar soluções
-              multiplataforma que unam o melhor da web e do mobile
+              criando aplicações modernas com comunicação em tempo real, integração com APIs e arquiteturas escaláveis. Meu objetivo é continuar evoluindo como desenvolvedor, construindo soluções completas que integrem o melhor da web e do mobile.
               <span className="about-dot">.</span>
             </p>
 
             <div>
               <a
-                href="/resumo.pdf"
+                href="/Resumo.pdf"
                 download
                 style={{ color: "inherit", textDecoration: "none" }}
               >
