@@ -337,6 +337,7 @@ export const projectsData: IProjectsData[] = [
       "O backend foi desenvolvido com Node.js e Socket.IO, sendo responsável por gerenciar conexões WebSocket, autenticação via JWT e distribuição de mensagens entre usuários conectados.",
       "A aplicação utiliza dois protocolos de comunicação: requisições HTTP para operações como autenticação, registro e busca de dados, e WebSockets para comunicação em tempo real, responsável pelo envio e recebimento instantâneo das mensagens.",
       "A persistência de dados é realizada com MongoDB utilizando Prisma ORM, permitindo armazenar usuários, grupos e mensagens de forma escalável para aplicações de chat.",
+      "Para o armazenamento de imagens do aplicativo, tanto das imagens enviadas no chat, quanto da imagem de perfil do usuário, foi utilizado o Cloudinary, uma plataforma especializada em gerenciamento de mídia na nuvem.",
       "O projeto também utiliza Docker para padronizar o ambiente do servidor e facilitar o deploy em uma VPS, garantindo consistência entre desenvolvimento e produção.",
     ],
 
