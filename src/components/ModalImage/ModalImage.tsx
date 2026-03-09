@@ -3,13 +3,14 @@ import { IoClose } from "react-icons/io5";
 
 interface IModalImageProps {
   image: string;
+  isMobile: boolean | undefined
   setOpenModal: (open: boolean) => void;
 }
 
-export const ModalImage = ({ image, setOpenModal }: IModalImageProps) => {
+export const ModalImage = ({ image, isMobile, setOpenModal }: IModalImageProps) => {
   return (
     <section
-      className="container-modal-image"
+      className={`container-modal-image ${isMobile && 'container-modal-image-mobile'}`}
       onClick={() => setOpenModal(false)} //clique fora fecha
     >
       <div

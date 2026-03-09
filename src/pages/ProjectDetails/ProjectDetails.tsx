@@ -164,7 +164,7 @@ export const ProjectDetails = () => {
 
           {/* imagem  header */}
           <div className="details-img">
-            <SlidesFade images={project!.images} />
+            <SlidesFade images={project!.images} isMobile={project?.techs.includes("React Native")} />
           </div>
         </div>
 

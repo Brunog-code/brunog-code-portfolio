@@ -18,8 +18,9 @@ type ProjectImage = {
 
 interface ISlidesFadeProps {
   images: ProjectImage[];
+  isMobile: boolean | undefined
 }
-export const SlidesFade = ({ images }: ISlidesFadeProps) => {
+export const SlidesFade = ({ images, isMobile }: ISlidesFadeProps) => {
   const [openModal, setOpenModal] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string>("");
   return (
@@ -55,7 +56,7 @@ export const SlidesFade = ({ images }: ISlidesFadeProps) => {
         ))}
       </Swiper>
       {openModal && selectedImage && (
-        <ModalImage image={selectedImage} setOpenModal={setOpenModal} />
+        <ModalImage isMobile={isMobile} image={selectedImage} setOpenModal={setOpenModal} />
       )}
     </>
   );
